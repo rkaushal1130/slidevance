@@ -1,0 +1,475 @@
+.mockupContainer {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: var(--radius-md);
+  background: #FFFFFF;
+  border: 1px solid rgba(9, 43, 99, 0.1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 8px 24px rgba(9, 43, 99, 0.04);
+  transition: transform var(--transition-normal);
+}
+
+.chromeBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0.85rem;
+  background: rgba(9, 43, 99, 0.04);
+  border-bottom: 1px solid rgba(9, 43, 99, 0.06);
+  font-size: 0.625rem;
+  font-weight: 700;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+}
+
+.dots {
+  display: flex;
+  gap: 4px;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(9, 43, 99, 0.18);
+}
+
+.slideHeaderTitle {
+  font-size: 0.58rem;
+  color: var(--navy);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  opacity: 0.85;
+}
+
+.slidePageTag {
+  font-size: 0.55rem;
+  background: rgba(9, 43, 99, 0.06);
+  padding: 0.1rem 0.4rem;
+  border-radius: var(--radius-pill);
+}
+
+.slideBody {
+  flex: 1;
+  padding: 1.15rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  justify-content: space-between;
+}
+
+.slideHeroTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--blue);
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+
+.mockupHeading {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+}
+
+/* Investor Theme Styles */
+.investorTheme {
+  background: linear-gradient(135deg, #FFFFFF 0%, #F5F9FF 100%);
+}
+
+.chartMultiGrid {
+  display: flex;
+  align-items: flex-end;
+  gap: 1.5rem;
+  height: 55px;
+  margin-bottom: 0.6rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid rgba(7, 95, 232, 0.15);
+}
+
+.chartCol {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  height: 100%;
+}
+
+.barStack {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 2px;
+}
+
+.barSegment {
+  border-radius: 2px;
+  width: 100%;
+}
+
+.barLabel {
+  font-size: 0.55rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.kpiPillsRow {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.kpiPill {
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  padding: 0.25rem 0.5rem;
+  background: rgba(7, 95, 232, 0.08);
+  border-radius: var(--radius-sm);
+}
+
+.kpiPillVal {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--blue);
+}
+
+.kpiPillLbl {
+  font-size: 0.55rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+/* Strategy Theme Styles */
+.strategyTheme {
+  background: linear-gradient(135deg, #FFFFFF 0%, #FAF6FE 100%);
+}
+
+.matrixGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.45rem;
+  margin-bottom: 0.6rem;
+}
+
+.matrixBox {
+  background: rgba(229, 43, 184, 0.06);
+  border: 1px solid rgba(229, 43, 184, 0.15);
+  border-radius: var(--radius-sm);
+  padding: 0.45rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.matrixBoxNum {
+  font-size: 0.55rem;
+  font-weight: 800;
+  color: var(--magenta);
+}
+
+.matrixBoxTitle {
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.2;
+}
+
+.miniProgress {
+  height: 3px;
+  background: var(--magenta);
+  border-radius: var(--radius-pill);
+  margin-top: 0.2rem;
+}
+
+.matrixFooter {
+  font-size: 0.55rem;
+  font-weight: 700;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+}
+
+/* RFP Theme Styles */
+.rfpTheme {
+  background: linear-gradient(135deg, #FFFFFF 0%, #F3FBFC 100%);
+}
+
+.rfpChecklist {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 0.6rem;
+}
+
+.rfpRow {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.checkIcon {
+  color: #0E9BB3;
+  flex-shrink: 0;
+}
+
+.rfpRowText {
+  font-size: 0.58rem;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.rfpScoreBadge {
+  font-size: 0.55rem;
+  font-weight: 800;
+  color: #088096;
+  background: rgba(18, 201, 232, 0.14);
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-sm);
+  text-align: center;
+}
+
+/* Research Theme Styles */
+.researchTheme {
+  background: linear-gradient(135deg, #FFFFFF 0%, #F5F9FF 100%);
+}
+
+.quadrantVisual {
+  position: relative;
+  height: 65px;
+  background: rgba(9, 43, 99, 0.03);
+  border-radius: var(--radius-sm);
+  margin-bottom: 0.5rem;
+}
+
+.quadrantAxisH {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(9, 43, 99, 0.1);
+}
+
+.quadrantAxisV {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: rgba(9, 43, 99, 0.1);
+}
+
+.quadrantDot {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.dotLeader {
+  top: 15%;
+  right: 18%;
+  background: var(--blue);
+  padding: 0.15rem 0.4rem;
+  border-radius: var(--radius-pill);
+  color: #fff;
+  font-size: 0.5rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  box-shadow: 0 0 10px rgba(7, 95, 232, 0.4);
+}
+
+.dotPeer1 {
+  width: 8px;
+  height: 8px;
+  bottom: 25%;
+  left: 30%;
+  background: #A0AEC0;
+}
+
+.dotPeer2 {
+  width: 8px;
+  height: 8px;
+  bottom: 35%;
+  right: 35%;
+  background: #CBD5E0;
+}
+
+.dotPeer3 {
+  width: 8px;
+  height: 8px;
+  top: 30%;
+  left: 20%;
+  background: #CBD5E0;
+}
+
+.researchLegend {
+  font-size: 0.55rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+/* Sales Theme Styles */
+.salesTheme {
+  background: linear-gradient(135deg, #FFFFFF 0%, #FFF9F2 100%);
+}
+
+.funnelSteps {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.funnelBar {
+  padding: 0.25rem 0.5rem;
+  border-radius: 3px;
+  font-size: 0.55rem;
+  font-weight: 700;
+  color: #924B00;
+}
+
+/* Data Theme Styles */
+.dataTheme {
+  background: linear-gradient(135deg, #FFFFFF 0%, #F2FCFE 100%);
+}
+
+.dataGraph {
+  width: 100%;
+  height: 60px;
+  margin-bottom: 0.4rem;
+}
+
+.dataSvg {
+  width: 100%;
+  height: 100%;
+}
+
+.dataStatsRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.55rem;
+  font-weight: 700;
+  color: #0E9BB3;
+}
+
+/* Featured Mockup Styles */
+.featuredTheme {
+  background: linear-gradient(135deg, #FFFFFF 0%, #F5F9FF 100%);
+  border: 1.5px solid rgba(7, 95, 232, 0.2);
+  height: 100%;
+  aspect-ratio: auto;
+  min-height: 380px;
+}
+
+.featuredSlideTitle {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--navy);
+  line-height: 1.3;
+  margin-bottom: 1.5rem;
+}
+
+.featuredVisualGrid {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: rgba(7, 95, 232, 0.04);
+  border: 1px solid rgba(7, 95, 232, 0.12);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.featuredCol {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.colLabel {
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+}
+
+.wireframeStack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.wireLine {
+  height: 4px;
+  background: rgba(9, 43, 99, 0.15);
+  border-radius: var(--radius-pill);
+}
+
+.featuredArrowCol {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--blue);
+}
+
+.advanceArrow {
+  color: var(--blue);
+}
+
+.featuredColRight {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.colLabelHighlight {
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--blue);
+}
+
+.consensusBox {
+  background: #FFFFFF;
+  border: 1.5px solid var(--blue);
+  border-radius: var(--radius-sm);
+  padding: 0.6rem 0.8rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 14px rgba(7, 95, 232, 0.15);
+}
+
+.consensusVal {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--blue);
+}
+
+.consensusSub {
+  font-size: 0.58rem;
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: 0.06em;
+}
+
+.featuredMetaRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--muted);
+  border-top: 1px solid rgba(9, 43, 99, 0.08);
+  padding-top: 0.75rem;
+}

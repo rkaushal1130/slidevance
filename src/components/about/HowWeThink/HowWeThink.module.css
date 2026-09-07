@@ -1,0 +1,256 @@
+.section {
+  background-color: #FFFFFF;
+  position: relative;
+  overflow: hidden;
+}
+
+.stagesWrapper {
+  position: relative;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+/* Horizontal line for desktop */
+.desktopLine {
+  position: absolute;
+  top: 28px;
+  left: 10%;
+  right: 10%;
+  height: 3px;
+  z-index: 1;
+}
+
+.gradientTrack {
+  width: 100%;
+  height: 100%;
+  background: var(--signature-gradient);
+  border-radius: var(--radius-pill);
+}
+
+.stagesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.stageItem {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Node marker */
+.nodeWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.nodeRing {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  border: 2px solid rgba(7, 95, 232, 0.2);
+  box-shadow: 0 4px 16px rgba(7, 95, 232, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-normal);
+  z-index: 3;
+}
+
+.nodeCore {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--signature-gradient);
+  transition: transform var(--transition-fast);
+}
+
+.stageItem:hover .nodeRing {
+  border-color: var(--blue);
+  transform: scale(1.12);
+  box-shadow: 0 8px 24px rgba(7, 95, 232, 0.25);
+}
+
+.stageItem:hover .nodeCore {
+  transform: scale(1.2);
+}
+
+.stageNumber {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--blue);
+  background: var(--blue-soft);
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-pill);
+}
+
+.mobileLine {
+  display: none;
+}
+
+/* Stage Card */
+.stageCard {
+  background: var(--background);
+  border: 1px solid rgba(9, 43, 99, 0.08);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem 2rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.stageCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--signature-gradient);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.stageItem:hover .stageCard {
+  background: #FFFFFF;
+  border-color: rgba(7, 95, 232, 0.28);
+  box-shadow: 0 16px 36px rgba(9, 43, 99, 0.08);
+  transform: translateY(-4px);
+}
+
+.stageItem:hover .stageCard::before {
+  opacity: 1;
+}
+
+.cardHeader {
+  margin-bottom: 0.75rem;
+}
+
+.tag {
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+}
+
+.stageTitle {
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: var(--navy);
+  margin-bottom: 1rem;
+}
+
+.stageDesc {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.65;
+  margin-bottom: 1.5rem;
+  flex: 1;
+}
+
+.stageFooter {
+  padding-top: 1rem;
+  border-top: 1px dashed rgba(9, 43, 99, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.footerLabel {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+
+.footerValue {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--blue);
+  margin-top: 2px;
+}
+
+/* Tablet & Mobile Layouts */
+@media (max-width: 991px) {
+  .desktopLine {
+    display: none;
+  }
+
+  .stagesGrid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .stageItem {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+
+  .nodeWrapper {
+    margin-bottom: 0;
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .mobileLine {
+    display: block;
+    position: absolute;
+    top: 58px;
+    left: 29px;
+    bottom: -1.75rem;
+    width: 3px;
+    background: var(--signature-gradient-vertical);
+    z-index: 1;
+  }
+
+  .stageCard {
+    flex: 1;
+  }
+}
+
+@media (max-width: 600px) {
+  .stageItem {
+    gap: 1rem;
+  }
+
+  .nodeRing {
+    width: 46px;
+    height: 46px;
+  }
+
+  .nodeCore {
+    width: 16px;
+    height: 16px;
+  }
+
+  .mobileLine {
+    top: 46px;
+    left: 23px;
+  }
+
+  .stageCard {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .stageTitle {
+    font-size: 1.15rem;
+  }
+
+  .stageDesc {
+    font-size: 0.9375rem;
+  }
+}

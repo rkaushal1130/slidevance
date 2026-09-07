@@ -1,0 +1,167 @@
+.darkSection {
+  background-color: #092B63;
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+  padding-top: clamp(5rem, 8vw, 7rem);
+  padding-bottom: clamp(5rem, 8vw, 7rem);
+}
+
+.ambientGlow {
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 400px;
+  background: radial-gradient(
+    circle,
+    rgba(7, 95, 232, 0.25) 0%,
+    rgba(18, 201, 232, 0.1) 40%,
+    transparent 70%
+  );
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: clamp(2.5rem, 5vw, 4.5rem);
+  position: relative;
+  z-index: 2;
+}
+
+.contentCol {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.eyebrowWrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.85rem;
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-pill);
+  margin-bottom: 1.5rem;
+}
+
+.eyebrowDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--signature-gradient);
+}
+
+.eyebrowText {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cyan);
+}
+
+.heading {
+  font-size: clamp(2.4rem, 4.5vw, 3.85rem);
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+  margin-bottom: 1.5rem;
+}
+
+.paragraph {
+  font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+  max-width: 600px;
+  font-style: italic;
+}
+
+.tenetsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.tenetItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  padding: 0.9rem 1.25rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all var(--transition-normal);
+}
+
+.tenetItem:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(18, 201, 232, 0.35);
+  transform: translateX(4px);
+}
+
+.checkIcon {
+  color: var(--cyan);
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.tenetText {
+  font-size: 0.9375rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.5;
+}
+
+.tenetTitle {
+  color: var(--white);
+  font-weight: 700;
+}
+
+.tenetOutcome {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.visualCol {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* Responsive */
+@media (max-width: 1080px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .visualCol {
+    width: 100%;
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .heading {
+    font-size: 2.15rem;
+  }
+
+  .paragraph {
+    font-size: 1rem;
+  }
+
+  .tenetItem {
+    padding: 0.75rem 1rem;
+  }
+}

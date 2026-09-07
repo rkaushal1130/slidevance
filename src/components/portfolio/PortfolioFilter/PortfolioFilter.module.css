@@ -1,0 +1,82 @@
+.filterWrapper {
+  width: 100%;
+  margin-bottom: 3.5rem;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.scrollTrack {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.5rem;
+  background: #FFFFFF;
+  border: 1px solid rgba(9, 43, 99, 0.1);
+  border-radius: var(--radius-pill);
+  box-shadow: 0 4px 16px rgba(9, 43, 99, 0.04);
+  max-width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+  -webkit-overflow-scrolling: touch;
+}
+
+.scrollTrack::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+.filterBtn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem 1.35rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--muted);
+  background: transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+  border: 1px solid transparent;
+}
+
+.filterBtn:hover {
+  color: var(--navy);
+  background-color: rgba(7, 95, 232, 0.04);
+}
+
+.activeBtn {
+  color: #FFFFFF;
+  background-color: var(--navy);
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(9, 43, 99, 0.2);
+}
+
+.activeBtn:hover {
+  color: #FFFFFF;
+  background-color: var(--navy);
+}
+
+@media (max-width: 768px) {
+  .filterWrapper {
+    justify-content: flex-start;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .scrollTrack {
+    width: 100%;
+    justify-content: flex-start;
+    border-radius: var(--radius-md);
+    padding: 0.4rem;
+  }
+
+  .filterBtn {
+    padding: 0.55rem 1.1rem;
+    font-size: 0.8125rem;
+  }
+}

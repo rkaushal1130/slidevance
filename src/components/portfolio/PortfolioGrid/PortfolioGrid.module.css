@@ -1,0 +1,230 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+/* Card Styling */
+.card {
+  background: linear-gradient(180deg, #FFFFFF 0%, #F6FAFF 100%);
+  border: 1px solid rgba(9, 43, 99, 0.08);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(9, 43, 99, 0.04);
+  position: relative;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* Gradient Border Reveal on Hover */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: var(--radius-lg);
+  padding: 1.5px;
+  background: var(--signature-gradient);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 44px rgba(9, 43, 99, 0.09), 0 4px 12px rgba(7, 95, 232, 0.05);
+  border-color: transparent;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+/* Large Image / Mockup Area */
+.imageArea {
+  position: relative;
+  background: #F0F6FF;
+  padding: 1.25rem 1.25rem 0;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.mockupWrapper {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: center bottom;
+}
+
+.card:hover .mockupWrapper {
+  transform: scale(1.03);
+}
+
+.visualOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(9, 43, 99, 0.2);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+  z-index: 4;
+}
+
+.overlayPill {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  background: var(--navy);
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  transform: translateY(6px);
+  transition: transform var(--transition-fast);
+}
+
+.imageArea:hover .visualOverlay {
+  opacity: 1;
+}
+
+.imageArea:hover .overlayPill {
+  transform: translateY(0);
+}
+
+/* Card Content Area */
+.cardContent {
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.metaRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.85rem;
+}
+
+.categoryBadge {
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--blue);
+  background: var(--blue-soft);
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-pill);
+}
+
+.projectNumber {
+  font-size: 0.8125rem;
+  font-weight: 800;
+  color: var(--muted-light);
+  letter-spacing: 0.05em;
+}
+
+.projectTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.35;
+  margin-bottom: 0.85rem;
+}
+
+.titleButton {
+  background: none;
+  border: none;
+  padding: 0;
+  text-align: left;
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+  cursor: pointer;
+  transition: color var(--transition-fast);
+}
+
+.titleButton:hover {
+  color: var(--blue);
+}
+
+.projectDesc {
+  font-size: 0.9375rem;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex: 1;
+}
+
+.cardAction {
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(9, 43, 99, 0.06);
+  margin-top: auto;
+}
+
+.caseStudyLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--navy);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all var(--transition-fast);
+}
+
+.arrowIcon {
+  color: var(--blue);
+  transition: transform var(--transition-fast);
+}
+
+.card:hover .arrowIcon {
+  transform: translateX(4px);
+}
+
+.card:hover .caseStudyLink {
+  color: var(--blue);
+}
+
+.emptyState {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 4rem 2rem;
+  background: #FFFFFF;
+  border: 1px dashed rgba(9, 43, 99, 0.15);
+  border-radius: var(--radius-lg);
+  color: var(--muted);
+}
+
+/* Responsive Grid */
+@media (max-width: 1100px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 680px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .cardContent {
+    padding: 1.5rem;
+  }
+}

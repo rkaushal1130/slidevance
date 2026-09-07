@@ -1,0 +1,198 @@
+.promiseSection {
+  background-color: var(--background);
+  position: relative;
+}
+
+.promiseCard {
+  position: relative;
+  background: linear-gradient(145deg, #F0F6FF 0%, #E8F2FF 100%);
+  border: 1.5px solid rgba(7, 95, 232, 0.16);
+  border-radius: var(--radius-xl);
+  padding: clamp(3.5rem, 6vw, 5.5rem) clamp(2rem, 5vw, 4.5rem);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 16px 48px rgba(9, 43, 99, 0.06);
+  overflow: hidden;
+}
+
+/* Subtle Geometric Corner Decorations */
+.cornerDecoration {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  pointer-events: none;
+}
+
+.cornerTopLeft {
+  top: 18px;
+  left: 18px;
+  border-top: 2px solid rgba(18, 201, 232, 0.5);
+  border-left: 2px solid rgba(18, 201, 232, 0.5);
+}
+
+.cornerTopRight {
+  top: 18px;
+  right: 18px;
+  border-top: 2px solid rgba(7, 95, 232, 0.5);
+  border-right: 2px solid rgba(7, 95, 232, 0.5);
+}
+
+.cornerBottomLeft {
+  bottom: 18px;
+  left: 18px;
+  border-bottom: 2px solid rgba(229, 43, 184, 0.5);
+  border-left: 2px solid rgba(229, 43, 184, 0.5);
+}
+
+.cornerBottomRight {
+  bottom: 18px;
+  right: 18px;
+  border-bottom: 2px solid rgba(255, 157, 37, 0.5);
+  border-right: 2px solid rgba(255, 157, 37, 0.5);
+}
+
+.cornerDotCyan,
+.cornerDotBlue,
+.cornerDotMagenta,
+.cornerDotOrange {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.cornerDotCyan {
+  top: 6px;
+  left: 6px;
+  background-color: var(--cyan);
+}
+
+.cornerDotBlue {
+  top: 6px;
+  right: 6px;
+  background-color: var(--blue);
+}
+
+.cornerDotMagenta {
+  bottom: 6px;
+  left: 6px;
+  background-color: var(--magenta);
+}
+
+.cornerDotOrange {
+  bottom: 6px;
+  right: 6px;
+  background-color: var(--orange);
+}
+
+/* Content */
+.eyebrowWrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.85rem;
+  background-color: #FFFFFF;
+  border: 1px solid rgba(7, 95, 232, 0.18);
+  border-radius: var(--radius-pill);
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 8px rgba(7, 95, 232, 0.05);
+}
+
+.eyebrowDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--signature-gradient);
+}
+
+.eyebrowText {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+
+.heading {
+  font-size: clamp(2.35rem, 4.2vw, 3.75rem);
+  font-weight: 800;
+  color: var(--navy);
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+  margin-bottom: 1.5rem;
+  max-width: 800px;
+}
+
+.gradientLineWrapper {
+  margin-bottom: 2rem;
+}
+
+.paragraph {
+  font-size: clamp(1.1rem, 1.6vw, 1.35rem);
+  color: var(--text);
+  line-height: 1.75;
+  max-width: 760px;
+  margin-bottom: 3rem;
+  font-weight: 500;
+}
+
+/* Pillars Strip */
+.pillarsStrip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.75rem, 2vw, 2rem);
+  flex-wrap: wrap;
+  padding: 1rem 1.75rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(7, 95, 232, 0.12);
+  border-radius: var(--radius-pill);
+  box-shadow: 0 4px 16px rgba(9, 43, 99, 0.04);
+}
+
+.pillar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pillarNumber {
+  font-size: 0.6875rem;
+  font-weight: 800;
+  color: var(--blue);
+  background-color: var(--blue-soft);
+  padding: 0.15rem 0.45rem;
+  border-radius: var(--radius-pill);
+}
+
+.pillarName {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.pillarDivider {
+  color: rgba(9, 43, 99, 0.2);
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .cornerDecoration {
+    display: none;
+  }
+
+  .pillarsStrip {
+    border-radius: var(--radius-md);
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: flex-start;
+    padding: 1.25rem 1.5rem;
+  }
+
+  .pillarDivider {
+    display: none;
+  }
+}

@@ -1,0 +1,88 @@
+:root {
+  /* Brand Core Palette */
+  --navy: #092B63;
+  --navy-deep: #05193B;
+  --navy-surface: #0E3575;
+  --navy-card: rgba(9, 43, 99, 0.95);
+  
+  --blue: #075FE8;
+  --blue-hover: #064ec0;
+  --blue-soft: rgba(7, 95, 232, 0.08);
+  --blue-tint: rgba(7, 95, 232, 0.15);
+  --blue-glow: rgba(7, 95, 232, 0.25);
+  
+  --cyan: #12C9E8;
+  --cyan-soft: rgba(18, 201, 232, 0.08);
+  --cyan-tint: rgba(18, 201, 232, 0.18);
+  --cyan-glow: rgba(18, 201, 232, 0.25);
+  
+  --magenta: #E52BB8;
+  --magenta-soft: rgba(229, 43, 184, 0.08);
+  --magenta-tint: rgba(229, 43, 184, 0.16);
+  --magenta-glow: rgba(229, 43, 184, 0.25);
+  
+  --orange: #FF9D25;
+  --orange-soft: rgba(255, 157, 37, 0.08);
+  --orange-tint: rgba(255, 157, 37, 0.16);
+  --orange-glow: rgba(255, 157, 37, 0.25);
+  
+  --background: #F7FAFF;
+  --white: #FFFFFF;
+  --text: #102B52;
+  --text-heading: #092B63;
+  --muted: #60708A;
+  --muted-light: #8E9DB5;
+  
+  /* Borders & Shadows */
+  --border-subtle: rgba(9, 43, 99, 0.08);
+  --border-card: rgba(7, 95, 232, 0.12);
+  --border-focus: rgba(7, 95, 232, 0.4);
+  
+  --shadow-sm: 0 2px 8px rgba(9, 43, 99, 0.04);
+  --shadow-md: 0 8px 24px rgba(9, 43, 99, 0.06), 0 2px 6px rgba(9, 43, 99, 0.03);
+  --shadow-lg: 0 16px 40px rgba(9, 43, 99, 0.08), 0 4px 12px rgba(9, 43, 99, 0.04);
+  --shadow-hover: 0 20px 48px rgba(7, 95, 232, 0.12), 0 6px 16px rgba(9, 43, 99, 0.06);
+  
+  /* Signature Brand Gradient */
+  --signature-gradient: linear-gradient(
+    90deg,
+    #075FE8 0%,
+    #12C9E8 30%,
+    #E52BB8 65%,
+    #FF9D25 100%
+  );
+  
+  --signature-gradient-vertical: linear-gradient(
+    180deg,
+    #075FE8 0%,
+    #12C9E8 30%,
+    #E52BB8 65%,
+    #FF9D25 100%
+  );
+
+  --signature-gradient-subtle: linear-gradient(
+    90deg,
+    rgba(7, 95, 232, 0.1) 0%,
+    rgba(18, 201, 232, 0.1) 30%,
+    rgba(229, 43, 184, 0.1) 65%,
+    rgba(255, 157, 37, 0.1) 100%
+  );
+
+  /* Typography */
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  
+  /* Layout Constants */
+  --container-max-width: 1280px;
+  --container-padding: 2rem;
+  --header-height: 76px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-pill: 9999px;
+
+  /* Transitions */
+  --transition-fast: 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}

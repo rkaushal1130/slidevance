@@ -1,0 +1,231 @@
+.section {
+  background-color: #FFFFFF;
+  position: relative;
+  overflow: hidden;
+}
+
+.timelineWrapper {
+  position: relative;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+/* Horizontal line for desktop */
+.horizontalLine {
+  position: absolute;
+  top: 28px;
+  left: 5%;
+  right: 5%;
+  height: 3px;
+  z-index: 1;
+}
+
+.gradientLineTrack {
+  width: 100%;
+  height: 100%;
+  background: var(--signature-gradient);
+  border-radius: var(--radius-pill);
+  opacity: 0.85;
+}
+
+/* Steps grid container */
+.stepsContainer {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.stepItem {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Node marker */
+.nodeWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.nodeRing {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  border: 2px solid rgba(7, 95, 232, 0.2);
+  box-shadow: 0 4px 16px rgba(7, 95, 232, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-normal);
+  z-index: 3;
+}
+
+.nodeCore {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--signature-gradient);
+  transition: transform var(--transition-fast);
+}
+
+.stepItem:hover .nodeRing {
+  border-color: var(--blue);
+  transform: scale(1.12);
+  box-shadow: 0 8px 24px rgba(7, 95, 232, 0.25);
+}
+
+.stepItem:hover .nodeCore {
+  transform: scale(1.2);
+}
+
+.stepBadge {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--blue);
+  background: var(--blue-soft);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-pill);
+}
+
+/* Vertical line for mobile (hidden on desktop) */
+.verticalConnectingLine {
+  display: none;
+}
+
+/* Step Content Card */
+.stepContent {
+  background: var(--background);
+  border: 1px solid rgba(9, 43, 99, 0.08);
+  border-radius: var(--radius-md);
+  padding: 1.65rem 1.35rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: all var(--transition-normal);
+}
+
+.stepItem:hover .stepContent {
+  background: #FFFFFF;
+  border-color: rgba(7, 95, 232, 0.25);
+  box-shadow: 0 12px 30px rgba(9, 43, 99, 0.06);
+  transform: translateY(-4px);
+}
+
+.stepTitle {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.3;
+  margin-bottom: 0.75rem;
+}
+
+.stepDescription {
+  font-size: 0.875rem;
+  color: var(--muted);
+  line-height: 1.55;
+  margin-bottom: 1.25rem;
+  flex: 1;
+}
+
+.stepFocus {
+  display: flex;
+  flex-direction: column;
+  padding-top: 0.75rem;
+  border-top: 1px dashed rgba(9, 43, 99, 0.1);
+}
+
+.focusLabel {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--navy);
+  opacity: 0.6;
+}
+
+.focusValue {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--blue);
+  margin-top: 2px;
+}
+
+/* Tablet Layout (between 1100px and 768px) */
+@media (max-width: 1024px) {
+  .horizontalLine {
+    display: none;
+  }
+
+  .stepsContainer {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .stepItem {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+
+  .nodeWrapper {
+    margin-bottom: 0;
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .verticalConnectingLine {
+    display: block;
+    position: absolute;
+    top: 56px;
+    left: 28px;
+    bottom: -1.75rem;
+    width: 3px;
+    background: var(--signature-gradient-vertical);
+    z-index: 1;
+  }
+
+  .stepContent {
+    flex: 1;
+  }
+}
+
+/* Mobile Layout */
+@media (max-width: 600px) {
+  .stepItem {
+    gap: 1rem;
+  }
+
+  .nodeRing {
+    width: 44px;
+    height: 44px;
+  }
+
+  .nodeCore {
+    width: 14px;
+    height: 14px;
+  }
+
+  .verticalConnectingLine {
+    top: 44px;
+    left: 22px;
+  }
+
+  .stepContent {
+    padding: 1.25rem 1rem;
+  }
+
+  .stepTitle {
+    font-size: 1rem;
+  }
+
+  .stepDescription {
+    font-size: 0.8125rem;
+  }
+}

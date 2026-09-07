@@ -1,0 +1,138 @@
+.section {
+  background-color: #FFFFFF;
+  position: relative;
+  border-top: 1px solid rgba(9, 43, 99, 0.06);
+}
+
+.blocksGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+}
+
+/* Base block */
+.advantageBlock {
+  background: var(--background);
+  border: 1px solid rgba(9, 43, 99, 0.08);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem 2rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-normal);
+}
+
+.advantageBlock::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--signature-gradient);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.advantageBlock:hover {
+  background: #FFFFFF;
+  border-color: rgba(7, 95, 232, 0.28);
+  box-shadow: 0 16px 40px rgba(9, 43, 99, 0.08);
+  transform: translateY(-5px);
+}
+
+.advantageBlock:hover::before {
+  opacity: 1;
+}
+
+.blockTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.75rem;
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background-color: var(--blue-soft);
+  color: var(--blue);
+  border: 1px solid rgba(7, 95, 232, 0.16);
+  transition: all var(--transition-fast);
+}
+
+.advantageBlock:hover .iconWrapper {
+  background: var(--signature-gradient);
+  color: #FFFFFF;
+  transform: scale(1.06);
+}
+
+.blockTag {
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+}
+
+.blockBody {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.blockTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.35;
+  margin-bottom: 0.85rem;
+}
+
+.blockDesc {
+  font-size: 0.9375rem;
+  color: var(--muted);
+  line-height: 1.65;
+  margin-bottom: 1.5rem;
+}
+
+.blockNumber {
+  align-self: flex-end;
+  font-size: 0.875rem;
+  font-weight: 800;
+  color: var(--muted-light);
+  opacity: 0.5;
+  letter-spacing: 0.05em;
+}
+
+/* For the 4th and 5th items on 3-col grid, make them span nicely or center */
+@media (min-width: 992px) {
+  .advantageBlock:nth-child(4) {
+    grid-column: 1 / 2;
+  }
+  .advantageBlock:nth-child(5) {
+    grid-column: 2 / 4;
+  }
+}
+
+@media (max-width: 991px) {
+  .blocksGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .blocksGrid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .advantageBlock {
+    padding: 1.75rem 1.5rem;
+  }
+}

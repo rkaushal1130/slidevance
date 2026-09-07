@@ -1,0 +1,85 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: var(--max-w, 720px);
+  margin-bottom: 3.5rem;
+}
+
+.center {
+  align-items: center;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.left {
+  align-items: flex-start;
+  text-align: left;
+  margin-right: auto;
+}
+
+.eyebrowWrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.85rem;
+  background-color: var(--blue-soft);
+  border: 1px solid rgba(7, 95, 232, 0.15);
+  border-radius: var(--radius-pill);
+  margin-bottom: 1.25rem;
+}
+
+.eyebrowDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--signature-gradient);
+}
+
+.eyebrowText {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+
+.title {
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-weight: 800;
+  color: var(--navy);
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: clamp(1rem, 1.35vw, 1.125rem);
+  line-height: 1.65;
+  color: var(--muted);
+  max-width: 640px;
+}
+
+/* Dark variant */
+.dark .eyebrowWrapper {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.dark .eyebrowText {
+  color: var(--cyan);
+}
+
+.dark .title {
+  color: var(--white);
+}
+
+.dark .subtitle {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+@media (max-width: 768px) {
+  .container {
+    margin-bottom: 2.5rem;
+  }
+}

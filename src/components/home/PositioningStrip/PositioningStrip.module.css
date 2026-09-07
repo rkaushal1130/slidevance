@@ -1,0 +1,60 @@
+.stripSection {
+  background-color: #FFFFFF;
+  position: relative;
+  z-index: 5;
+}
+
+.stripContainer {
+  padding-top: 1.75rem;
+  padding-bottom: 1.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.stripContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1rem, 3vw, 2.5rem);
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.pillarText {
+  font-size: clamp(0.8125rem, 1.3vw, 1rem);
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  color: var(--navy);
+  text-transform: uppercase;
+  transition: color var(--transition-fast);
+}
+
+.pillarText:hover {
+  color: var(--blue);
+}
+
+.bullet {
+  font-size: 1.25rem;
+  color: var(--blue);
+  opacity: 0.8;
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+}
+
+@media (max-width: 600px) {
+  .stripContainer {
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+  }
+
+  .stripContent {
+    gap: 0.75rem;
+  }
+
+  .pillarText {
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+  }
+}
