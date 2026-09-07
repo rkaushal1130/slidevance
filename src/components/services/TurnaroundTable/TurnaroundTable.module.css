@@ -1,0 +1,232 @@
+.section {
+  background-color: #FFFFFF;
+  position: relative;
+  border-top: 1px solid rgba(9, 43, 99, 0.06);
+}
+
+.tableContainer {
+  width: 100%;
+  background: #FFFFFF;
+  border: 1px solid rgba(7, 95, 232, 0.16);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 16px 48px rgba(9, 43, 99, 0.05);
+  overflow: hidden;
+  margin-bottom: 2.5rem;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+thead {
+  background: linear-gradient(180deg, #F8FBFF 0%, #EFF6FF 100%);
+  border-bottom: 1px solid rgba(7, 95, 232, 0.15);
+}
+
+th {
+  padding: 1.25rem 1.5rem;
+  font-size: 0.8125rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--navy);
+}
+
+.thHeaderInner {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.zapIcon {
+  color: #D97300;
+}
+
+.expressBadge {
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #D97300;
+  background: rgba(255, 157, 37, 0.15);
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-pill);
+}
+
+.tableRow {
+  border-bottom: 1px solid rgba(9, 43, 99, 0.06);
+  transition: background-color var(--transition-fast);
+}
+
+.tableRow:last-child {
+  border-bottom: none;
+}
+
+.tableRow:hover {
+  background-color: rgba(7, 95, 232, 0.025);
+}
+
+td {
+  padding: 1.35rem 1.5rem;
+  font-size: 0.9375rem;
+}
+
+.deliverableName {
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.tdScope {
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.timeTagStandard {
+  display: inline-flex;
+  font-weight: 600;
+  color: var(--navy);
+  background: rgba(9, 43, 99, 0.05);
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-pill);
+}
+
+.expressCell {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.timeTagExpress {
+  display: inline-flex;
+  font-weight: 700;
+  color: #0E9BB3;
+  background: rgba(18, 201, 232, 0.12);
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-pill);
+}
+
+.weekendTag {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: #D97300;
+  background: rgba(255, 157, 37, 0.1);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-pill);
+}
+
+/* Mobile View (hidden on desktop) */
+.mobileCardsList {
+  display: none;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.mobileCard {
+  background: #FFFFFF;
+  border: 1px solid rgba(9, 43, 99, 0.08);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: 0 4px 16px rgba(9, 43, 99, 0.03);
+}
+
+.mobileCardHeader {
+  margin-bottom: 1.25rem;
+}
+
+.mobileDeliverableTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 0.35rem;
+}
+
+.mobileScopeTag {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.mobileTimelinesGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.mobileTimeCol {
+  background: var(--background);
+  border-radius: var(--radius-sm);
+  padding: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.mobileExpressCol {
+  background: rgba(18, 201, 232, 0.06);
+  border: 1px solid rgba(18, 201, 232, 0.2);
+}
+
+.mobileColLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.mobileTimeVal {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.mobileTimeValExpress {
+  font-size: 0.875rem;
+  font-weight: 800;
+  color: #0E9BB3;
+}
+
+.mobileWeekendPill {
+  font-size: 0.625rem;
+  font-weight: 700;
+  color: #D97300;
+}
+
+/* Urgency Strip */
+.urgencyStrip {
+  background: linear-gradient(135deg, #F8FBFF 0%, #EDF5FE 100%);
+  border: 1px solid rgba(7, 95, 232, 0.16);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.urgencyText {
+  font-size: 0.9375rem;
+  color: var(--navy);
+  line-height: 1.55;
+  flex: 1;
+}
+
+/* Responsive Table Breakpoint */
+@media (max-width: 860px) {
+  .tableContainer {
+    display: none;
+  }
+
+  .mobileCardsList {
+    display: flex;
+  }
+
+  .urgencyStrip {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.5rem;
+  }
+}

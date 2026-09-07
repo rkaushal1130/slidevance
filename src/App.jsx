@@ -7,7 +7,8 @@ import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import PortfolioPage from './pages/PortfolioPage';
 import IndustriesPage from './pages/IndustriesPage';
-import PlaceholderPage from './pages/PlaceholderPage';
+import ServicesPage from './pages/ServicesPage';
+import ContactPage from './pages/ContactPage';
 
 export default function App() {
   return (
@@ -19,24 +20,8 @@ export default function App() {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/portfolio" element={<PortfolioPage />} />
         <Route path="/industries" element={<IndustriesPage />} />
-        <Route
-          path="/services"
-          element={
-            <PlaceholderPage
-              title="Studio Services"
-              subtitle="End-to-end visual communication, narrative strategy, and intelligent design."
-            />
-          }
-        />
-        <Route
-          path="/contact"
-          element={
-            <PlaceholderPage
-              title="Start a Project"
-              subtitle="Let's advance your next critical deliverable. Reach out directly at hello@slidevance.com."
-            />
-          }
-        />
+        <Route path="/services" element={<ServicesPage />} />
+        <Route path="/contact" element={<ContactPage />} />
         {/* Fallback to Home */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

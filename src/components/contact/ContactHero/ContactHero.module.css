@@ -1,0 +1,86 @@
+.heroSection {
+  position: relative;
+  padding-top: clamp(3rem, 6vw, 5rem);
+  padding-bottom: clamp(2rem, 4vw, 3.5rem);
+  overflow: hidden;
+  text-align: center;
+}
+
+.ambientGlow {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(800px, 90vw);
+  height: 350px;
+  background: radial-gradient(circle, rgba(7, 95, 232, 0.08) 0%, rgba(18, 201, 232, 0.05) 45%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.heroContainer {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.contentWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.eyebrowBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.95rem;
+  background-color: #FFFFFF;
+  border: 1px solid rgba(7, 95, 232, 0.16);
+  border-radius: var(--radius-pill);
+  box-shadow: 0 2px 8px rgba(7, 95, 232, 0.06);
+  margin-bottom: 1.5rem;
+}
+
+.eyebrowDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--signature-gradient);
+}
+
+.eyebrowText {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: var(--navy);
+}
+
+.heroTitle {
+  font-size: clamp(2.5rem, 5vw, 4.25rem);
+  font-weight: 800;
+  color: var(--navy);
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+  margin-bottom: 1.25rem;
+}
+
+.heroParagraph {
+  font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 620px;
+}
+
+@media (max-width: 600px) {
+  .heroTitle {
+    font-size: 2.25rem;
+  }
+
+  .heroParagraph {
+    font-size: 1rem;
+  }
+}

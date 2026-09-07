@@ -1,0 +1,94 @@
+.stickyNavWrapper {
+  position: sticky;
+  top: var(--header-height);
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(9, 43, 99, 0.08);
+  box-shadow: 0 4px 18px rgba(9, 43, 99, 0.03);
+  padding: 0.6rem 0;
+  transition: all var(--transition-fast);
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.navBar {
+  display: flex;
+  align-items: center;
+  max-width: 100%;
+}
+
+.navTrack {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
+  padding: 0.2rem 0.4rem;
+}
+
+.navTrack::-webkit-scrollbar {
+  display: none;
+}
+
+.navButton {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 1.15rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--muted);
+  background: transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+  border: none;
+}
+
+.navButton:hover {
+  color: var(--navy);
+  background-color: rgba(7, 95, 232, 0.04);
+}
+
+.navButtonActive {
+  color: var(--blue);
+  background-color: var(--blue-soft);
+  font-weight: 700;
+}
+
+.activePill {
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 2px;
+  background: var(--signature-gradient);
+  border-radius: var(--radius-pill);
+}
+
+@media (max-width: 768px) {
+  .container {
+    justify-content: flex-start;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .navTrack {
+    gap: 0.25rem;
+  }
+
+  .navButton {
+    padding: 0.45rem 0.95rem;
+    font-size: 0.8125rem;
+  }
+}

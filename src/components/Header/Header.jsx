@@ -49,6 +49,11 @@ export default function Header() {
 
   return (
     <header className={`${styles.header} ${isScrolled ? styles.headerScrolled : ''}`}>
+      {/* Accessible Skip Link */}
+      <a href="#main-content" className={styles.skipLink}>
+        Skip to main content
+      </a>
+
       <div className={`container ${styles.headerContainer}`}>
         {/* Brand Logo */}
         <Logo className={styles.logo} />

@@ -117,7 +117,7 @@ export default function IndustriesPage() {
   };
 
   return (
-    <main>
+    <main id="main-content" tabIndex={-1}>
       {/* 1. Page Hero */}
       <IndustriesHero />
 

@@ -30,7 +30,7 @@ export default function AboutPage() {
   }, []);
 
   return (
-    <main>
+    <main id="main-content" tabIndex={-1}>
       {/* 1. Page Hero */}
       <AboutHero />
 

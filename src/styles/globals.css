@@ -159,3 +159,28 @@ p {
     opacity: 0.8;
   }
 }
+
+/* Accessibility & Focus Indicators */
+:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+}
+
+/* Subtle Branded Text Selection */
+::selection {
+  background-color: rgba(7, 95, 232, 0.18);
+  color: var(--navy);
+}
+
+/* Respect Reduced Motion Preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+

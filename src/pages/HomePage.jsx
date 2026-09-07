@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Hero from '../components/home/Hero/Hero';
 import PositioningStrip from '../components/home/PositioningStrip/PositioningStrip';
 import IntroSection from '../components/home/IntroSection/IntroSection';
@@ -9,8 +9,24 @@ import PromiseSection from '../components/home/PromiseSection/PromiseSection';
 import FinalCTA from '../components/home/FinalCTA/FinalCTA';
 
 export default function HomePage() {
+  useEffect(() => {
+    document.title = 'SLIDEVANCE | Creative Presentation & Business Communication Studio';
+    let metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute(
+        'content',
+        'Slidevance combines narrative strategy, research, and corporate visual design to build presentation materials engineered for high-stakes decisions.'
+      );
+    } else {
+      metaDesc = document.createElement('meta');
+      metaDesc.name = 'description';
+      metaDesc.content =
+        'Slidevance combines narrative strategy, research, and corporate visual design to build presentation materials engineered for high-stakes decisions.';
+      document.head.appendChild(metaDesc);
+    }
+  }, []);
   return (
-    <main>
+    <main id="main-content" tabIndex={-1}>
       {/* 1. Large Premium Hero */}
       <Hero />
 
