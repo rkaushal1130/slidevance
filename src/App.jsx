@@ -18,10 +18,22 @@ export default function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
+        
+        {/* Portfolio Listing and Detail by Slug */}
         <Route path="/portfolio" element={<PortfolioPage />} />
+        <Route path="/portfolio/:slug" element={<PortfolioPage />} />
+
+        {/* Industries Listing and Detail by Slug */}
         <Route path="/industries" element={<IndustriesPage />} />
+        <Route path="/industries/:slug" element={<IndustriesPage />} />
+
+        {/* Services Listing and Detail by Slug */}
         <Route path="/services" element={<ServicesPage />} />
+        <Route path="/services/:slug" element={<ServicesPage />} />
+
+        {/* Contact Page */}
         <Route path="/contact" element={<ContactPage />} />
+
         {/* Fallback to Home */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

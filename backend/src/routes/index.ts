@@ -8,6 +8,9 @@ import serviceRoutes from './service.routes.js';
 import adminServiceRoutes from './adminService.routes.js';
 import industryRoutes from './industry.routes.js';
 import adminIndustryRoutes from './adminIndustry.routes.js';
+import adminDashboardRoutes from './adminDashboard.routes.js';
+import settingsRoutes from './settings.routes.js';
+import adminSettingsRoutes from './adminSettings.routes.js';
 import fileRoutes from './file.routes.js';
 
 const router = Router();
@@ -55,6 +58,18 @@ router.use('/industries', industryRoutes);
 // Admin Industries Routes (Mount both /v1/admin/industries and /admin/industries)
 router.use('/v1/admin/industries', adminIndustryRoutes);
 router.use('/admin/industries', adminIndustryRoutes);
+
+// Admin Dashboard Routes (Mount both /v1/admin/dashboard and /admin/dashboard)
+router.use('/v1/admin/dashboard', adminDashboardRoutes);
+router.use('/admin/dashboard', adminDashboardRoutes);
+
+// Public Settings Routes (Mount both /v1/settings and /settings)
+router.use('/v1/settings', settingsRoutes);
+router.use('/settings', settingsRoutes);
+
+// Admin Settings Routes (Mount both /v1/admin/settings and /admin/settings)
+router.use('/v1/admin/settings', adminSettingsRoutes);
+router.use('/admin/settings', adminSettingsRoutes);
 
 // File Download/Stream Routes
 router.use('/files', fileRoutes);

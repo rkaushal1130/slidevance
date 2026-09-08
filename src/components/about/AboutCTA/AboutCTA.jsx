@@ -3,7 +3,9 @@ import { ArrowRight, Mail, Sparkles } from 'lucide-react';
 import Button from '../../common/Button/Button';
 import styles from './AboutCTA.module.css';
 
-export default function AboutCTA() {
+export default function AboutCTA({ settings }) {
+  const contactEmail = settings?.contactEmail || 'hello@slidevance.com';
+
   return (
     <section className={`section-spacing ${styles.ctaSection}`} aria-label="About Us Call to Action">
       <div className="container">
@@ -19,7 +21,7 @@ export default function AboutCTA() {
           <h2 className={styles.heading}>
             Ready to Turn Information
             <br />
-            <span className="gradient-text">Into a Powerful Story?</span>
+            Into a <span className="gradient-text">Powerful Story?</span>
           </h2>
 
           <p className={styles.paragraph}>
@@ -47,9 +49,9 @@ export default function AboutCTA() {
 
           <div className={styles.directEmail}>
             <span className={styles.emailPrompt}>Direct studio correspondence:</span>
-            <a href="mailto:hello@slidevance.com" className={styles.emailLink}>
+            <a href={`mailto:${contactEmail}`} className={styles.emailLink}>
               <Mail size={15} />
-              <span>hello@slidevance.com</span>
+              <span>{contactEmail}</span>
             </a>
           </div>
         </div>

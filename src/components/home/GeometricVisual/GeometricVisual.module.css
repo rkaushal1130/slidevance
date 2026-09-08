@@ -1,8 +1,8 @@
 .visualWrapper {
   position: relative;
   width: 100%;
-  max-width: 580px;
-  height: 480px;
+  max-width: 620px;
+  height: 500px;
   display: flex;
   align-items: center;
   justify-content: center;

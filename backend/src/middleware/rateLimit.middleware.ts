@@ -43,6 +43,7 @@ export function loginRateLimiter(req: Request, res: Response, next: NextFunction
     res.status(429).json({
       success: false,
       message: 'Too many login attempts. Please try again later.',
+      errors: [],
     });
     return;
   }
@@ -80,6 +81,7 @@ export function inquiryRateLimiter(req: Request, res: Response, next: NextFuncti
     res.status(429).json({
       success: false,
       message: 'Too many project inquiries submitted from this IP. Please wait a few minutes before trying again.',
+      errors: [],
     });
     return;
   }

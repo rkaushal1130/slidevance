@@ -151,7 +151,7 @@ before(async () => {
 
   // Stub prisma.service
   (prisma as any).service = {
-    findMany: async ({ where, orderBy, select }: any) => {
+    findMany: async ({ where, _orderBy, select }: any) => {
       let filtered = [...servicesStore];
       if (where?.published !== undefined) {
         filtered = filtered.filter((s) => s.published === where.published);

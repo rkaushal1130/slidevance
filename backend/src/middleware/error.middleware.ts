@@ -8,6 +8,7 @@ export function notFoundHandler(req: Request, res: Response): void {
   res.status(404).json({
     success: false,
     message: `Cannot ${req.method} ${req.originalUrl} - Endpoint not found`,
+    errors: [],
   });
 }
 
@@ -40,12 +41,14 @@ export function errorHandler(
       res.status(400).json({
         success: false,
         message: `File size exceeds the ${env.maxFileSizeMB}MB limit.`,
+        errors: [],
       });
       return;
     }
     res.status(400).json({
       success: false,
       message: `File upload error: ${err.message}`,
+      errors: [],
     });
     return;
   }
@@ -60,6 +63,7 @@ export function errorHandler(
     res.status(400).json({
       success: false,
       message: err.message,
+      errors: [],
     });
     return;
   }
@@ -70,6 +74,7 @@ export function errorHandler(
   res.status(statusCode).json({
     success: false,
     message,
+    errors: Array.isArray(err.errors) ? err.errors : [],
     ...(env.nodeEnv === 'development' ? { stack: err.stack } : {}),
   });
 }

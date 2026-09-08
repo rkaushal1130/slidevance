@@ -1,4 +1,4 @@
-﻿# Dependencies
+# Dependencies
 node_modules/
 
 # Production build
@@ -16,9 +16,9 @@ npm-debug.log*
 # Uploads (exclude uploaded binaries, retain folder structure via .gitkeep)
 uploads/*
 !uploads/.gitkeep
-!uploads/inquiries/
+uploads/inquiries/*
 !uploads/inquiries/.gitkeep
-!uploads/portfolio/
+uploads/portfolio/*
 !uploads/portfolio/.gitkeep
 
 # OS / Editor

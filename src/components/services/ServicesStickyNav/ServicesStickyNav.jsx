@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from './ServicesStickyNav.module.css';
 
-const NAV_ITEMS = [
+const DEFAULT_NAV_ITEMS = [
   { label: 'Presentation Design', id: 'service-01' },
   { label: 'Proposal & RFP', id: 'service-02' },
   { label: 'Business Documents', id: 'service-03' },
@@ -10,8 +10,9 @@ const NAV_ITEMS = [
   { label: 'Research', id: 'service-06' },
 ];
 
-export default function ServicesStickyNav() {
-  const [activeSection, setActiveSection] = useState('service-01');
+export default function ServicesStickyNav({ items }) {
+  const navList = items && items.length > 0 ? items : DEFAULT_NAV_ITEMS;
+  const [activeSection, setActiveSection] = useState(navList[0]?.id || 'service-01');
 
   const handleScrollTo = (id) => {
     const element = document.getElementById(id);
@@ -31,8 +32,8 @@ export default function ServicesStickyNav() {
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 200;
-      for (let i = NAV_ITEMS.length - 1; i >= 0; i--) {
-        const item = NAV_ITEMS[i];
+      for (let i = navList.length - 1; i >= 0; i--) {
+        const item = navList[i];
         const el = document.getElementById(item.id);
         if (el && el.offsetTop <= scrollPosition) {
           setActiveSection(item.id);
@@ -43,14 +44,14 @@ export default function ServicesStickyNav() {
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [navList]);
 
   return (
     <div className={styles.stickyNavWrapper}>
       <div className={`container ${styles.container}`}>
         <nav className={styles.navBar} aria-label="Services Practice Navigation">
           <div className={styles.navTrack}>
-            {NAV_ITEMS.map((item) => {
+            {navList.map((item) => {
               const isActive = activeSection === item.id;
               return (
                 <button

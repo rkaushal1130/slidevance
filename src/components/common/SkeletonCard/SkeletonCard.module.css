@@ -1,0 +1,151 @@
+.skeletonCard {
+  position: relative;
+  background: var(--white, #ffffff);
+  border-radius: var(--radius-lg, 20px);
+  border: 1px solid var(--border-subtle, rgba(9, 43, 99, 0.08));
+  overflow: hidden;
+  box-shadow: var(--shadow-sm, 0 2px 8px rgba(9, 43, 99, 0.04));
+  display: flex;
+  flex-direction: column;
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(9, 43, 99, 0.04) 0%,
+    rgba(7, 95, 232, 0.08) 50%,
+    rgba(9, 43, 99, 0.04) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmerAnim 1.6s infinite ease-in-out;
+  border-radius: 6px;
+}
+
+@keyframes shimmerAnim {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Portfolio Variant */
+.portfolioCard {
+  height: 100%;
+  min-height: 420px;
+}
+
+.portfolioImageArea {
+  width: 100%;
+  height: 220px;
+  border-bottom: 1px solid var(--border-subtle, rgba(9, 43, 99, 0.06));
+}
+
+.portfolioContent {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  flex: 1;
+}
+
+.portfolioMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.badgePill {
+  width: 110px;
+  height: 22px;
+  border-radius: 9999px;
+}
+
+.projectNumber {
+  width: 28px;
+  height: 16px;
+}
+
+.titleLine {
+  width: 85%;
+  height: 22px;
+}
+
+.descLine1 {
+  width: 100%;
+  height: 14px;
+}
+
+.descLine2 {
+  width: 75%;
+  height: 14px;
+}
+
+.actionButton {
+  margin-top: auto;
+  width: 130px;
+  height: 20px;
+}
+
+/* Service Variant */
+.serviceCard {
+  padding: 2rem;
+  min-height: 280px;
+  gap: 1.25rem;
+}
+
+.serviceHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.serviceIconBox {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+}
+
+.serviceTitle {
+  width: 70%;
+  height: 24px;
+}
+
+.serviceBody {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  flex: 1;
+}
+
+/* Industry Variant */
+.industryCard {
+  padding: 1.75rem;
+  min-height: 260px;
+  gap: 1rem;
+}
+
+.industryTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.industryIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+}
+
+.industryTitle {
+  width: 65%;
+  height: 22px;
+}
+
+.industryExplore {
+  margin-top: auto;
+  width: 80px;
+  height: 24px;
+  border-radius: 9999px;
+}

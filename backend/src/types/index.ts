@@ -134,3 +134,88 @@ export interface CreateIndustryDto {
 }
 
 export interface UpdateIndustryDto extends Partial<CreateIndustryDto> {}
+
+export interface DashboardStats {
+  totalInquiries: number;
+  newInquiries: number;
+  contactedInquiries: number;
+  inProgressInquiries: number;
+  completedInquiries: number;
+  totalPortfolioProjects: number;
+  publishedPortfolioProjects: number;
+  totalServices: number;
+  totalIndustries: number;
+}
+
+export interface RecentInquiryItem {
+  id: string;
+  fullName: string;
+  companyName: string | null;
+  email: string;
+  projectType: ProjectType;
+  status: InquiryStatus;
+  createdAt: Date;
+}
+
+export interface InquiryStatusCount {
+  status: InquiryStatus;
+  count: number;
+}
+
+export interface InquiryProjectTypeCount {
+  projectType: ProjectType;
+  count: number;
+}
+
+export interface InquiryMonthlyCount {
+  month: string;
+  label?: string;
+  count: number;
+}
+
+export interface DashboardData {
+  stats: DashboardStats;
+  recentInquiries: RecentInquiryItem[];
+  inquiriesByStatus: InquiryStatusCount[];
+  inquiriesByProjectType: InquiryProjectTypeCount[];
+  inquiriesByMonth: InquiryMonthlyCount[];
+}
+
+export interface PublicSiteSettings {
+  companyName: string;
+  tagline: string;
+  contactEmail: string;
+  company_name: string;
+  contact_email: string;
+  positioning?: string;
+  contactPhone?: string;
+  contact_phone?: string;
+  address?: string;
+  location?: string;
+  socialLinkedin?: string;
+  socialTwitter?: string;
+  socialInstagram?: string;
+}
+
+export interface AdminSiteSettings extends PublicSiteSettings {
+  [key: string]: any;
+}
+
+export interface UpdateSettingsDto {
+  company_name?: string;
+  companyName?: string;
+  tagline?: string;
+  contact_email?: string;
+  contactEmail?: string;
+  contact_phone?: string;
+  contactPhone?: string;
+  address?: string;
+  location?: string;
+  positioning?: string;
+  social_linkedin?: string;
+  linkedinUrl?: string;
+  social_twitter?: string;
+  twitterUrl?: string;
+  social_instagram?: string;
+  instagramUrl?: string;
+}

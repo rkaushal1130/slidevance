@@ -67,7 +67,7 @@
   line-height: 1.35;
   letter-spacing: -0.015em;
   margin-bottom: 1.25rem;
-  max-width: 620px;
+  max-width: 720px;
 }
 
 .heroParagraph {
@@ -75,7 +75,7 @@
   color: var(--muted);
   line-height: 1.65;
   margin-bottom: 2.25rem;
-  max-width: 580px;
+  max-width: 660px;
 }
 
 .ctaGroup {
@@ -90,10 +90,11 @@
 .trustStrip {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: clamp(1.5rem, 2.5vw, 3rem);
   padding-top: 1.75rem;
   border-top: 1px solid rgba(9, 43, 99, 0.08);
   width: 100%;
+  max-width: 720px;
 }
 
 .trustItem {
@@ -127,6 +128,7 @@
   justify-content: center;
   position: relative;
   z-index: 1;
+  width: 100%;
 }
 
 /* Responsive */

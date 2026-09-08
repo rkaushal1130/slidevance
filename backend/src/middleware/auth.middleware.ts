@@ -40,6 +40,7 @@ export async function requireAuth(
     res.status(401).json({
       success: false,
       message: 'Authentication required. Please log in.',
+      errors: [],
     });
     return;
   }
@@ -63,6 +64,7 @@ export async function requireAuth(
       res.status(401).json({
         success: false,
         message: 'User account is inactive or not found.',
+        errors: [],
       });
       return;
     }
@@ -79,6 +81,7 @@ export async function requireAuth(
     res.status(401).json({
       success: false,
       message: 'Invalid or expired session. Please log in again.',
+      errors: [],
     });
   }
 }
@@ -92,6 +95,7 @@ export function requireAdmin(
     res.status(403).json({
       success: false,
       message: 'Access denied. Administrator privileges required.',
+      errors: [],
     });
     return;
   }

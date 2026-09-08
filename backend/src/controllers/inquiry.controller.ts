@@ -5,7 +5,6 @@ import {
   updateInquiryStatusSchema,
   adminInquiryFilterSchema,
   updateInquirySchema,
-  inquiryFilterSchema,
 } from '../validators/inquiry.validator.js';
 import { prisma } from '../config/db.js';
 import { storageService } from '../services/storage.service.js';

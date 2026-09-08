@@ -1,40 +1,41 @@
 import React, { useState, useRef } from 'react';
 import { UploadCloud, FileText, X, CheckCircle2, AlertCircle, Loader2, Send } from 'lucide-react';
 import Button from '../../common/Button/Button';
-import { submitInquiryApi } from '../../../config/api';
+import { submitInquiry } from '../../../api/inquiries';
 import styles from './ContactForm.module.css';
 
 const PROJECT_TYPE_OPTIONS = [
   { value: '', label: 'Select project type *' },
-  { value: 'presentation', label: 'Presentation Design (Pitch Decks, Board Materials, Keynotes)' },
-  { value: 'proposal', label: 'Proposal & RFP (Bids, RFIs, Government Tenders)' },
-  { value: 'business_docs', label: 'Business Documents (One-Pagers, Reports, Briefs)' },
-  { value: 'data_storytelling', label: 'Data Storytelling (Dashboards, Financial Models, Infographics)' },
-  { value: 'sales_enablement', label: 'Sales Enablement (Playbooks, One-Sheets, Battlecards)' },
-  { value: 'research', label: 'Secondary Research & Market Synthesis' },
-  { value: 'dedicated_designer', label: 'Dedicated Designer / Ongoing Retainer' },
-  { value: 'other', label: 'Other Visual Communication Request' }
+  { value: 'PRESENTATION_DESIGN', label: 'Presentation Design (Pitch Decks, Board Materials, Keynotes)' },
+  { value: 'PROPOSAL_RFP', label: 'Proposal & RFP (Bids, RFIs, Government Tenders)' },
+  { value: 'BUSINESS_DOCUMENTS', label: 'Business Documents (One-Pagers, Reports, Briefs)' },
+  { value: 'DATA_STORYTELLING', label: 'Data Storytelling (Dashboards, Financial Models, Infographics)' },
+  { value: 'SALES_ENABLEMENT', label: 'Sales Enablement (Playbooks, One-Sheets, Battlecards)' },
+  { value: 'RESEARCH', label: 'Secondary Research & Market Synthesis' },
+  { value: 'OTHER', label: 'Other Visual Communication Request' }
 ];
 
 const BUDGET_OPTIONS = [
   { value: '', label: 'Select budget range (optional)' },
-  { value: 'not_sure', label: 'Exploring / Not sure yet' },
-  { value: 'under_5k', label: 'Project-based (< $5,000)' },
-  { value: '5k_to_15k', label: 'Project-based ($5,000 – $15,000)' },
-  { value: 'enterprise', label: 'Enterprise / Multi-deck ($15,000+)' },
-  { value: 'monthly_retainer', label: 'Monthly Retainer / Dedicated Designer' }
+  { value: 'Exploring / Not sure yet', label: 'Exploring / Not sure yet' },
+  { value: 'Project-based (< $5,000)', label: 'Project-based (< $5,000)' },
+  { value: 'Project-based ($5,000 – $15,000)', label: 'Project-based ($5,000 – $15,000)' },
+  { value: 'Enterprise / Multi-deck ($15,000+)', label: 'Enterprise / Multi-deck ($15,000+)' },
+  { value: 'Monthly Retainer / Dedicated Designer', label: 'Monthly Retainer / Dedicated Designer' }
 ];
 
 const TIMELINE_OPTIONS = [
   { value: '', label: 'Select target timeline (optional)' },
-  { value: 'urgent', label: 'Urgent (Within 24–48 hours)' },
-  { value: 'one_week', label: 'Within 1 week' },
-  { value: 'two_weeks', label: '1 – 2 weeks' },
-  { value: 'four_weeks', label: '2 – 4 weeks' },
-  { value: 'flexible', label: 'Flexible / Strategic planning' }
+  { value: 'Urgent (Within 24–48 hours)', label: 'Urgent (Within 24–48 hours)' },
+  { value: 'Within 1 week', label: 'Within 1 week' },
+  { value: '1 – 2 weeks', label: '1 – 2 weeks' },
+  { value: '2 – 4 weeks', label: '2 – 4 weeks' },
+  { value: 'Flexible / Strategic planning', label: 'Flexible / Strategic planning' }
 ];
 
-const MAX_FILE_SIZE_BYTES = 25 * 1024 * 1024; // 25 MB
+const MAX_FILE_SIZE_BYTES = 10 * 1024 * 1024; // 10 MB
+
+const ALLOWED_EXTENSIONS = ['.pdf', '.doc', '.docx', '.ppt', '.pptx', '.png', '.jpg', '.jpeg', '.webp'];
 
 function formatFileSize(bytes) {
   if (bytes < 1024) return `${bytes} B`;
@@ -46,15 +47,15 @@ export default function ContactForm() {
   const [formData, setFormData] = useState({
     fullName: '',
     companyName: '',
-    workEmail: '',
-    phoneNumber: '',
+    email: '',
+    phone: '',
     projectType: '',
     budgetRange: '',
     timeline: '',
-    projectDescription: ''
+    description: ''
   });
 
-  const [attachedFile, setAttachedFile] = useState(null);
+  const [briefFile, setBriefFile] = useState(null);
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -68,22 +69,36 @@ export default function ContactForm() {
     if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: null }));
     }
+    if (errors.form) {
+      setErrors((prev) => ({ ...prev, form: null }));
+    }
   };
 
   const handleFileSelection = (file) => {
     if (!file) return;
 
-    if (file.size > MAX_FILE_SIZE_BYTES) {
+    // Check extension
+    const fileName = file.name || '';
+    const ext = fileName.slice(fileName.lastIndexOf('.')).toLowerCase();
+    if (!ALLOWED_EXTENSIONS.includes(ext)) {
       setErrors((prev) => ({
         ...prev,
-        attachedFile: `File exceeds 25MB limit (${formatFileSize(file.size)}). Please attach a smaller file.`
+        brief: `Invalid file format (${ext}). Supported formats: PDF, DOC, DOCX, PPT, PPTX, PNG, JPG.`
       }));
       return;
     }
 
-    // Clear file error if valid
-    setErrors((prev) => ({ ...prev, attachedFile: null }));
-    setAttachedFile(file);
+    // Check size
+    if (file.size > MAX_FILE_SIZE_BYTES) {
+      setErrors((prev) => ({
+        ...prev,
+        brief: `File exceeds 10MB limit (${formatFileSize(file.size)}). Please attach a smaller file.`
+      }));
+      return;
+    }
+
+    setErrors((prev) => ({ ...prev, brief: null }));
+    setBriefFile(file);
   };
 
   const onFileInputChange = (e) => {
@@ -110,7 +125,7 @@ export default function ContactForm() {
   };
 
   const removeFile = () => {
-    setAttachedFile(null);
+    setBriefFile(null);
     if (fileInputRef.current) {
       fileInputRef.current.value = '';
     }
@@ -121,14 +136,16 @@ export default function ContactForm() {
 
     if (!formData.fullName.trim()) {
       newErrors.fullName = 'Full Name is required.';
+    } else if (formData.fullName.trim().length < 2) {
+      newErrors.fullName = 'Full name must be at least 2 characters long.';
     }
 
-    if (!formData.workEmail.trim()) {
-      newErrors.workEmail = 'Work Email is required.';
+    if (!formData.email.trim()) {
+      newErrors.email = 'Work Email is required.';
     } else {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(formData.workEmail.trim())) {
-        newErrors.workEmail = 'Please provide a valid work email address.';
+      if (!emailRegex.test(formData.email.trim())) {
+        newErrors.email = 'Please provide a valid work email address.';
       }
     }
 
@@ -136,10 +153,10 @@ export default function ContactForm() {
       newErrors.projectType = 'Please select a project type.';
     }
 
-    if (!formData.projectDescription.trim()) {
-      newErrors.projectDescription = 'Please describe your project scope or objectives.';
-    } else if (formData.projectDescription.trim().length < 10) {
-      newErrors.projectDescription = 'Project description must be at least 10 characters.';
+    if (!formData.description.trim()) {
+      newErrors.description = 'Please describe your project scope or objectives.';
+    } else if (formData.description.trim().length < 10) {
+      newErrors.description = 'Project description must be at least 10 characters long.';
     }
 
     return newErrors;
@@ -151,7 +168,6 @@ export default function ContactForm() {
     const validationErrors = validateForm();
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
-      // Focus first error field for accessibility
       const firstField = Object.keys(validationErrors)[0];
       const element = document.getElementById(firstField);
       if (element) {
@@ -164,13 +180,49 @@ export default function ContactForm() {
     setErrors({});
 
     try {
-      await submitInquiryApi(formData, attachedFile);
+      // Build multipart/form-data payload
+      const payload = new FormData();
+      payload.append('fullName', formData.fullName.trim());
+      if (formData.companyName.trim()) {
+        payload.append('companyName', formData.companyName.trim());
+      }
+      payload.append('email', formData.email.trim());
+      if (formData.phone.trim()) {
+        payload.append('phone', formData.phone.trim());
+      }
+      payload.append('projectType', formData.projectType);
+      if (formData.budgetRange) {
+        payload.append('budgetRange', formData.budgetRange);
+      }
+      if (formData.timeline) {
+        payload.append('timeline', formData.timeline);
+      }
+      payload.append('description', formData.description.trim());
+
+      if (briefFile) {
+        payload.append('brief', briefFile);
+        payload.append('attachedFile', briefFile);
+      }
+
+      await submitInquiry(payload);
       setIsSubmitting(false);
       setIsSubmitted(true);
     } catch (err) {
       setIsSubmitting(false);
+
+      const fieldErrors = {};
+      if (Array.isArray(err.errors)) {
+        err.errors.forEach((e) => {
+          const field = e.field || (Array.isArray(e.path) ? e.path[0] : null);
+          if (field) {
+            fieldErrors[field] = e.message;
+          }
+        });
+      }
+
       setErrors({
-        form: err.message || 'Unable to submit your inquiry at this moment. Please check your connection or contact us directly.',
+        ...fieldErrors,
+        form: err.message || 'Unable to submit your inquiry at this moment. Please check your connection or contact us directly at hello@slidevance.com.',
       });
     }
   };
@@ -179,14 +231,14 @@ export default function ContactForm() {
     setFormData({
       fullName: '',
       companyName: '',
-      workEmail: '',
-      phoneNumber: '',
+      email: '',
+      phone: '',
       projectType: '',
       budgetRange: '',
       timeline: '',
-      projectDescription: ''
+      description: ''
     });
-    setAttachedFile(null);
+    setBriefFile(null);
     setErrors({});
     setIsSubmitted(false);
   };
@@ -198,10 +250,10 @@ export default function ContactForm() {
           <CheckCircle2 size={36} className={styles.successCheckIcon} />
         </div>
         <h3 className={styles.successHeading}>
-          Thank you. Your project brief has been received.
+          Thank you. Your project inquiry has been submitted successfully.
         </h3>
         <p className={styles.successMessage}>
-          Our team will review your requirements and reach out within 24 hours (or faster for urgent requests).
+          Our team has received your project details and will reach out within 24 hours (or faster for urgent requests).
         </p>
 
         <div className={styles.submissionDetails}>
@@ -210,8 +262,8 @@ export default function ContactForm() {
             <span className={styles.detailValue}>{formData.fullName}</span>
           </div>
           <div className={styles.detailRow}>
-            <span className={styles.detailLabel}>Work Email:</span>
-            <span className={styles.detailValue}>{formData.workEmail}</span>
+            <span className={styles.detailLabel}>Contact Email:</span>
+            <span className={styles.detailValue}>{formData.email}</span>
           </div>
           {formData.companyName && (
             <div className={styles.detailRow}>
@@ -225,21 +277,17 @@ export default function ContactForm() {
               {PROJECT_TYPE_OPTIONS.find((opt) => opt.value === formData.projectType)?.label || formData.projectType}
             </span>
           </div>
-          {attachedFile && (
+          {briefFile && (
             <div className={styles.detailRow}>
               <span className={styles.detailLabel}>Attached Brief:</span>
-              <span className={styles.detailValue}>{attachedFile.name} ({formatFileSize(attachedFile.size)})</span>
+              <span className={styles.detailValue}>{briefFile.name} ({formatFileSize(briefFile.size)})</span>
             </div>
           )}
         </div>
 
-        <p className={styles.devNote}>
-          Note: This client-side form is ready to connect with your preferred CRM, webhook, or email backend.
-        </p>
-
         <div className={styles.successActions}>
           <Button variant="primary" onClick={handleReset}>
-            Send Another Project Brief
+            Submit Another Project Inquiry
           </Button>
         </div>
       </div>
@@ -309,38 +357,38 @@ export default function ContactForm() {
         {/* Row 2: Work Email & Phone Number */}
         <div className={styles.formRow}>
           <div className={styles.formGroup}>
-            <label htmlFor="workEmail" className={styles.label}>
+            <label htmlFor="email" className={styles.label}>
               Work Email <span className={styles.requiredStar}>*</span>
             </label>
             <input
               type="email"
-              id="workEmail"
-              name="workEmail"
-              value={formData.workEmail}
+              id="email"
+              name="email"
+              value={formData.email}
               onChange={handleChange}
               placeholder="name@company.com"
-              className={`${styles.input} ${errors.workEmail ? styles.inputError : ''}`}
+              className={`${styles.input} ${errors.email ? styles.inputError : ''}`}
               aria-required="true"
-              aria-invalid={errors.workEmail ? 'true' : 'false'}
-              aria-describedby={errors.workEmail ? 'workEmail-error' : undefined}
+              aria-invalid={errors.email ? 'true' : 'false'}
+              aria-describedby={errors.email ? 'email-error' : undefined}
               disabled={isSubmitting}
             />
-            {errors.workEmail && (
-              <span id="workEmail-error" className={styles.errorText} role="alert">
-                <AlertCircle size={13} /> {errors.workEmail}
+            {errors.email && (
+              <span id="email-error" className={styles.errorText} role="alert">
+                <AlertCircle size={13} /> {errors.email}
               </span>
             )}
           </div>
 
           <div className={styles.formGroup}>
-            <label htmlFor="phoneNumber" className={styles.label}>
+            <label htmlFor="phone" className={styles.label}>
               Phone Number <span className={styles.optionalTag}>(Optional)</span>
             </label>
             <input
               type="tel"
-              id="phoneNumber"
-              name="phoneNumber"
-              value={formData.phoneNumber}
+              id="phone"
+              name="phone"
+              value={formData.phone}
               onChange={handleChange}
               placeholder="+1 (555) 000-0000"
               className={styles.input}
@@ -427,27 +475,27 @@ export default function ContactForm() {
           </div>
         </div>
 
-        {/* Row 5: Project Description */}
+        {/* Row 5: Description */}
         <div className={styles.formGroup}>
-          <label htmlFor="projectDescription" className={styles.label}>
+          <label htmlFor="description" className={styles.label}>
             Project Description <span className={styles.requiredStar}>*</span>
           </label>
           <textarea
-            id="projectDescription"
-            name="projectDescription"
+            id="description"
+            name="description"
             rows={4}
-            value={formData.projectDescription}
+            value={formData.description}
             onChange={handleChange}
             placeholder="Tell us about your audience, objectives, number of slides or pages, key themes, or any specific constraints..."
-            className={`${styles.textarea} ${errors.projectDescription ? styles.inputError : ''}`}
+            className={`${styles.textarea} ${errors.description ? styles.inputError : ''}`}
             aria-required="true"
-            aria-invalid={errors.projectDescription ? 'true' : 'false'}
-            aria-describedby={errors.projectDescription ? 'projectDescription-error' : undefined}
+            aria-invalid={errors.description ? 'true' : 'false'}
+            aria-describedby={errors.description ? 'description-error' : undefined}
             disabled={isSubmitting}
           />
-          {errors.projectDescription && (
-            <span id="projectDescription-error" className={styles.errorText} role="alert">
-              <AlertCircle size={13} /> {errors.projectDescription}
+          {errors.description && (
+            <span id="description-error" className={styles.errorText} role="alert">
+              <AlertCircle size={13} /> {errors.description}
             </span>
           )}
         </div>
@@ -455,10 +503,10 @@ export default function ContactForm() {
         {/* Row 6: Upload Brief */}
         <div className={styles.formGroup}>
           <span className={styles.label}>
-            Upload Project Brief <span className={styles.optionalTag}>(Optional, max 25MB)</span>
+            Upload Project Brief <span className={styles.optionalTag}>(Optional, max 10MB)</span>
           </span>
 
-          {!attachedFile ? (
+          {!briefFile ? (
             <div
               className={`${styles.dropzone} ${isDragOver ? styles.dropzoneActive : ''}`}
               onDragOver={handleDragOver}
@@ -478,7 +526,8 @@ export default function ContactForm() {
               <input
                 ref={fileInputRef}
                 type="file"
-                accept=".pdf,.doc,.docx,.ppt,.pptx,.png,.jpg,.jpeg"
+                name="brief"
+                accept=".pdf,.doc,.docx,.ppt,.pptx,.png,.jpg,.jpeg,.webp"
                 onChange={onFileInputChange}
                 className={styles.hiddenFileInput}
                 tabIndex={-1}
@@ -487,7 +536,7 @@ export default function ContactForm() {
                 <UploadCloud size={28} className={styles.uploadIcon} />
                 <div className={styles.uploadText}>
                   <span className={styles.uploadPrompt}>Click to browse or drag and drop</span>
-                  <span className={styles.uploadFormats}>Supported: PDF, DOC, DOCX, PPT, PPTX, PNG, JPG</span>
+                  <span className={styles.uploadFormats}>Supported: PDF, DOC, DOCX, PPT, PPTX, PNG, JPG (max 10MB)</span>
                 </div>
               </div>
             </div>
@@ -496,8 +545,8 @@ export default function ContactForm() {
               <div className={styles.fileInfo}>
                 <FileText size={20} className={styles.fileIcon} />
                 <div className={styles.fileMeta}>
-                  <span className={styles.fileName}>{attachedFile.name}</span>
-                  <span className={styles.fileSize}>{formatFileSize(attachedFile.size)}</span>
+                  <span className={styles.fileName}>{briefFile.name}</span>
+                  <span className={styles.fileSize}>{formatFileSize(briefFile.size)}</span>
                 </div>
               </div>
               <button
@@ -512,9 +561,9 @@ export default function ContactForm() {
             </div>
           )}
 
-          {errors.attachedFile && (
+          {errors.brief && (
             <span className={styles.errorText} role="alert">
-              <AlertCircle size={13} /> {errors.attachedFile}
+              <AlertCircle size={13} /> {errors.brief}
             </span>
           )}
         </div>
@@ -529,11 +578,11 @@ export default function ContactForm() {
             {isSubmitting ? (
               <>
                 <Loader2 size={18} className={styles.spinner} />
-                <span>Processing Brief...</span>
+                <span>Submitting Project Inquiry...</span>
               </>
             ) : (
               <>
-                <span>Submit Project Brief</span>
+                <span>Submit Project Inquiry</span>
                 <Send size={16} />
               </>
             )}

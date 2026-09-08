@@ -7,8 +7,6 @@ import { createApp } from '../src/app.js';
 import { prisma } from '../src/config/db.js';
 import { generateToken } from '../src/utils/jwt.js';
 import { clearRateLimits } from '../src/middleware/rateLimit.middleware.js';
-import fs from 'node:fs';
-import path from 'node:path';
 
 let server: Server;
 let baseUrl: string;

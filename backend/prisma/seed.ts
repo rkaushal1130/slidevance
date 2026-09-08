@@ -341,6 +341,70 @@ async function main() {
       icon: 'Activity',
       sortOrder: 4,
     },
+    {
+      name: 'Real Estate & Infrastructure',
+      slug: 'real-estate-infrastructure',
+      description:
+        'Presenting large-scale capital development proposals, multi-property asset portfolios, and infrastructure financing models with spatial clarity.',
+      challenges:
+        'Multi-year capital expenditure schedules, complex asset portfolios, municipal zoning approvals, and syndicated funding structures.',
+      capabilities: [
+        'Interactive Decks',
+        'Proposal Engineering',
+        'Collateral & Brochures',
+        'Bespoke Vectors',
+      ],
+      icon: 'Building2',
+      sortOrder: 5,
+    },
+    {
+      name: 'Enterprise & Corporate',
+      slug: 'enterprise-corporate',
+      description:
+        'Unifying global internal communications, leadership summit presentations, and company-wide strategic programs under executive design standards.',
+      challenges:
+        'Disparate global business units, cross-functional organizational misalignment, and high-stakes board governance scrutiny.',
+      capabilities: [
+        'Executive Presentations',
+        'Corporate Collateral',
+        'Turnkey Design Files',
+        'Sales Enablement',
+      ],
+      icon: 'Building',
+      sortOrder: 6,
+    },
+    {
+      name: 'Startups & Growth Companies',
+      slug: 'startups-growth-companies',
+      description:
+        'Engineering high-conviction investor pitch decks, market entry narratives, and commercial traction assets engineered for rapid venture scale.',
+      challenges:
+        'Brief investor attention spans, establishing market category definition, proving competitive moat durability, and urgent funding rounds.',
+      capabilities: [
+        'Pitch Deck Design',
+        'Market Intelligence',
+        'Executive One-Pagers',
+        'Rapid 24/7 Agility',
+      ],
+      icon: 'Rocket',
+      sortOrder: 7,
+    },
+    {
+      name: 'Investment & Private Equity',
+      slug: 'investment-private-equity',
+      description:
+        'Packaging investment memorandums, fund performance updates, and thesis presentations built for investment committees and institutional LPs.',
+      challenges:
+        'Complex capital stacks, portfolio company reporting harmonization, and confidential investment committee reviews.',
+      capabilities: [
+        'Boardroom Deliverables',
+        'Quantitative Data Storytelling',
+        'Tearsheets & Briefs',
+        'Strict Confidentiality',
+      ],
+      icon: 'PieChart',
+      sortOrder: 8,
+    },
   ];
 
   for (const ind of industriesData) {
@@ -375,7 +439,7 @@ async function main() {
   // ==================================================
   const settingsData = [
     { key: 'site_email', value: 'hello@slidevance.com' },
-    { key: 'company_name', value: 'Slidevance Studio' },
+    { key: 'company_name', value: 'Slidevance' },
     { key: 'tagline', value: 'Ideas That Slide. Solutions That Advance.' },
     { key: 'contact_email', value: 'hello@slidevance.com' },
     {

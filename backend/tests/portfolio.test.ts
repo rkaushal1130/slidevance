@@ -1,7 +1,7 @@
 process.env.NODE_ENV = 'test';
 
 import assert from 'node:assert';
-import { test, before, after, beforeEach } from 'node:test';
+import { test, before, after } from 'node:test';
 import { Server } from 'node:http';
 import { createApp } from '../src/app.js';
 import { prisma } from '../src/config/db.js';

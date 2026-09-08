@@ -2,16 +2,19 @@ import React from 'react';
 import GeometricVisual from '../../home/GeometricVisual/GeometricVisual';
 import styles from './AboutHero.module.css';
 
-export default function AboutHero() {
+export default function AboutHero({ settings }) {
+  const companyName = settings?.companyName || 'Slidevance';
+  const tagline = settings?.tagline || 'Ideas That Slide. Solutions That Advance.';
+
   return (
-    <section className={styles.heroSection} aria-label="About Slidevance Hero">
+    <section className={styles.heroSection} aria-label={`About ${companyName} Hero`}>
       <div className={`container ${styles.heroContainer}`}>
         {/* Left Column: Eyebrow, H1, Paragraph */}
         <div className={styles.contentCol}>
           <div className={styles.eyebrowBadge}>
             <span className={styles.eyebrowDot} />
             <span className={styles.eyebrowText}>
-              CREATIVE PRESENTATION &amp; BUSINESS COMMUNICATION STUDIO
+              {tagline.toUpperCase()}
             </span>
           </div>
 
@@ -22,7 +25,7 @@ export default function AboutHero() {
           </h1>
 
           <p className={styles.heroParagraph}>
-            Slidevance is a creative business communication studio combining narrative strategy,
+            {companyName} is a creative business communication studio combining narrative strategy,
             research, and corporate visual design to build materials engineered for high-stakes decisions.
           </p>
         </div>

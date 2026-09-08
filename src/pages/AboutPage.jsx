@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import AboutHero from '../components/about/AboutHero/AboutHero';
 import AboutIntro from '../components/about/AboutIntro/AboutIntro';
 import AboutSetsUsApart from '../components/about/AboutSetsUsApart/AboutSetsUsApart';
@@ -8,31 +8,59 @@ import SlidevanceAdvantage from '../components/about/SlidevanceAdvantage/Slideva
 import DeliveryCapabilities from '../components/about/DeliveryCapabilities/DeliveryCapabilities';
 import DarkVisualSection from '../components/about/DarkVisualSection/DarkVisualSection';
 import AboutCTA from '../components/about/AboutCTA/AboutCTA';
+import { getPublicSettings } from '../api/settings';
 
 export default function AboutPage() {
+  const [settings, setSettings] = useState({
+    companyName: 'Slidevance',
+    tagline: 'Ideas That Slide. Solutions That Advance.',
+    contactEmail: 'hello@slidevance.com',
+  });
+
   useEffect(() => {
     // SEO Meta Title and Description
-    document.title = 'About Slidevance | Creative Presentation & Business Communication';
+    document.title = `${settings.companyName} | About | ${settings.tagline}`;
     
     let metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute(
         'content',
-        'Learn how Slidevance combines narrative strategy, research and intelligent visual design to transform complex business information into clear, decision-ready communication.'
+        `Learn how ${settings.companyName} combines narrative strategy, research and intelligent visual design to transform complex business information into clear, decision-ready communication.`
       );
     } else {
       metaDescription = document.createElement('meta');
       metaDescription.name = 'description';
       metaDescription.content =
-        'Learn how Slidevance combines narrative strategy, research and intelligent visual design to transform complex business information into clear, decision-ready communication.';
+        `Learn how ${settings.companyName} combines narrative strategy, research and intelligent visual design to transform complex business information into clear, decision-ready communication.`;
       document.head.appendChild(metaDescription);
     }
+  }, [settings]);
+
+  useEffect(() => {
+    let isMounted = true;
+    async function loadSettings() {
+      try {
+        const response = await getPublicSettings();
+        if (response?.data && isMounted) {
+          setSettings((prev) => ({
+            ...prev,
+            ...response.data,
+          }));
+        }
+      } catch {
+        // Retain default safe settings gracefully
+      }
+    }
+    loadSettings();
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   return (
     <main id="main-content" tabIndex={-1}>
       {/* 1. Page Hero */}
-      <AboutHero />
+      <AboutHero settings={settings} />
 
       {/* 2. Introduction */}
       <AboutIntro />
@@ -56,7 +84,7 @@ export default function AboutPage() {
       <DarkVisualSection />
 
       {/* 9. Final Call to Action */}
-      <AboutCTA />
+      <AboutCTA settings={settings} />
     </main>
   );
 }
