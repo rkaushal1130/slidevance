@@ -1,0 +1,28 @@
+﻿# Dependencies
+node_modules/
+
+# Production build
+dist/
+
+# Environment files with secrets
+.env
+.env*.local
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Uploads (exclude uploaded binaries, retain folder structure via .gitkeep)
+uploads/*
+!uploads/.gitkeep
+!uploads/inquiries/
+!uploads/inquiries/.gitkeep
+!uploads/portfolio/
+!uploads/portfolio/.gitkeep
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

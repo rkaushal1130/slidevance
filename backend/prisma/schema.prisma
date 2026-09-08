@@ -1,0 +1,224 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ==================================================
+// ENUMS
+// ==================================================
+
+enum AdminRole {
+  ADMIN
+}
+
+enum InquiryStatus {
+  NEW
+  CONTACTED
+  IN_PROGRESS
+  COMPLETED
+  ARCHIVED
+}
+
+enum ProjectType {
+  PRESENTATION_DESIGN
+  PROPOSAL_RFP
+  BUSINESS_DOCUMENTS
+  DATA_STORYTELLING
+  SALES_ENABLEMENT
+  RESEARCH
+  OTHER
+}
+
+// ==================================================
+// USER MODEL
+// ==================================================
+
+model AdminUser {
+  id           String    @id @default(uuid())
+  email        String    @unique
+  passwordHash String
+  name         String
+  role         AdminRole @default(ADMIN)
+  isActive     Boolean   @default(true)
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+  lastLoginAt  DateTime?
+
+  @@index([email])
+  @@index([createdAt])
+  @@map("admin_users")
+}
+
+// ==================================================
+// CONTACT / PROJECT INQUIRY
+// ==================================================
+
+model ProjectInquiry {
+  id          String              @id @default(uuid())
+  fullName    String
+  companyName String?
+  email       String
+  phone       String?
+  projectType ProjectType
+  budgetRange String?
+  timeline    String?
+  description String              @db.Text
+  status      InquiryStatus       @default(NEW)
+  source      String?             @default("website")
+  attachments InquiryAttachment[]
+  createdAt   DateTime            @default(now())
+  updatedAt   DateTime            @updatedAt
+
+  @@index([email])
+  @@index([status])
+  @@index([createdAt])
+  @@map("project_inquiries")
+}
+
+// ==================================================
+// ATTACHMENT
+// ==================================================
+
+model InquiryAttachment {
+  id           String         @id @default(uuid())
+  inquiryId    String
+  inquiry      ProjectInquiry @relation(fields: [inquiryId], references: [id], onDelete: Cascade)
+  originalName String
+  storedName   String
+  mimeType     String
+  size         Int
+  storagePath  String
+  createdAt    DateTime       @default(now())
+
+  @@index([inquiryId])
+  @@index([createdAt])
+  @@map("inquiry_attachments")
+}
+
+// ==================================================
+// PORTFOLIO
+// ==================================================
+
+model PortfolioProject {
+  id               String           @id @default(uuid())
+  title            String
+  slug             String           @unique
+  category         String
+  shortDescription String           @db.Text
+  description      String           @db.Text
+  challenge        String?          @db.Text
+  approach         String?          @db.Text
+  outcome          String?          @db.Text
+  featured         Boolean          @default(false)
+  published        Boolean          @default(true)
+  sortOrder        Int              @default(0)
+  images           PortfolioImage[]
+  createdAt        DateTime         @default(now())
+  updatedAt        DateTime         @updatedAt
+
+  @@index([slug])
+  @@index([featured])
+  @@index([published])
+  @@index([createdAt])
+  @@map("portfolio_projects")
+}
+
+// ==================================================
+// PORTFOLIO IMAGE
+// ==================================================
+
+model PortfolioImage {
+  id                 String           @id @default(uuid())
+  portfolioProjectId String
+  portfolioProject   PortfolioProject @relation(fields: [portfolioProjectId], references: [id], onDelete: Cascade)
+  imageUrl           String
+  altText            String?
+  sortOrder          Int              @default(0)
+  createdAt          DateTime         @default(now())
+
+  @@index([portfolioProjectId])
+  @@index([createdAt])
+  @@map("portfolio_images")
+}
+
+// ==================================================
+// SERVICE
+// ==================================================
+
+model Service {
+  id               String        @id @default(uuid())
+  number           String
+  title            String
+  slug             String        @unique
+  shortDescription String        @db.Text
+  description      String        @db.Text
+  icon             String?
+  published        Boolean       @default(true)
+  sortOrder        Int           @default(0)
+  items            ServiceItem[]
+  createdAt        DateTime      @default(now())
+  updatedAt        DateTime      @updatedAt
+
+  @@index([slug])
+  @@index([published])
+  @@index([createdAt])
+  @@map("services")
+}
+
+// ==================================================
+// SERVICE ITEM
+// ==================================================
+
+model ServiceItem {
+  id          String   @id @default(uuid())
+  serviceId   String
+  service     Service  @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+  title       String
+  description String   @db.Text
+  sortOrder   Int      @default(0)
+  createdAt   DateTime @default(now())
+
+  @@index([serviceId])
+  @@map("service_items")
+}
+
+// ==================================================
+// INDUSTRY
+// ==================================================
+
+model Industry {
+  id           String   @id @default(uuid())
+  name         String
+  slug         String   @unique
+  description  String   @db.Text
+  challenges   String   @db.Text
+  capabilities String[]
+  icon         String?
+  published    Boolean  @default(true)
+  sortOrder    Int      @default(0)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@index([slug])
+  @@index([published])
+  @@index([createdAt])
+  @@map("industries")
+}
+
+// ==================================================
+// SITE SETTINGS
+// ==================================================
+
+model SiteSetting {
+  id        String   @id @default(uuid())
+  key       String   @unique
+  value     String   @db.Text
+  updatedAt DateTime @updatedAt
+
+  @@index([key])
+  @@map("site_settings")
+}

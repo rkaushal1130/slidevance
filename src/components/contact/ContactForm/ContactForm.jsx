@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { UploadCloud, FileText, X, CheckCircle2, AlertCircle, Loader2, Send } from 'lucide-react';
 import Button from '../../common/Button/Button';
+import { submitInquiryApi } from '../../../config/api';
 import styles from './ContactForm.module.css';
 
 const PROJECT_TYPE_OPTIONS = [
@@ -144,7 +145,7 @@ export default function ContactForm() {
     return newErrors;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const validationErrors = validateForm();
@@ -162,11 +163,16 @@ export default function ContactForm() {
     setIsSubmitting(true);
     setErrors({});
 
-    // Simulate submission latency
-    setTimeout(() => {
+    try {
+      await submitInquiryApi(formData, attachedFile);
       setIsSubmitting(false);
       setIsSubmitted(true);
-    }, 750);
+    } catch (err) {
+      setIsSubmitting(false);
+      setErrors({
+        form: err.message || 'Unable to submit your inquiry at this moment. Please check your connection or contact us directly.',
+      });
+    }
   };
 
   const handleReset = () => {
@@ -250,6 +256,13 @@ export default function ContactForm() {
       </div>
 
       <form onSubmit={handleSubmit} noValidate className={styles.form}>
+        {errors.form && (
+          <div className={styles.serverErrorBanner} role="alert">
+            <AlertCircle size={18} />
+            <span>{errors.form}</span>
+          </div>
+        )}
+
         {/* Row 1: Full Name & Company Name */}
         <div className={styles.formRow}>
           <div className={styles.formGroup}>
