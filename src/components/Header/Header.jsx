@@ -48,7 +48,8 @@ export default function Header() {
   }, [isMobileMenuOpen]);
 
   return (
-    <header className={`${styles.header} ${isScrolled ? styles.headerScrolled : ''}`}>
+    <>
+      <header className={`${styles.header} ${isScrolled ? styles.headerScrolled : ''}`}>
       {/* Accessible Skip Link */}
       <a href="#main-content" className={styles.skipLink}>
         Skip to main content
@@ -177,5 +178,7 @@ export default function Header() {
         />
       )}
     </header>
+    <div className={styles.headerSpacer} aria-hidden="true" />
+  </>
   );
 }

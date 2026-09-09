@@ -31,7 +31,6 @@ export default function DeliveryStandards() {
     <section className={`section-spacing ${styles.section}`} aria-label="Delivery Standards">
       <div className="container">
         <SectionHeading
-          eyebrow="PRODUCTION INTEGRITY"
           title="Built for Professional Delivery."
           subtitle="Enterprise-grade asset standards engineered for executive presentation software and mission-critical workflows."
           align="center"

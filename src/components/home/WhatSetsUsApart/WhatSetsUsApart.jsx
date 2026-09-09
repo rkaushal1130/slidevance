@@ -44,7 +44,6 @@ export default function WhatSetsUsApart() {
     <section className={`section-spacing ${styles.section}`} aria-label="What Sets Us Apart">
       <div className="container">
         <SectionHeading
-          eyebrow="THE SLIDEVANCE ADVANTAGE"
           title="What Sets Us Apart"
           subtitle="Engineered from the ground up for high-stakes corporate communication where standard templates fail."
           align="center"

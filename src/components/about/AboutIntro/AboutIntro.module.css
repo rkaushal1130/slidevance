@@ -60,11 +60,12 @@
 }
 
 .statementCol {
-  background: var(--background);
+  background: linear-gradient(180deg, #F0F6FE 0%, #E2EEFD 100%);
+  border: 1px solid rgba(0, 85, 255, 0.18);
   border-left: 4px solid var(--blue);
   border-radius: var(--radius-md);
   padding: 2.25rem 2rem;
-  box-shadow: 0 8px 24px rgba(9, 43, 99, 0.04);
+  box-shadow: 0 8px 24px rgba(9, 43, 99, 0.05);
 }
 
 .largeStatement {
@@ -87,7 +88,7 @@
 
 .supportingText {
   font-size: clamp(1.05rem, 1.35vw, 1.25rem);
-  color: var(--muted);
+  color: #1C3050;
   line-height: 1.75;
   margin: 0;
 }

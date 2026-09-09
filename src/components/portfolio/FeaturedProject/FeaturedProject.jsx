@@ -29,11 +29,6 @@ export default function FeaturedProject({ project, onOpenCaseStudy }) {
 
           {/* Right Column: Content */}
           <div className={styles.contentCol}>
-            <div className={styles.labelBadge}>
-              <span className={styles.labelDot} />
-              <span className={styles.labelText}>FEATURED WORK</span>
-            </div>
-
             <h2 className={styles.heading}>
               {displayProject.title.includes('Into') ? (
                 <>

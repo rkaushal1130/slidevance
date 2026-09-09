@@ -10,13 +10,13 @@
 .glow {
   position: absolute;
   top: 50%;
-  left: 30%;
+  left: 50%;
   transform: translate(-50%, -50%);
-  width: 600px;
-  height: 400px;
+  width: 700px;
+  height: 450px;
   background: radial-gradient(
     circle,
-    rgba(7, 95, 232, 0.25) 0%,
+    rgba(7, 95, 232, 0.28) 0%,
     rgba(18, 201, 232, 0.12) 40%,
     transparent 70%
   );
@@ -26,18 +26,21 @@
 }
 
 .container {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: clamp(2.5rem, 5vw, 4.5rem);
   position: relative;
   z-index: 2;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 .contentCol {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  text-align: center;
+  width: 100%;
 }
 
 .eyebrowWrapper {
@@ -70,7 +73,7 @@
   font-size: clamp(2.4rem, 4.2vw, 3.75rem);
   font-weight: 800;
   color: var(--white);
-  line-height: 1.12;
+  line-height: 1.15;
   letter-spacing: -0.035em;
   margin-bottom: 1.5rem;
 }
@@ -84,78 +87,77 @@
   font-size: clamp(1.05rem, 1.35vw, 1.25rem);
   color: rgba(255, 255, 255, 0.8);
   line-height: 1.7;
-  margin-bottom: 2.5rem;
-  max-width: 580px;
+  margin-bottom: 3rem;
+  max-width: 680px;
 }
 
 .transformationList {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
   width: 100%;
+  text-align: left;
 }
 
 .transformItem {
   display: flex;
+  flex-direction: column;
   align-items: flex-start;
   gap: 1rem;
-  padding: 1rem 1.25rem;
+  padding: 1.75rem 1.5rem;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   transition: all var(--transition-normal);
 }
 
 .transformItem:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(18, 201, 232, 0.35);
-  transform: translateX(4px);
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(18, 201, 232, 0.4);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
 }
 
 .checkIcon {
   color: var(--cyan);
   flex-shrink: 0;
-  margin-top: 3px;
+  background: rgba(18, 201, 232, 0.12);
+  padding: 0.5rem;
+  border-radius: var(--radius-md);
+  box-sizing: content-box;
 }
 
 .itemText {
   display: flex;
   flex-direction: column;
-  gap: 0.2rem;
+  gap: 0.4rem;
 }
 
 .itemTitle {
-  font-size: 0.9375rem;
+  font-size: 1.05rem;
   font-weight: 700;
   color: var(--white);
 }
 
 .itemDesc {
-  font-size: 0.875rem;
-  color: rgba(255, 255, 255, 0.7);
-  line-height: 1.5;
-}
-
-.visualCol {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  z-index: 2;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.55;
 }
 
 /* Responsive */
-@media (max-width: 1080px) {
-  .container {
+@media (max-width: 860px) {
+  .transformationList {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 1rem;
   }
 
-  .visualCol {
-    width: 100%;
-    margin-top: 1rem;
+  .transformItem {
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 1.25rem;
   }
 }
 
@@ -166,9 +168,5 @@
 
   .leadText {
     font-size: 1rem;
-  }
-
-  .transformItem {
-    padding: 0.85rem 1rem;
   }
 }

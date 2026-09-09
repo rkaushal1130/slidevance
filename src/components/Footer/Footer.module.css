@@ -1,7 +1,7 @@
 .footer {
   width: 100%;
-  background-color: #FFFFFF;
-  border-top: 1px solid rgba(9, 43, 99, 0.08);
+  background-color: var(--surface);
+  border-top: 1px solid var(--border-subtle);
   position: relative;
   overflow: hidden;
   z-index: 10;
@@ -29,6 +29,11 @@
 
 .brandLogo {
   margin-bottom: 1.25rem;
+  display: inline-block;
+}
+
+.brandLogo img {
+  height: clamp(56px, 6vw, 76px);
 }
 
 .tagline {

@@ -125,7 +125,6 @@ export default function ServicesPreview() {
     <section className={`section-spacing ${styles.section}`} aria-label="Services Preview">
       <div className="container">
         <SectionHeading
-          eyebrow="CAPABILITIES &amp; SPECIALIZATIONS"
           title="What We Do"
           subtitle="End-to-End Visual Communication, Narrative Strategy &amp; Intelligent Design."
           align="center"

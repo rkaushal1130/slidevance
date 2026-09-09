@@ -14,7 +14,6 @@ export default function IndustryDetail({ industries }) {
     <section className={`section-spacing ${styles.section}`} id="industry-details" aria-label="Industry Deep Dive">
       <div className="container">
         <SectionHeading
-          eyebrow="COMMUNICATION ARCHITECTURE"
           title="Sector Methodologies &amp; Capabilities"
           subtitle="How Slidevance structures information for distinct decision environments, audience expectations, and regulatory frameworks."
           align="center"

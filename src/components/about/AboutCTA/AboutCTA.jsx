@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Mail, Sparkles } from 'lucide-react';
+import { ArrowRight, Mail } from 'lucide-react';
 import Button from '../../common/Button/Button';
 import styles from './AboutCTA.module.css';
 
@@ -12,11 +12,6 @@ export default function AboutCTA({ settings }) {
         <div className={styles.ctaBox}>
           {/* Subtle background glow */}
           <div className={styles.glowAccent} />
-
-          <div className={styles.eyebrowWrapper}>
-            <Sparkles size={14} className={styles.sparkleIcon} />
-            <span className={styles.eyebrowText}>LET'S COLLABORATE</span>
-          </div>
 
           <h2 className={styles.heading}>
             Ready to Turn Information

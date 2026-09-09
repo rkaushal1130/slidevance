@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Mail, Sparkles } from 'lucide-react';
+import { ArrowRight, Mail } from 'lucide-react';
 import Button from '../../common/Button/Button';
 import styles from './FinalCTA.module.css';
 
@@ -10,12 +10,6 @@ export default function FinalCTA() {
         <div className={styles.ctaBox}>
           {/* Subtle background ambient glow */}
           <div className={styles.glowAccent} />
-
-          {/* Top subtle eyebrow */}
-          <div className={styles.eyebrowWrapper}>
-            <Sparkles size={14} className={styles.sparkleIcon} />
-            <span className={styles.eyebrowText}>ENGAGE THE STUDIO</span>
-          </div>
 
           <h2 className={styles.heading}>
             Let’s Advance Your Next Deliverable.

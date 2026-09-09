@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronDown, HelpCircle } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import styles from './ContactFAQ.module.css';
 
 const FAQ_ITEMS = [
@@ -46,10 +46,6 @@ export default function ContactFAQ() {
     <section className={`section-spacing ${styles.faqSection}`} aria-label="Frequently Asked Questions">
       <div className="container">
         <div className={styles.headerWrapper}>
-          <div className={styles.eyebrowBadge}>
-            <HelpCircle size={14} className={styles.eyebrowIcon} />
-            <span className={styles.eyebrowText}>FREQUENTLY ASKED QUESTIONS</span>
-          </div>
           <h2 className={styles.heading}>Everything You Need to Know.</h2>
           <p className={styles.subheading}>
             Clear answers about our turnaround times, confidentiality, deliverables, and engagement formats.

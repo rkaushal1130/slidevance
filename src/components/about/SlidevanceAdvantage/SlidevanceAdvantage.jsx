@@ -46,7 +46,6 @@ export default function SlidevanceAdvantage() {
     <section className={`section-spacing ${styles.section}`} aria-label="The Slidevance Advantage">
       <div className="container">
         <SectionHeading
-          eyebrow="ENTERPRISE VALUE"
           title={
             <>
               More Than Design.

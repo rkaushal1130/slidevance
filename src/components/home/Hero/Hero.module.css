@@ -6,62 +6,35 @@
 }
 
 .heroContainer {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: clamp(2rem, 4vw, 4rem);
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .contentCol {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  z-index: 2;
-}
-
-.eyebrowBadge {
-  display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.4rem 0.95rem;
-  background-color: #FFFFFF;
-  border: 1px solid rgba(7, 95, 232, 0.16);
-  border-radius: var(--radius-pill);
-  box-shadow: 0 2px 8px rgba(7, 95, 232, 0.06);
-  margin-bottom: 1.5rem;
-  transition: all var(--transition-fast);
-}
-
-.eyebrowBadge:hover {
-  border-color: var(--blue);
-  box-shadow: 0 4px 12px rgba(7, 95, 232, 0.12);
-}
-
-.eyebrowDot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--signature-gradient);
-}
-
-.eyebrowText {
-  font-size: 0.75rem;
-  font-weight: 800;
-  letter-spacing: 0.14em;
-  color: var(--navy);
+  text-align: center;
+  z-index: 2;
+  width: 100%;
 }
 
 .heroTitle {
-  font-size: clamp(2.6rem, 4.8vw, 4.25rem);
+  font-size: clamp(2.6rem, 4.4vw, 4.25rem);
   font-weight: 800;
   color: var(--navy);
-  line-height: 1.08;
+  line-height: 1.1;
   letter-spacing: -0.035em;
   margin-bottom: 1.25rem;
 }
 
 .secondaryTitle {
-  font-size: clamp(1.15rem, 1.8vw, 1.45rem);
+  font-size: clamp(1.15rem, 1.6vw, 1.4rem);
   font-weight: 700;
   color: var(--navy);
   line-height: 1.35;
@@ -71,8 +44,8 @@
 }
 
 .heroParagraph {
-  font-size: clamp(1.05rem, 1.35vw, 1.2rem);
-  color: var(--muted);
+  font-size: clamp(1.02rem, 1.25vw, 1.18rem);
+  color: #1C3050;
   line-height: 1.65;
   margin-bottom: 2.25rem;
   max-width: 660px;
@@ -81,6 +54,7 @@
 .ctaGroup {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 1.25rem;
   flex-wrap: wrap;
   margin-bottom: 3rem;
@@ -90,11 +64,13 @@
 .trustStrip {
   display: flex;
   align-items: center;
-  gap: clamp(1.5rem, 2.5vw, 3rem);
+  justify-content: center;
+  gap: clamp(1.5rem, 2.5vw, 2.5rem);
   padding-top: 1.75rem;
-  border-top: 1px solid rgba(9, 43, 99, 0.08);
+  border-top: 1px solid var(--border-subtle);
   width: 100%;
-  max-width: 720px;
+  max-width: 640px;
+  margin: 0 auto;
 }
 
 .trustItem {
@@ -119,33 +95,13 @@
 .trustDivider {
   width: 1px;
   height: 28px;
-  background: rgba(9, 43, 99, 0.1);
-}
-
-.visualCol {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  z-index: 1;
-  width: 100%;
+  background: var(--border-subtle);
 }
 
 /* Responsive */
 @media (max-width: 1080px) {
   .heroContainer {
-    grid-template-columns: 1fr;
-    text-align: left;
-    gap: 3rem;
-  }
-
-  .contentCol {
-    align-items: flex-start;
-  }
-
-  .visualCol {
-    width: 100%;
-    margin-top: 1rem;
+    max-width: 780px;
   }
 }
 

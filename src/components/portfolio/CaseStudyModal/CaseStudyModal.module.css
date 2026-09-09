@@ -111,12 +111,28 @@
 }
 
 .caseCard {
-  background: var(--background);
-  border: 1px solid rgba(9, 43, 99, 0.08);
   border-radius: var(--radius-md);
   padding: 1.25rem;
   display: flex;
   flex-direction: column;
+}
+
+.caseCard:nth-child(1) {
+  background: linear-gradient(180deg, #F0F6FE 0%, #E2EEFD 100%);
+  border: 1px solid rgba(0, 85, 255, 0.18);
+  border-bottom: 3.5px solid #0055FF;
+}
+
+.caseCard:nth-child(2) {
+  background: linear-gradient(180deg, #EBF8FA 0%, #DDF3F7 100%);
+  border: 1px solid rgba(0, 180, 216, 0.22);
+  border-bottom: 3.5px solid #00B4D8;
+}
+
+.caseCard:nth-child(3) {
+  background: linear-gradient(180deg, #FDF0F6 0%, #FAE2EE 100%);
+  border: 1px solid rgba(230, 16, 125, 0.18);
+  border-bottom: 3.5px solid #E6107D;
 }
 
 .caseHeading {
@@ -130,7 +146,7 @@
 
 .caseText {
   font-size: 0.875rem;
-  color: var(--muted);
+  color: #1C3050;
   line-height: 1.55;
   margin: 0;
 }

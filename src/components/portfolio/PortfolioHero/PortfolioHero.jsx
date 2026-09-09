@@ -8,12 +8,6 @@ export default function PortfolioHero() {
     <section className={styles.heroSection} aria-label="Portfolio Hero">
       <div className={`container ${styles.container}`}>
         <div className={styles.contentBox}>
-          {/* Eyebrow badge */}
-          <div className={styles.eyebrowBadge}>
-            <span className={styles.eyebrowDot} />
-            <span className={styles.eyebrowText}>SELECTED PORTFOLIO</span>
-          </div>
-
           {/* Heading */}
           <h1 className={styles.heading}>
             Work That Moves

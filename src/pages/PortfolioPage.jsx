@@ -341,7 +341,6 @@ export default function PortfolioPage() {
       <section className="section-spacing" aria-label="Portfolio Gallery">
         <div className="container">
           <SectionHeading
-            eyebrow="PORTFOLIO CATEGORIES"
             title="Explore Case Studies by Practice"
             subtitle="Filter by discipline to examine how narrative strategy and bespoke visual engineering solve specific business communication challenges."
             align="center"

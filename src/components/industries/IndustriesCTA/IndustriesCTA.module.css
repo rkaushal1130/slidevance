@@ -5,8 +5,9 @@
 
 .ctaBox {
   position: relative;
-  background: linear-gradient(135deg, #FFFFFF 0%, #F5F9FF 100%);
-  border: 1.5px solid rgba(7, 95, 232, 0.16);
+  background: linear-gradient(180deg, #F0F6FE 0%, #E2EEFD 100%);
+  border: 1.5px solid rgba(0, 85, 255, 0.18);
+  border-bottom: 3.5px solid #0055FF;
   border-radius: var(--radius-xl);
   padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 5vw, 4rem);
   text-align: center;
@@ -63,7 +64,7 @@
 
 .paragraph {
   font-size: clamp(1.05rem, 1.5vw, 1.25rem);
-  color: var(--muted);
+  color: #1C3050;
   line-height: 1.65;
   margin-bottom: 2.5rem;
   max-width: 640px;

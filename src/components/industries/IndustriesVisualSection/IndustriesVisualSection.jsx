@@ -18,11 +18,6 @@ export default function IndustriesVisualSection() {
       <div className={`container ${styles.container}`}>
         {/* Left Column: Heading and narrative */}
         <div className={styles.contentCol}>
-          <div className={styles.eyebrowWrapper}>
-            <span className={styles.eyebrowDot} />
-            <span className={styles.eyebrowText}>THE TRANSLATION PRINCIPLE</span>
-          </div>
-
           <h2 className={styles.heading}>
             Complex Information.
             <br />

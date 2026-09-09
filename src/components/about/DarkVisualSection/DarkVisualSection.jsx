@@ -1,6 +1,5 @@
 import React from 'react';
 import { CheckCircle2 } from 'lucide-react';
-import GeometricVisual from '../../home/GeometricVisual/GeometricVisual';
 import styles from './DarkVisualSection.module.css';
 
 export default function DarkVisualSection() {
@@ -10,13 +9,7 @@ export default function DarkVisualSection() {
       <div className={styles.glow} />
 
       <div className={`container ${styles.container}`}>
-        {/* Left Column: Heading and transformation story */}
         <div className={styles.contentCol}>
-          <div className={styles.eyebrowWrapper}>
-            <span className={styles.eyebrowDot} />
-            <span className={styles.eyebrowText}>THE TRANSLATION DISCIPLINE</span>
-          </div>
-
           <h2 className={styles.heading}>
             From Raw Data
             <br />
@@ -33,39 +26,34 @@ export default function DarkVisualSection() {
           <div className={styles.transformationList}>
             <div className={styles.transformItem}>
               <div className={styles.checkIcon}>
-                <CheckCircle2 size={16} />
+                <CheckCircle2 size={20} />
               </div>
               <div className={styles.itemText}>
-                <span className={styles.itemTitle}>Raw Data Ingestion:</span>
+                <span className={styles.itemTitle}>Raw Data Ingestion</span>
                 <span className={styles.itemDesc}>Untangling complex spreadsheets, models, and technical specs.</span>
               </div>
             </div>
 
             <div className={styles.transformItem}>
               <div className={styles.checkIcon}>
-                <CheckCircle2 size={16} />
+                <CheckCircle2 size={20} />
               </div>
               <div className={styles.itemText}>
-                <span className={styles.itemTitle}>Strategic Synthesis:</span>
+                <span className={styles.itemTitle}>Strategic Synthesis</span>
                 <span className={styles.itemDesc}>Distilling the single core argument that drives decision conviction.</span>
               </div>
             </div>
 
             <div className={styles.transformItem}>
               <div className={styles.checkIcon}>
-                <CheckCircle2 size={16} />
+                <CheckCircle2 size={20} />
               </div>
               <div className={styles.itemText}>
-                <span className={styles.itemTitle}>Executive Presentation:</span>
+                <span className={styles.itemTitle}>Executive Presentation</span>
                 <span className={styles.itemDesc}>Engineered for the boardroom, investor rounds, and enterprise bids.</span>
               </div>
             </div>
           </div>
-        </div>
-
-        {/* Right Column: Layered Slidevance Geometric Visual */}
-        <div className={styles.visualCol}>
-          <GeometricVisual />
         </div>
       </div>
     </section>

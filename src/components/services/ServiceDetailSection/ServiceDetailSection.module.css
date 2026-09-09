@@ -122,12 +122,35 @@
 /* Deliverables Box */
 .deliverablesBox {
   width: 100%;
-  background: rgba(255, 255, 255, 0.85);
-  border: 1px solid rgba(9, 43, 99, 0.08);
   border-radius: var(--radius-md);
   padding: 1.5rem 1.75rem;
   margin-bottom: 2.25rem;
-  box-shadow: 0 4px 16px rgba(9, 43, 99, 0.02);
+  box-shadow: 0 4px 16px rgba(9, 43, 99, 0.05);
+  transition: all var(--transition-normal);
+}
+
+.box_blue {
+  background: linear-gradient(180deg, #F0F6FE 0%, #E2EEFD 100%);
+  border: 1px solid rgba(0, 85, 255, 0.18);
+  border-bottom: 3.5px solid #0055FF;
+}
+
+.box_cyan {
+  background: linear-gradient(180deg, #EBF8FA 0%, #DDF3F7 100%);
+  border: 1px solid rgba(0, 180, 216, 0.22);
+  border-bottom: 3.5px solid #00B4D8;
+}
+
+.box_magenta {
+  background: linear-gradient(180deg, #FDF0F6 0%, #FAE2EE 100%);
+  border: 1px solid rgba(230, 16, 125, 0.18);
+  border-bottom: 3.5px solid #E6107D;
+}
+
+.box_orange {
+  background: linear-gradient(180deg, #FEF5ED 0%, #FDEBDC 100%);
+  border: 1px solid rgba(245, 132, 0, 0.22);
+  border-bottom: 3.5px solid #F58400;
 }
 
 .deliverablesHeading {

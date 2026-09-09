@@ -9,11 +9,6 @@ export default function ContactHero() {
 
       <div className={`container ${styles.heroContainer}`}>
         <div className={styles.contentWrapper}>
-          <div className={styles.eyebrowBadge}>
-            <span className={styles.eyebrowDot} />
-            <span className={styles.eyebrowText}>LET'S TALK</span>
-          </div>
-
           <h1 className={styles.heroTitle}>
             Let’s Advance
             <br />

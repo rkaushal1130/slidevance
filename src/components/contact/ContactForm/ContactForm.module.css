@@ -1,9 +1,10 @@
 .formCard {
-  background: #FFFFFF;
-  border: 1px solid rgba(7, 95, 232, 0.14);
+  background: linear-gradient(180deg, #F0F6FE 0%, #E2EEFD 100%);
+  border: 1px solid rgba(0, 85, 255, 0.18);
+  border-bottom: 3.5px solid #0055FF;
   border-radius: var(--radius-xl);
   padding: clamp(1.75rem, 3.5vw, 2.75rem);
-  box-shadow: 0 12px 36px rgba(9, 43, 99, 0.07);
+  box-shadow: 0 16px 44px rgba(9, 43, 99, 0.08);
   transition: border-color var(--transition-normal);
 }
 
@@ -70,8 +71,8 @@
   font-family: inherit;
   font-size: 0.925rem;
   color: var(--navy);
-  background-color: var(--background);
-  border: 1px solid rgba(9, 43, 99, 0.12);
+  background-color: #FFFFFF;
+  border: 1px solid rgba(0, 85, 255, 0.22);
   border-radius: var(--radius-md);
   padding: 0.75rem 1rem;
   min-height: 48px;

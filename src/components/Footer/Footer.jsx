@@ -26,9 +26,6 @@ export default function Footer() {
           {/* Brand Column */}
           <div className={styles.brandCol}>
             <Logo className={styles.brandLogo} />
-            <p className={styles.tagline}>
-              “Ideas That Slide. Solutions That Advance.”
-            </p>
             <p className={styles.subtext}>
               Creative presentation and executive communication studio engineering materials for high-stakes decisions.
             </p>
@@ -72,10 +69,6 @@ export default function Footer() {
           <div className={styles.bottomLegal}>
             <p className={styles.copyright}>
               © {currentYear} SLIDEVANCE. All rights reserved.
-            </p>
-            <span className={styles.dividerDot}>•</span>
-            <p className={styles.badge}>
-              Creative Presentation &amp; Business Communication Studio
             </p>
           </div>
           

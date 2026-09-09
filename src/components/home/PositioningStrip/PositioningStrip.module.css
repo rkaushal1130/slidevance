@@ -1,5 +1,7 @@
 .stripSection {
-  background-color: #FFFFFF;
+  background-color: var(--background);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
   position: relative;
   z-index: 5;
 }

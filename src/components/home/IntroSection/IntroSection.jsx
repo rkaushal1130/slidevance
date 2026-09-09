@@ -9,11 +9,6 @@ export default function IntroSection() {
       <div className={`container ${styles.introContainer}`}>
         {/* Left Column: Heading & Editorial Accent */}
         <div className={styles.leftCol}>
-          <div className={styles.eyebrowWrapper}>
-            <span className={styles.eyebrowDot} />
-            <span className={styles.eyebrowText}>EXECUTIVE CLARITY AT SCALE</span>
-          </div>
-
           <h2 className={styles.introHeading}>
             From Complex Information
             <br />

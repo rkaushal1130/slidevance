@@ -57,7 +57,6 @@ export default function EngagementModels() {
     <section className={`section-spacing ${styles.section}`} aria-label="Investment & Flexible Engagement">
       <div className="container">
         <SectionHeading
-          eyebrow="TRANSPARENT COLLABORATION"
           title="Investment &amp; Flexible Engagement"
           subtitle="Tailored collaboration structures designed to match your operational cadence, volume requirements, and internal workflow."
           align="center"

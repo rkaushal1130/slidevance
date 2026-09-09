@@ -54,7 +54,6 @@ export default function CommunicationTypes() {
     <section className={`section-spacing ${styles.section}`} aria-label="High-Stakes Communication Types">
       <div className="container">
         <SectionHeading
-          eyebrow="DECISION MOMENTS"
           title="Built Around the Moment That Matters."
           subtitle="Whether presenting to an investment committee, procurement panel, or board of directors, each communication moment demands tailored visual architecture."
           align="center"

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Mail, Sparkles } from 'lucide-react';
+import { ArrowRight, Mail } from 'lucide-react';
 import Button from '../../common/Button/Button';
 import { contactConfig } from '../../../config/contactConfig';
 import styles from './ContactFinalCTA.module.css';
@@ -11,11 +11,6 @@ export default function ContactFinalCTA() {
         <div className={styles.ctaBox}>
           {/* Ambient Glows */}
           <div className={styles.glow} />
-
-          <div className={styles.eyebrowWrapper}>
-            <Sparkles size={14} className={styles.sparkleIcon} />
-            <span className={styles.eyebrowText}>EXECUTIVE STORYTELLING</span>
-          </div>
 
           <h2 className={styles.heading}>
             Your Information. Your Design.

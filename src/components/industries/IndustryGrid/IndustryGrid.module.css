@@ -12,8 +12,6 @@
 
 /* Base Card */
 .card {
-  background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFF 100%);
-  border: 1px solid rgba(9, 43, 99, 0.08);
   border-radius: var(--radius-lg);
   padding: 2rem 1.65rem 1.75rem;
   display: flex;
@@ -22,6 +20,30 @@
   overflow: hidden;
   box-shadow: 0 4px 18px rgba(9, 43, 99, 0.03);
   transition: all var(--transition-normal);
+}
+
+.card_blue {
+  background: linear-gradient(180deg, #F0F6FE 0%, #E2EEFD 100%);
+  border: 1px solid rgba(0, 85, 255, 0.18);
+  border-bottom: 3.5px solid #0055FF;
+}
+
+.card_cyan {
+  background: linear-gradient(180deg, #EBF8FA 0%, #DDF3F7 100%);
+  border: 1px solid rgba(0, 180, 216, 0.22);
+  border-bottom: 3.5px solid #00B4D8;
+}
+
+.card_magenta {
+  background: linear-gradient(180deg, #FDF0F6 0%, #FAE2EE 100%);
+  border: 1px solid rgba(230, 16, 125, 0.18);
+  border-bottom: 3.5px solid #E6107D;
+}
+
+.card_orange {
+  background: linear-gradient(180deg, #FEF5ED 0%, #FDEBDC 100%);
+  border: 1px solid rgba(245, 132, 0, 0.22);
+  border-bottom: 3.5px solid #F58400;
 }
 
 .cardGradientAccent {
@@ -37,8 +59,8 @@
 
 .card:hover {
   transform: translateY(-6px);
-  border-color: rgba(7, 95, 232, 0.28);
-  box-shadow: 0 16px 40px rgba(9, 43, 99, 0.08);
+  border-color: rgba(7, 95, 232, 0.35);
+  box-shadow: 0 16px 40px rgba(9, 43, 99, 0.09);
 }
 
 .card:hover .cardGradientAccent {
@@ -120,7 +142,7 @@
 
 .cardDesc {
   font-size: 0.875rem;
-  color: var(--muted);
+  color: #1C3050;
   line-height: 1.6;
   margin-bottom: 1.5rem;
 }

@@ -28,7 +28,6 @@ export default function HowWeThink() {
     <section className={`section-spacing ${styles.section}`} aria-label="How We Think">
       <div className="container">
         <SectionHeading
-          eyebrow="COGNITIVE METHODOLOGY"
           title="How We Think"
           subtitle="Three continuous phases bridging analytical business strategy with executive design excellence."
           align="center"

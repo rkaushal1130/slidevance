@@ -44,7 +44,6 @@ export default function AboutSetsUsApart() {
     <section className={`section-spacing ${styles.section}`} aria-label="What Sets Us Apart">
       <div className="container">
         <SectionHeading
-          eyebrow="STRATEGIC ADVANTAGE"
           title={
             <>
               Built Around Your Business.

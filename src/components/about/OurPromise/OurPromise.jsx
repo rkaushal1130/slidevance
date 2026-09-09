@@ -25,12 +25,6 @@ export default function OurPromise() {
             <div className={styles.cornerLines} />
           </div>
 
-          {/* Eyebrow */}
-          <div className={styles.eyebrowWrapper}>
-            <span className={styles.eyebrowDot} />
-            <span className={styles.eyebrowText}>OUR PROMISE</span>
-          </div>
-
           {/* Heading */}
           <h2 className={styles.heading}>
             Your Information.

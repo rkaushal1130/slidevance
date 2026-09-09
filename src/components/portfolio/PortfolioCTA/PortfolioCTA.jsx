@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Mail, Sparkles } from 'lucide-react';
+import { ArrowRight, Mail } from 'lucide-react';
 import Button from '../../common/Button/Button';
 import styles from './PortfolioCTA.module.css';
 
@@ -10,11 +10,6 @@ export default function PortfolioCTA() {
         <div className={styles.ctaBox}>
           {/* Ambient Glow */}
           <div className={styles.glow} />
-
-          <div className={styles.eyebrowWrapper}>
-            <Sparkles size={14} className={styles.sparkleIcon} />
-            <span className={styles.eyebrowText}>ELEVATE YOUR DELIVERABLE</span>
-          </div>
 
           <h2 className={styles.heading}>
             Have a Complex Story to Tell?

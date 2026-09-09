@@ -8,12 +8,6 @@ export default function ServicesHero() {
     <section className={styles.heroSection} aria-label="Slidevance Services Hero">
       <div className={`container ${styles.container}`}>
         <div className={styles.contentBox}>
-          {/* Eyebrow badge */}
-          <div className={styles.eyebrowBadge}>
-            <span className={styles.eyebrowDot} />
-            <span className={styles.eyebrowText}>OUR SERVICES</span>
-          </div>
-
           {/* Heading */}
           <h1 className={styles.heading}>
             End-to-End Visual Communication,

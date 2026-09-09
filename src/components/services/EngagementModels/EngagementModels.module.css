@@ -11,29 +11,38 @@
 }
 
 .modelCard {
-  background: #FFFFFF;
-  border: 1px solid rgba(9, 43, 99, 0.09);
   border-radius: var(--radius-xl);
   padding: 2.5rem 2rem;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 8px 30px rgba(9, 43, 99, 0.04);
+  box-shadow: 0 8px 30px rgba(9, 43, 99, 0.05);
   position: relative;
   overflow: hidden;
   transition: all var(--transition-normal);
 }
 
-.modelCard:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 48px rgba(9, 43, 99, 0.09);
-  border-color: rgba(7, 95, 232, 0.28);
+.modelCard:nth-child(1) {
+  background: linear-gradient(180deg, #F0F6FE 0%, #E2EEFD 100%);
+  border: 1px solid rgba(0, 85, 255, 0.18);
+  border-bottom: 3.5px solid #0055FF;
 }
 
-/* Highlighted Center Card */
-.highlightCard {
-  border: 2px solid var(--blue);
-  background: linear-gradient(180deg, #FFFFFF 0%, #F5F9FF 100%);
-  box-shadow: 0 16px 44px rgba(7, 95, 232, 0.12);
+.modelCard:nth-child(2) {
+  background: linear-gradient(180deg, #EBF8FA 0%, #DDF3F7 100%);
+  border: 2px solid #00B4D8;
+  border-bottom: 4px solid #00B4D8;
+  box-shadow: 0 16px 44px rgba(0, 180, 216, 0.12);
+}
+
+.modelCard:nth-child(3) {
+  background: linear-gradient(180deg, #FDF0F6 0%, #FAE2EE 100%);
+  border: 1px solid rgba(230, 16, 125, 0.18);
+  border-bottom: 3.5px solid #E6107D;
+}
+
+.modelCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 48px rgba(9, 43, 99, 0.12);
 }
 
 .cardGradientAccent {
@@ -95,7 +104,7 @@
 
 .modelDesc {
   font-size: 0.9375rem;
-  color: var(--muted);
+  color: #1C3050;
   line-height: 1.6;
   margin-bottom: 2rem;
 }

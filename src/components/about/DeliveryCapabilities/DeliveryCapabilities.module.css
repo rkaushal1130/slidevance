@@ -10,8 +10,6 @@
 }
 
 .columnCard {
-  background: #FFFFFF;
-  border: 1px solid rgba(9, 43, 99, 0.08);
   border-radius: var(--radius-lg);
   padding: 2.25rem 1.75rem 2rem;
   display: flex;
@@ -19,12 +17,37 @@
   transition: all var(--transition-normal);
   position: relative;
   overflow: hidden;
+  box-shadow: 0 4px 18px rgba(5, 26, 62, 0.04);
+}
+
+.columnCard:nth-child(4n + 1) {
+  background: linear-gradient(180deg, #F0F6FE 0%, #E2EEFD 100%);
+  border: 1px solid rgba(0, 85, 255, 0.18);
+  border-bottom: 3.5px solid #0055FF;
+}
+
+.columnCard:nth-child(4n + 2) {
+  background: linear-gradient(180deg, #EBF8FA 0%, #DDF3F7 100%);
+  border: 1px solid rgba(0, 180, 216, 0.22);
+  border-bottom: 3.5px solid #00B4D8;
+}
+
+.columnCard:nth-child(4n + 3) {
+  background: linear-gradient(180deg, #FDF0F6 0%, #FAE2EE 100%);
+  border: 1px solid rgba(230, 16, 125, 0.18);
+  border-bottom: 3.5px solid #E6107D;
+}
+
+.columnCard:nth-child(4n + 4) {
+  background: linear-gradient(180deg, #FEF5ED 0%, #FDEBDC 100%);
+  border: 1px solid rgba(245, 132, 0, 0.22);
+  border-bottom: 3.5px solid #F58400;
 }
 
 .columnCard:hover {
   transform: translateY(-5px);
-  border-color: rgba(7, 95, 232, 0.25);
-  box-shadow: 0 16px 36px rgba(9, 43, 99, 0.08);
+  border-color: rgba(7, 95, 232, 0.35);
+  box-shadow: 0 16px 36px rgba(9, 43, 99, 0.09);
 }
 
 .iconBox {
@@ -55,7 +78,7 @@
 
 .cardDesc {
   font-size: 0.9375rem;
-  color: var(--muted);
+  color: #1C3050;
   line-height: 1.6;
   margin: 0;
   flex: 1;

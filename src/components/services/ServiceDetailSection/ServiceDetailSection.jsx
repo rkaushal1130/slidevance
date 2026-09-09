@@ -35,7 +35,7 @@ export default function ServiceDetailSection({
           <p className={styles.serviceDescription}>{description}</p>
 
           {/* Deliverables List */}
-          <div className={styles.deliverablesBox}>
+          <div className={`${styles.deliverablesBox} ${styles[`box_${accentColor}`] || ''}`}>
             <h4 className={styles.deliverablesHeading}>Core Deliverables &amp; Scopes</h4>
             <ul className={styles.deliverablesList}>
               {deliverables.map((item) => (

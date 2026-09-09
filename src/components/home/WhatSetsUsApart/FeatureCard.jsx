@@ -6,15 +6,11 @@ export default function FeatureCard({
   icon: Icon,
   title,
   description,
-  accentColor = 'blue' // 'blue' | 'cyan' | 'magenta' | 'orange'
 }) {
   return (
-    <div className={`${styles.card} ${styles[`card_${accentColor}`]}`}>
-      {/* Top gradient highlight strip that reveals on hover */}
-      <div className={styles.cardGradientAccent} />
-
+    <div className={styles.card}>
       <div className={styles.cardHeader}>
-        <div className={`${styles.iconContainer} ${styles[`icon_${accentColor}`]}`}>
+        <div className={styles.iconContainer}>
           {Icon && <Icon size={24} strokeWidth={2} />}
         </div>
         <span className={styles.cardNumber}>{number}</span>

@@ -6,12 +6,6 @@ export default function IndustriesHero() {
     <section className={styles.heroSection} aria-label="Industries Hero">
       <div className={`container ${styles.container}`}>
         <div className={styles.contentBox}>
-          {/* Eyebrow badge */}
-          <div className={styles.eyebrowBadge}>
-            <span className={styles.eyebrowDot} />
-            <span className={styles.eyebrowText}>INDUSTRIES</span>
-          </div>
-
           {/* Heading */}
           <h1 className={styles.heading}>
             Communication Built

@@ -35,7 +35,6 @@ export default function DeliveryCapabilities() {
     <section className={`section-spacing ${styles.section}`} aria-label="Delivery Capabilities">
       <div className="container">
         <SectionHeading
-          eyebrow="TECHNICAL EXCELLENCE"
           title="Delivery Capabilities"
           subtitle="Precision engineering and universal compatibility across enterprise presentation environments."
           align="center"

@@ -1,71 +1,76 @@
 :root {
-  /* Brand Core Palette */
-  --navy: #092B63;
-  --navy-deep: #05193B;
-  --navy-surface: #0E3575;
-  --navy-card: rgba(9, 43, 99, 0.95);
+  /* Brand Core Palette - Deeper, richer tones from reference graphic */
+  --navy: #051A3E;
+  --navy-deep: #020C1F;
+  --navy-surface: #092350;
+  --navy-card: rgba(5, 26, 62, 0.95);
   
-  --blue: #075FE8;
-  --blue-hover: #064ec0;
-  --blue-soft: rgba(7, 95, 232, 0.08);
-  --blue-tint: rgba(7, 95, 232, 0.15);
-  --blue-glow: rgba(7, 95, 232, 0.25);
+  --blue: #0045E6;
+  --blue-hover: #0031B8;
+  --blue-soft: rgba(0, 69, 230, 0.08);
+  --blue-tint: rgba(0, 69, 230, 0.16);
+  --blue-glow: rgba(0, 69, 230, 0.28);
   
-  --cyan: #12C9E8;
-  --cyan-soft: rgba(18, 201, 232, 0.08);
-  --cyan-tint: rgba(18, 201, 232, 0.18);
-  --cyan-glow: rgba(18, 201, 232, 0.25);
+  --cyan: #0095FF;
+  --cyan-hover: #007ED9;
+  --cyan-soft: rgba(0, 149, 255, 0.08);
+  --cyan-tint: rgba(0, 149, 255, 0.18);
+  --cyan-glow: rgba(0, 149, 255, 0.28);
   
-  --magenta: #E52BB8;
-  --magenta-soft: rgba(229, 43, 184, 0.08);
-  --magenta-tint: rgba(229, 43, 184, 0.16);
-  --magenta-glow: rgba(229, 43, 184, 0.25);
+  --magenta: #E6107D;
+  --magenta-hover: #C70866;
+  --magenta-soft: rgba(230, 16, 125, 0.08);
+  --magenta-tint: rgba(230, 16, 125, 0.16);
+  --magenta-glow: rgba(230, 16, 125, 0.28);
   
-  --orange: #FF9D25;
-  --orange-soft: rgba(255, 157, 37, 0.08);
-  --orange-tint: rgba(255, 157, 37, 0.16);
-  --orange-glow: rgba(255, 157, 37, 0.25);
+  --orange: #F58400;
+  --orange-hover: #D96E00;
+  --orange-soft: rgba(245, 132, 0, 0.08);
+  --orange-tint: rgba(245, 132, 0, 0.16);
+  --orange-glow: rgba(245, 132, 0, 0.28);
   
-  --background: #F7FAFF;
+  /* Darker, executive slate background with deeper contrast */
+  --background: #EAF0F9;
+  --surface: #F4F8FD;
   --white: #FFFFFF;
-  --text: #102B52;
-  --text-heading: #092B63;
-  --muted: #60708A;
-  --muted-light: #8E9DB5;
+  --text: #0B1F40;
+  --text-heading: #051A3E;
+  --muted: #485A75;
+  --muted-light: #7284A0;
   
   /* Borders & Shadows */
-  --border-subtle: rgba(9, 43, 99, 0.08);
-  --border-card: rgba(7, 95, 232, 0.12);
-  --border-focus: rgba(7, 95, 232, 0.4);
+  --border-subtle: rgba(5, 26, 62, 0.10);
+  --border-card: rgba(0, 69, 230, 0.16);
+  --border-focus: rgba(0, 69, 230, 0.45);
   
-  --shadow-sm: 0 2px 8px rgba(9, 43, 99, 0.04);
-  --shadow-md: 0 8px 24px rgba(9, 43, 99, 0.06), 0 2px 6px rgba(9, 43, 99, 0.03);
-  --shadow-lg: 0 16px 40px rgba(9, 43, 99, 0.08), 0 4px 12px rgba(9, 43, 99, 0.04);
-  --shadow-hover: 0 20px 48px rgba(7, 95, 232, 0.12), 0 6px 16px rgba(9, 43, 99, 0.06);
+  --shadow-sm: 0 2px 8px rgba(5, 26, 62, 0.05);
+  --shadow-md: 0 8px 24px rgba(5, 26, 62, 0.08), 0 2px 6px rgba(5, 26, 62, 0.04);
+  --shadow-lg: 0 16px 40px rgba(5, 26, 62, 0.10), 0 4px 12px rgba(5, 26, 62, 0.05);
+  --shadow-hover: 0 20px 48px rgba(0, 69, 230, 0.15), 0 6px 16px rgba(5, 26, 62, 0.08);
   
-  /* Signature Brand Gradient */
+  /* Signature Brand Gradient - Richer, deeper hues matching reference sheets */
   --signature-gradient: linear-gradient(
     90deg,
-    #075FE8 0%,
-    #12C9E8 30%,
-    #E52BB8 65%,
-    #FF9D25 100%
+    #0045E6 0%,
+    #0095FF 30%,
+    #E6107D 65%,
+    #F58400 100%
   );
   
   --signature-gradient-vertical: linear-gradient(
     180deg,
-    #075FE8 0%,
-    #12C9E8 30%,
-    #E52BB8 65%,
-    #FF9D25 100%
+    #0045E6 0%,
+    #0095FF 30%,
+    #E6107D 65%,
+    #F58400 100%
   );
 
   --signature-gradient-subtle: linear-gradient(
     90deg,
-    rgba(7, 95, 232, 0.1) 0%,
-    rgba(18, 201, 232, 0.1) 30%,
-    rgba(229, 43, 184, 0.1) 65%,
-    rgba(255, 157, 37, 0.1) 100%
+    rgba(0, 69, 230, 0.12) 0%,
+    rgba(0, 149, 255, 0.12) 30%,
+    rgba(230, 16, 125, 0.12) 65%,
+    rgba(245, 132, 0, 0.12) 100%
   );
 
   /* Typography */
@@ -74,7 +79,7 @@
   /* Layout Constants */
   --container-max-width: 1720px;
   --container-padding: clamp(1.5rem, 2.5vw, 2.75rem);
-  --header-height: 76px;
+  --header-height: 86px;
   --radius-sm: 8px;
   --radius-md: 14px;
   --radius-lg: 20px;

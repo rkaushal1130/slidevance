@@ -40,12 +40,6 @@ export default function PromiseSection() {
       <div className={styles.ambientGlow} />
 
       <div className={`container ${styles.promiseContainer}`}>
-        {/* Editorial Eyebrow */}
-        <div className={styles.eyebrowWrapper}>
-          <span className={styles.eyebrowDot} />
-          <span className={styles.eyebrowText}>THE SLIDEVANCE PROMISE</span>
-        </div>
-
         {/* Heading */}
         <h2 className={styles.promiseHeading}>
           Your Information.

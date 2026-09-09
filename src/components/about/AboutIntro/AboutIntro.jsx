@@ -8,11 +8,6 @@ export default function AboutIntro() {
       <div className={`container ${styles.container}`}>
         {/* Editorial Heading */}
         <div className={styles.headerBlock}>
-          <div className={styles.eyebrowWrapper}>
-            <span className={styles.eyebrowDot} />
-            <span className={styles.eyebrowText}>OUR CORE PHILOSOPHY</span>
-          </div>
-
           <h2 className={styles.heading}>
             Creative Thinking.
             <br />

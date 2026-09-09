@@ -24,7 +24,6 @@ export default function IndustrySection({
             <h3 className={styles.sectionTitle}>{title}</h3>
           </div>
         </div>
-        <span className={styles.badgePill}>COMMUNICATION PROFILE</span>
       </div>
 
       {description && (

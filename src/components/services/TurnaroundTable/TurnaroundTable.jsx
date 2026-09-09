@@ -61,7 +61,6 @@ export default function TurnaroundTable() {
     <section className={`section-spacing ${styles.section}`} aria-label="Delivery Timelines & Urgency Support">
       <div className="container">
         <SectionHeading
-          eyebrow="RESPONSIVENESS &amp; AGILITY"
           title="Delivery Timelines &amp; Urgency Support"
           subtitle="Engineered for high-stakes decision timelines with active weekend availability for critical boardroom deadlines."
           align="center"
