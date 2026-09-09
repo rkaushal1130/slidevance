@@ -4,6 +4,7 @@ import styles from './IndustriesHero.module.css';
 export default function IndustriesHero() {
   return (
     <section className={styles.heroSection} aria-label="Industries Hero">
+      <div className={styles.ambientGlow} />
       <div className={`container ${styles.container}`}>
         <div className={styles.contentBox}>
           {/* Heading */}

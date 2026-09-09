@@ -102,21 +102,21 @@
 }
 
 .pointItem:nth-child(1) {
-  background: linear-gradient(180deg, #EBF8FA 0%, #DDF3F7 100%);
-  border: 1px solid rgba(0, 180, 216, 0.22);
-  border-bottom: 3px solid #00B4D8;
+  background: linear-gradient(180deg, #F0F6FE 0%, #E2EEFD 100%);
+  border: 1px solid rgba(0, 102, 255, 0.2);
+  border-bottom: 3.5px solid var(--blue);
 }
 
 .pointItem:nth-child(2) {
-  background: linear-gradient(180deg, #FDF0F6 0%, #FAE2EE 100%);
-  border: 1px solid rgba(230, 16, 125, 0.18);
-  border-bottom: 3px solid #E6107D;
+  background: linear-gradient(180deg, #F9F0FD 0%, #F3E3FA 100%);
+  border: 1px solid rgba(184, 40, 224, 0.2);
+  border-bottom: 3.5px solid var(--purple);
 }
 
 .pointItem:nth-child(3) {
-  background: linear-gradient(180deg, #FEF5ED 0%, #FDEBDC 100%);
-  border: 1px solid rgba(245, 132, 0, 0.22);
-  border-bottom: 3px solid #F58400;
+  background: linear-gradient(180deg, #FFF6EE 0%, #FEE8D8 100%);
+  border: 1px solid rgba(255, 110, 0, 0.2);
+  border-bottom: 3.5px solid var(--orange);
 }
 
 .pointItem:hover {
@@ -135,6 +135,21 @@
   color: var(--blue);
   flex-shrink: 0;
   transition: all var(--transition-fast);
+}
+
+.pointItem:nth-child(1) .pointIconWrapper {
+  background: var(--blue-soft);
+  color: var(--blue);
+}
+
+.pointItem:nth-child(2) .pointIconWrapper {
+  background: var(--purple-soft);
+  color: var(--purple);
+}
+
+.pointItem:nth-child(3) .pointIconWrapper {
+  background: var(--orange-soft);
+  color: var(--orange);
 }
 
 .pointItem:hover .pointIconWrapper {

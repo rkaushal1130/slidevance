@@ -6,6 +6,7 @@ import styles from './ServicesHero.module.css';
 export default function ServicesHero() {
   return (
     <section className={styles.heroSection} aria-label="Slidevance Services Hero">
+      <div className={styles.ambientGlow} />
       <div className={`container ${styles.container}`}>
         <div className={styles.contentBox}>
           {/* Heading */}

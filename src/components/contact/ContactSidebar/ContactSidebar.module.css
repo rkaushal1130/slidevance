@@ -68,8 +68,8 @@
 /* Official Studio Email Card */
 .emailCard {
   background: linear-gradient(180deg, #F0F6FE 0%, #E2EEFD 100%);
-  border: 1px solid rgba(0, 85, 255, 0.18);
-  border-bottom: 3.5px solid #0055FF;
+  border: 1px solid rgba(0, 102, 255, 0.18);
+  border-bottom: 3.5px solid #0066FF;
   border-radius: var(--radius-lg);
   padding: 1.25rem 1.5rem;
   display: flex;
@@ -172,15 +172,15 @@
 }
 
 .pillarItem:nth-child(1) {
-  background: linear-gradient(180deg, #EBF8FA 0%, #DDF3F7 100%);
-  border: 1px solid rgba(0, 180, 216, 0.22);
-  border-bottom: 3.5px solid #00B4D8;
+  background: linear-gradient(180deg, #F0F6FE 0%, #E2EEFD 100%);
+  border: 1px solid rgba(0, 102, 255, 0.18);
+  border-bottom: 3.5px solid #0066FF;
 }
 
 .pillarItem:nth-child(2) {
-  background: linear-gradient(180deg, #FDF0F6 0%, #FAE2EE 100%);
-  border: 1px solid rgba(230, 16, 125, 0.18);
-  border-bottom: 3.5px solid #E6107D;
+  background: linear-gradient(180deg, #FAF2FC 0%, #F4E3F9 100%);
+  border: 1px solid rgba(184, 40, 224, 0.18);
+  border-bottom: 3.5px solid #B828E0;
 }
 
 .pillarIconBox {
@@ -241,7 +241,7 @@
   width: 140px;
   height: 140px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(7, 95, 232, 0.45) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(0, 102, 255, 0.45) 0%, transparent 70%);
 }
 
 .accentLayerCyan {
@@ -251,7 +251,7 @@
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(18, 201, 232, 0.35) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(0, 153, 255, 0.35) 0%, transparent 70%);
 }
 
 .accentLayerMagenta {
@@ -261,7 +261,7 @@
   width: 90px;
   height: 90px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(229, 43, 184, 0.3) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(184, 40, 224, 0.35) 0%, transparent 70%);
 }
 
 .accentLayerOrange {
@@ -271,7 +271,7 @@
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 157, 37, 0.3) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(255, 110, 0, 0.35) 0%, transparent 70%);
 }
 
 .accentInner {

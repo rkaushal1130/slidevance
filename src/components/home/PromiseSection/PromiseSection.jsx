@@ -9,28 +9,28 @@ export default function PromiseSection() {
       icon: Database,
       title: 'Raw Data',
       desc: 'Financials, technical specs, spreadsheets & unrefined research.',
-      color: '#12C9E8'
+      color: '#0099FF'
     },
     {
       step: '02',
       icon: GitMerge,
       title: 'Business Logic',
       desc: 'Strategic synthesis, core message hierarchy & executive framing.',
-      color: '#075FE8'
+      color: '#0066FF'
     },
     {
       step: '03',
       icon: Palette,
       title: 'Visual Narrative',
       desc: 'Bespoke information design, custom vectors & cognitive flow.',
-      color: '#E52BB8'
+      color: '#B828E0'
     },
     {
       step: '04',
       icon: Award,
       title: 'Boardroom Deliverable',
       desc: 'Decisive, high-stakes presentation materials built to win consensus.',
-      color: '#FF9D25'
+      color: '#FF6E00'
     }
   ];
 
@@ -38,6 +38,7 @@ export default function PromiseSection() {
     <section className={styles.promiseSection} aria-label="Our Studio Promise">
       {/* Background ambient lighting effects */}
       <div className={styles.ambientGlow} />
+      <div className={styles.groundReflection} />
 
       <div className={`container ${styles.promiseContainer}`}>
         {/* Heading */}

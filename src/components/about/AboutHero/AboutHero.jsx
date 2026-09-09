@@ -6,6 +6,7 @@ export default function AboutHero({ settings }) {
 
   return (
     <section className={styles.heroSection} aria-label={`About ${companyName} Hero`}>
+      <div className={styles.ambientGlow} />
       <div className={`container ${styles.heroContainer}`}>
         {/* Centered Column: H1, Paragraph */}
         <div className={styles.contentCol}>

@@ -68,26 +68,26 @@
 
 .accordionItem:nth-child(4n + 1) {
   background: linear-gradient(180deg, #F0F6FE 0%, #E2EEFD 100%);
-  border: 1px solid rgba(0, 85, 255, 0.18);
-  border-bottom: 3px solid #0055FF;
+  border: 1px solid rgba(0, 102, 255, 0.18);
+  border-bottom: 3px solid #0066FF;
 }
 
 .accordionItem:nth-child(4n + 2) {
-  background: linear-gradient(180deg, #EBF8FA 0%, #DDF3F7 100%);
-  border: 1px solid rgba(0, 180, 216, 0.22);
-  border-bottom: 3px solid #00B4D8;
+  background: linear-gradient(180deg, #EDF7FE 0%, #D9EEFC 100%);
+  border: 1px solid rgba(0, 153, 255, 0.22);
+  border-bottom: 3px solid #0099FF;
 }
 
 .accordionItem:nth-child(4n + 3) {
-  background: linear-gradient(180deg, #FDF0F6 0%, #FAE2EE 100%);
-  border: 1px solid rgba(230, 16, 125, 0.18);
-  border-bottom: 3px solid #E6107D;
+  background: linear-gradient(180deg, #FAF2FC 0%, #F4E3F9 100%);
+  border: 1px solid rgba(184, 40, 224, 0.18);
+  border-bottom: 3px solid #B828E0;
 }
 
 .accordionItem:nth-child(4n + 4) {
-  background: linear-gradient(180deg, #FEF5ED 0%, #FDEBDC 100%);
-  border: 1px solid rgba(245, 132, 0, 0.22);
-  border-bottom: 3px solid #F58400;
+  background: linear-gradient(180deg, #FFF5EC 0%, #FFE9D6 100%);
+  border: 1px solid rgba(255, 110, 0, 0.22);
+  border-bottom: 3px solid #FF6E00;
 }
 
 .accordionItem:hover {

@@ -1,76 +1,100 @@
 .heroSection {
   position: relative;
-  padding-top: clamp(2.5rem, 5vw, 4.5rem);
-  padding-bottom: clamp(3rem, 6vw, 5.5rem);
+  min-height: clamp(620px, 68vw, 760px);
+  display: flex;
+  align-items: center;
+  padding-top: clamp(3rem, 5vw, 5rem);
+  padding-bottom: clamp(3rem, 5vw, 5rem);
   overflow: hidden;
 }
 
 .heroContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  max-width: 900px;
-  margin: 0 auto;
+  position: relative;
+  z-index: 10;
   width: 100%;
 }
 
 .contentCol {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  z-index: 2;
-  width: 100%;
+  align-items: flex-start;
+  text-align: left;
+  max-width: 680px;
+  position: relative;
+  z-index: 10;
 }
 
 .heroTitle {
-  font-size: clamp(2.6rem, 4.4vw, 4.25rem);
+  font-size: clamp(2.35rem, 4vw, 3.85rem);
   font-weight: 800;
   color: var(--navy);
-  line-height: 1.1;
+  line-height: 1.12;
   letter-spacing: -0.035em;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
 }
 
 .secondaryTitle {
-  font-size: clamp(1.15rem, 1.6vw, 1.4rem);
+  font-size: clamp(1.05rem, 1.35vw, 1.25rem);
   font-weight: 700;
   color: var(--navy);
   line-height: 1.35;
   letter-spacing: -0.015em;
-  margin-bottom: 1.25rem;
-  max-width: 720px;
+  margin-bottom: 1rem;
+  max-width: 600px;
 }
 
 .heroParagraph {
-  font-size: clamp(1.02rem, 1.25vw, 1.18rem);
+  font-size: clamp(0.95rem, 1.1vw, 1.1rem);
   color: #1C3050;
   line-height: 1.65;
-  margin-bottom: 2.25rem;
-  max-width: 660px;
+  margin-bottom: 1.5rem;
+  max-width: 580px;
+}
+
+.featureList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.checkIcon {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(0, 102, 255, 0.1);
+  color: var(--blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 
 .ctaGroup {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 1.25rem;
+  gap: 1rem;
   flex-wrap: wrap;
-  margin-bottom: 3rem;
+  margin-bottom: 2.25rem;
 }
 
 /* Trust Strip */
 .trustStrip {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: clamp(1.5rem, 2.5vw, 2.5rem);
-  padding-top: 1.75rem;
+  gap: clamp(1.25rem, 2vw, 2.25rem);
+  padding-top: 1.5rem;
   border-top: 1px solid var(--border-subtle);
   width: 100%;
-  max-width: 640px;
-  margin: 0 auto;
 }
 
 .trustItem {
@@ -100,30 +124,36 @@
 
 /* Responsive */
 @media (max-width: 1080px) {
-  .heroContainer {
-    max-width: 780px;
+  .contentCol {
+    max-width: 580px;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroSection {
+    min-height: auto;
+    padding-top: 2.5rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .contentCol {
+    max-width: 100%;
   }
 }
 
 @media (max-width: 600px) {
   .heroTitle {
-    font-size: 2.35rem;
+    font-size: 2.15rem;
   }
 
   .secondaryTitle {
-    font-size: 1.1rem;
-  }
-
-  .heroParagraph {
     font-size: 1rem;
-    margin-bottom: 1.75rem;
   }
 
   .ctaGroup {
     flex-direction: column;
     width: 100%;
-    gap: 0.85rem;
-    margin-bottom: 2.25rem;
+    gap: 0.75rem;
   }
 
   .ctaGroup > * {

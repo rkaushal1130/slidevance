@@ -10,6 +10,7 @@ export default function GeometricVisual({ className = '' }) {
       <div className={`${styles.glow} ${styles.glowCyan}`} />
       <div className={`${styles.glow} ${styles.glowMagenta}`} />
       <div className={`${styles.glow} ${styles.glowOrange}`} />
+      <div className={styles.groundReflection} />
 
       {/* Main 3D Perspective Stage */}
       <div className={styles.stage}>

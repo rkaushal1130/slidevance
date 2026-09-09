@@ -11,6 +11,7 @@ export default function ContactFinalCTA() {
         <div className={styles.ctaBox}>
           {/* Ambient Glows */}
           <div className={styles.glow} />
+          <div className={styles.groundReflection} aria-hidden="true" />
 
           <h2 className={styles.heading}>
             Your Information. Your Design.

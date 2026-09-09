@@ -23,21 +23,21 @@
 
 .modelCard:nth-child(1) {
   background: linear-gradient(180deg, #F0F6FE 0%, #E2EEFD 100%);
-  border: 1px solid rgba(0, 85, 255, 0.18);
-  border-bottom: 3.5px solid #0055FF;
+  border: 1px solid rgba(0, 102, 255, 0.2);
+  border-bottom: 3.5px solid var(--blue);
 }
 
 .modelCard:nth-child(2) {
-  background: linear-gradient(180deg, #EBF8FA 0%, #DDF3F7 100%);
-  border: 2px solid #00B4D8;
-  border-bottom: 4px solid #00B4D8;
-  box-shadow: 0 16px 44px rgba(0, 180, 216, 0.12);
+  background: linear-gradient(180deg, #FAF4FE 0%, #F1E2FA 100%);
+  border: 2px solid var(--purple);
+  border-bottom: 4px solid var(--purple);
+  box-shadow: 0 16px 44px rgba(184, 40, 224, 0.15);
 }
 
 .modelCard:nth-child(3) {
-  background: linear-gradient(180deg, #FDF0F6 0%, #FAE2EE 100%);
-  border: 1px solid rgba(230, 16, 125, 0.18);
-  border-bottom: 3.5px solid #E6107D;
+  background: linear-gradient(180deg, #FFF6EE 0%, #FEE8D8 100%);
+  border: 1px solid rgba(255, 110, 0, 0.22);
+  border-bottom: 3.5px solid var(--orange);
 }
 
 .modelCard:hover {

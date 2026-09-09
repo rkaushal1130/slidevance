@@ -14,6 +14,7 @@ export default function IndustriesVisualSection() {
   return (
     <section className={styles.darkSection} aria-label="Strategic Translation Visual Section">
       <div className={styles.ambientGlow} />
+      <div className={styles.groundReflection} />
 
       <div className={`container ${styles.container}`}>
         {/* Left Column: Heading and narrative */}

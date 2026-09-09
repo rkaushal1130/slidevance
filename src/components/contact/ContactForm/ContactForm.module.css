@@ -1,11 +1,23 @@
 .formCard {
   background: linear-gradient(180deg, #F0F6FE 0%, #E2EEFD 100%);
-  border: 1px solid rgba(0, 85, 255, 0.18);
-  border-bottom: 3.5px solid #0055FF;
+  border: 1px solid rgba(0, 102, 255, 0.18);
+  border-bottom: 3.5px solid #0066FF;
   border-radius: var(--radius-xl);
   padding: clamp(1.75rem, 3.5vw, 2.75rem);
   box-shadow: 0 16px 44px rgba(9, 43, 99, 0.08);
   transition: border-color var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.formCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--signature-gradient);
 }
 
 .formHeader {
@@ -27,7 +39,7 @@
 }
 
 .requiredStar {
-  color: #E52BB8;
+  color: var(--purple);
   font-weight: 700;
 }
 
@@ -72,7 +84,7 @@
   font-size: 0.925rem;
   color: var(--navy);
   background-color: #FFFFFF;
-  border: 1px solid rgba(0, 85, 255, 0.22);
+  border: 1px solid rgba(0, 102, 255, 0.22);
   border-radius: var(--radius-md);
   padding: 0.75rem 1rem;
   min-height: 48px;
@@ -90,7 +102,7 @@
 .textarea:focus {
   background-color: #FFFFFF;
   border-color: var(--blue);
-  box-shadow: 0 0 0 3px rgba(7, 95, 232, 0.18);
+  box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.18);
 }
 
 .input:disabled,
@@ -101,12 +113,12 @@
 }
 
 .inputError {
-  border-color: #E52BB8 !important;
-  background-color: rgba(229, 43, 184, 0.02) !important;
+  border-color: #E11D48 !important;
+  background-color: rgba(225, 29, 72, 0.02) !important;
 }
 
 .inputError:focus {
-  box-shadow: 0 0 0 3px rgba(229, 43, 184, 0.18) !important;
+  box-shadow: 0 0 0 3px rgba(225, 29, 72, 0.18) !important;
 }
 
 .errorText {
@@ -115,7 +127,7 @@
   gap: 0.35rem;
   font-size: 0.775rem;
   font-weight: 600;
-  color: #D61B69;
+  color: #E11D48;
   margin-top: 0.15rem;
 }
 
@@ -254,8 +266,8 @@
 }
 
 .removeFileBtn:hover {
-  background: rgba(229, 43, 184, 0.1);
-  color: #E52BB8;
+  background: rgba(184, 40, 224, 0.1);
+  color: var(--purple);
 }
 
 /* Submit Area */
@@ -284,9 +296,9 @@
 }
 
 .submitBtn:hover:not(:disabled) {
-  background: var(--blue);
+  background: var(--signature-gradient);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(7, 95, 232, 0.35);
+  box-shadow: 0 6px 20px rgba(0, 102, 255, 0.35);
 }
 
 .submitBtn:disabled {

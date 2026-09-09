@@ -36,13 +36,32 @@
   color: var(--blue);
 }
 
+.pillarBlue:hover {
+  color: var(--blue);
+}
+
+.pillarPurple:hover {
+  color: var(--purple);
+}
+
+.pillarOrange:hover {
+  color: var(--orange);
+}
+
 .bullet {
   font-size: 1.25rem;
-  color: var(--blue);
-  opacity: 0.8;
+  opacity: 0.9;
   display: inline-flex;
   align-items: center;
   line-height: 1;
+}
+
+.bulletBlue {
+  color: var(--blue);
+}
+
+.bulletPurple {
+  color: var(--purple);
 }
 
 @media (max-width: 600px) {

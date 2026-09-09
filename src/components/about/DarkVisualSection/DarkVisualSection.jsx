@@ -7,6 +7,7 @@ export default function DarkVisualSection() {
     <section className={styles.darkSection} aria-label="Visual Narrative Transformation">
       {/* Background Soft Glow */}
       <div className={styles.glow} />
+      <div className={styles.groundReflection} />
 
       <div className={`container ${styles.container}`}>
         <div className={styles.contentCol}>

@@ -48,8 +48,8 @@ export default function SlideMockup({ type = 'investor', className = '' }) {
               </div>
               <div className={styles.chartCol}>
                 <div className={styles.barStack}>
-                  <div className={styles.barSegment} style={{ height: '55%', background: 'rgba(18,201,232,0.4)' }} />
-                  <div className={styles.barSegment} style={{ height: '100%', background: 'linear-gradient(180deg, #12C9E8 0%, #075FE8 100%)' }} />
+                  <div className={styles.barSegment} style={{ height: '55%', background: 'rgba(0,153,255,0.4)' }} />
+                  <div className={styles.barSegment} style={{ height: '100%', background: 'linear-gradient(180deg, #0099FF 0%, #0066FF 100%)' }} />
                 </div>
                 <span className={styles.barLabel}>FY26E</span>
               </div>
@@ -209,7 +209,7 @@ export default function SlideMockup({ type = 'investor', className = '' }) {
               <div className={styles.funnelBar} style={{ width: '75%', background: 'rgba(255, 157, 37, 0.35)' }}>
                 <span>02 Solution Demonstration</span>
               </div>
-              <div className={styles.funnelBar} style={{ width: '50%', background: 'linear-gradient(90deg, #FF9D25 0%, #E52BB8 100%)', color: '#fff' }}>
+              <div className={styles.funnelBar} style={{ width: '50%', background: 'linear-gradient(90deg, #FF6E00 0%, #B828E0 100%)', color: '#fff' }}>
                 <span>03 Commercial Close</span>
               </div>
             </div>
@@ -239,13 +239,13 @@ export default function SlideMockup({ type = 'investor', className = '' }) {
               <svg viewBox="0 0 280 90" className={styles.dataSvg}>
                 <defs>
                   <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#12C9E8" stopOpacity="0.4" />
-                    <stop offset="100%" stopColor="#12C9E8" stopOpacity="0.0" />
+                    <stop offset="0%" stopColor="#0099FF" stopOpacity="0.4" />
+                    <stop offset="100%" stopColor="#0099FF" stopOpacity="0.0" />
                   </linearGradient>
                 </defs>
                 <path d="M 0 75 Q 40 60, 80 50 T 160 35 T 220 20 T 280 10 L 280 90 L 0 90 Z" fill="url(#areaGrad)" />
-                <path d="M 0 75 Q 40 60, 80 50 T 160 35 T 220 20 T 280 10" fill="none" stroke="#12C9E8" strokeWidth="2.5" />
-                <path d="M 0 85 Q 50 75, 100 65 T 190 55 T 280 40" fill="none" stroke="#075FE8" strokeWidth="2" strokeDasharray="4 4" />
+                <path d="M 0 75 Q 40 60, 80 50 T 160 35 T 220 20 T 280 10" fill="none" stroke="#0099FF" strokeWidth="2.5" />
+                <path d="M 0 85 Q 50 75, 100 65 T 190 55 T 280 40" fill="none" stroke="#0066FF" strokeWidth="2" strokeDasharray="4 4" />
               </svg>
             </div>
             <div className={styles.dataStatsRow}>

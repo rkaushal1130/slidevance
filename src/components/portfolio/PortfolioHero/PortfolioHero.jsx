@@ -6,6 +6,7 @@ import styles from './PortfolioHero.module.css';
 export default function PortfolioHero() {
   return (
     <section className={styles.heroSection} aria-label="Portfolio Hero">
+      <div className={styles.ambientGlow} aria-hidden="true" />
       <div className={`container ${styles.container}`}>
         <div className={styles.contentBox}>
           {/* Heading */}

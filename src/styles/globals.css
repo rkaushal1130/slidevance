@@ -26,7 +26,7 @@ body {
   position: relative;
 }
 
-/* Subtle background ambient geometric grid pattern for executive studio look */
+/* Subtle background ambient glow mesh featuring the exact signature trio: Electric Blue, Vivid Purple, Radiant Orange */
 body::before {
   content: '';
   position: fixed;
@@ -35,12 +35,22 @@ body::before {
   right: 0;
   height: 100vh;
   background-image: 
-    radial-gradient(circle at 15% 10%, rgba(0, 69, 230, 0.05) 0%, transparent 45%),
-    radial-gradient(circle at 85% 25%, rgba(0, 149, 255, 0.05) 0%, transparent 40%),
-    radial-gradient(circle at 50% 80%, rgba(230, 16, 125, 0.04) 0%, transparent 50%),
-    linear-gradient(rgba(5, 26, 62, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(5, 26, 62, 0.025) 1px, transparent 1px);
-  background-size: 100% 100%, 100% 100%, 100% 100%, 64px 64px, 64px 64px;
+    /* Top-left: Electric Royal Blue glow */
+    radial-gradient(circle at 8% 8%, rgba(0, 102, 255, 0.08) 0%, transparent 46%),
+    /* Upper-center: Vivid Violet-Purple glow */
+    radial-gradient(circle at 50% 16%, rgba(184, 40, 224, 0.065) 0%, transparent 44%),
+    /* Top-right: Radiant Warm Orange glow */
+    radial-gradient(circle at 92% 12%, rgba(255, 110, 0, 0.075) 0%, transparent 40%),
+    /* Mid-left accent: Radiant Orange soft bloom */
+    radial-gradient(circle at 4% 65%, rgba(255, 110, 0, 0.05) 0%, transparent 38%),
+    /* Center-bottom: Vivid Purple ambient pool */
+    radial-gradient(circle at 52% 80%, rgba(184, 40, 224, 0.06) 0%, transparent 45%),
+    /* Bottom-right: Electric Royal Blue ambient pool */
+    radial-gradient(circle at 95% 85%, rgba(0, 102, 255, 0.075) 0%, transparent 42%),
+    /* Modern executive micro-grid */
+    linear-gradient(rgba(5, 26, 62, 0.022) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(5, 26, 62, 0.022) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 64px 64px, 64px 64px;
   pointer-events: none;
   z-index: 0;
 }
@@ -200,7 +210,7 @@ p {
 
 /* Subtle Branded Text Selection */
 ::selection {
-  background-color: rgba(7, 95, 232, 0.18);
+  background-color: rgba(0, 102, 255, 0.2);
   color: var(--navy);
 }
 

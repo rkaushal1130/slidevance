@@ -1,13 +1,17 @@
 import React from 'react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Check } from 'lucide-react';
 import Button from '../../common/Button/Button';
+import HeroSlideShowcase from './HeroSlideShowcase';
 import styles from './Hero.module.css';
 
 export default function Hero() {
   return (
     <section className={styles.heroSection} aria-label="Slidevance Hero">
+      {/* Moving 3D Presentation Slides Animation in Background */}
+      <HeroSlideShowcase />
+
+      {/* Hero Content in Foreground */}
       <div className={`container ${styles.heroContainer}`}>
-        {/* Centered Content Column: Text, CTAs & Trust Strip */}
         <div className={styles.contentCol}>
           {/* H1 Heading */}
           <h1 className={styles.heroTitle}>
@@ -26,6 +30,28 @@ export default function Hero() {
             Slidevance combines narrative strategy, research, and corporate visual design
             to build materials engineered for high-stakes decisions.
           </p>
+
+          {/* Value Checklist - Exactly like reference screenshot */}
+          <div className={styles.featureList}>
+            <div className={styles.featureItem}>
+              <div className={styles.checkIcon}>
+                <Check size={14} strokeWidth={3} />
+              </div>
+              <span>100% in-house narrative &amp; visual designers</span>
+            </div>
+            <div className={styles.featureItem}>
+              <div className={styles.checkIcon}>
+                <Check size={14} strokeWidth={3} />
+              </div>
+              <span>Enterprise-ready C-suite &amp; boardroom visual platform</span>
+            </div>
+            <div className={styles.featureItem}>
+              <div className={styles.checkIcon}>
+                <Check size={14} strokeWidth={3} />
+              </div>
+              <span>Rapid turnaround &amp; agile weekend sprint coverage</span>
+            </div>
+          </div>
 
           {/* Action Buttons */}
           <div className={styles.ctaGroup}>
@@ -51,17 +77,17 @@ export default function Hero() {
           <div className={styles.trustStrip}>
             <div className={styles.trustItem}>
               <span className={styles.trustValue}>100%</span>
-              <span className={styles.trustLabel}>Bespoke Visual Systems</span>
+              <span className={styles.trustLabel}>Bespoke Systems</span>
             </div>
             <div className={styles.trustDivider} />
             <div className={styles.trustItem}>
               <span className={styles.trustValue}>24/7</span>
-              <span className={styles.trustLabel}>Agile Weekend Coverage</span>
+              <span className={styles.trustLabel}>Agile Coverage</span>
             </div>
             <div className={styles.trustDivider} />
             <div className={styles.trustItem}>
               <span className={styles.trustValue}>C-Suite</span>
-              <span className={styles.trustLabel}>Decision Grade Decks</span>
+              <span className={styles.trustLabel}>Decision Decks</span>
             </div>
           </div>
         </div>

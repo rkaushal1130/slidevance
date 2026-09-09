@@ -1,5 +1,5 @@
 .darkSection {
-  background-color: #092B63;
+  background-color: var(--navy-deep);
   color: var(--white);
   position: relative;
   overflow: hidden;
@@ -12,15 +12,26 @@
   top: 50%;
   left: 30%;
   transform: translate(-50%, -50%);
-  width: 600px;
-  height: 400px;
-  background: radial-gradient(
-    circle,
-    rgba(7, 95, 232, 0.25) 0%,
-    rgba(18, 201, 232, 0.1) 40%,
-    transparent 70%
-  );
+  width: min(850px, 95vw);
+  height: 480px;
+  background: radial-gradient(circle at 25% 45%, rgba(0, 102, 255, 0.28) 0%, transparent 60%),
+              radial-gradient(circle at 50% 50%, rgba(184, 40, 224, 0.22) 0%, transparent 55%),
+              radial-gradient(circle at 75% 45%, rgba(255, 110, 0, 0.22) 0%, transparent 60%);
   filter: blur(80px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.groundReflection {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: radial-gradient(ellipse at 25% 100%, rgba(0, 102, 255, 0.4) 0%, transparent 60%),
+              radial-gradient(ellipse at 50% 100%, rgba(184, 40, 224, 0.35) 0%, transparent 60%),
+              radial-gradient(ellipse at 75% 100%, rgba(255, 110, 0, 0.35) 0%, transparent 60%);
+  filter: blur(35px);
   pointer-events: none;
   z-index: 1;
 }

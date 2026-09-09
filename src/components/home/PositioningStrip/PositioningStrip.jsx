@@ -10,11 +10,11 @@ export default function PositioningStrip() {
 
       <div className={`container ${styles.stripContainer}`}>
         <div className={styles.stripContent}>
-          <span className={styles.pillarText}>PRESENTATION</span>
-          <span className={styles.bullet}>•</span>
-          <span className={styles.pillarText}>RESEARCH</span>
-          <span className={styles.bullet}>•</span>
-          <span className={styles.pillarText}>BUSINESS COMMUNICATION</span>
+          <span className={`${styles.pillarText} ${styles.pillarBlue}`}>PRESENTATION</span>
+          <span className={`${styles.bullet} ${styles.bulletBlue}`}>•</span>
+          <span className={`${styles.pillarText} ${styles.pillarPurple}`}>RESEARCH</span>
+          <span className={`${styles.bullet} ${styles.bulletPurple}`}>•</span>
+          <span className={`${styles.pillarText} ${styles.pillarOrange}`}>BUSINESS COMMUNICATION</span>
         </div>
       </div>
 

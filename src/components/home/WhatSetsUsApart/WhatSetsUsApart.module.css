@@ -26,7 +26,28 @@
 .card:hover {
   transform: translateY(-6px);
   box-shadow: 0 16px 36px rgba(9, 43, 99, 0.08);
-  border-color: rgba(7, 95, 232, 0.28);
+  border-color: rgba(0, 102, 255, 0.28);
+}
+
+.card_blue:hover {
+  border-color: rgba(0, 102, 255, 0.45);
+  box-shadow: 0 16px 36px rgba(0, 102, 255, 0.12);
+}
+
+.card_cyan:hover {
+  border-color: rgba(0, 153, 255, 0.45);
+  box-shadow: 0 16px 36px rgba(0, 153, 255, 0.12);
+}
+
+.card_magenta:hover,
+.card_purple:hover {
+  border-color: rgba(184, 40, 224, 0.45);
+  box-shadow: 0 16px 36px rgba(184, 40, 224, 0.12);
+}
+
+.card_orange:hover {
+  border-color: rgba(255, 110, 0, 0.45);
+  box-shadow: 0 16px 36px rgba(255, 110, 0, 0.12);
 }
 
 /* Header Elements */
@@ -46,8 +67,33 @@
   border-radius: var(--radius-md);
   background-color: var(--blue-soft);
   color: var(--blue);
-  border: 1px solid rgba(7, 95, 232, 0.16);
+  border: 1px solid rgba(0, 102, 255, 0.18);
   transition: all var(--transition-fast);
+}
+
+.icon_blue {
+  background-color: var(--blue-soft);
+  color: var(--blue);
+  border-color: rgba(0, 102, 255, 0.2);
+}
+
+.icon_cyan {
+  background-color: var(--cyan-soft);
+  color: var(--cyan);
+  border-color: rgba(0, 153, 255, 0.2);
+}
+
+.icon_magenta,
+.icon_purple {
+  background-color: var(--purple-soft);
+  color: var(--purple);
+  border-color: rgba(184, 40, 224, 0.2);
+}
+
+.icon_orange {
+  background-color: var(--orange-soft);
+  color: var(--orange);
+  border-color: rgba(255, 110, 0, 0.2);
 }
 
 .card:hover .iconContainer {

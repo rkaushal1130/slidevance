@@ -12,16 +12,26 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 700px;
-  height: 400px;
-  background: radial-gradient(
-    circle,
-    rgba(7, 95, 232, 0.15) 0%,
-    rgba(18, 201, 232, 0.08) 35%,
-    rgba(229, 43, 184, 0.06) 65%,
-    transparent 80%
-  );
+  width: min(950px, 95vw);
+  height: 480px;
+  background: radial-gradient(circle at 20% 45%, rgba(0, 102, 255, 0.25) 0%, transparent 60%),
+              radial-gradient(circle at 50% 50%, rgba(184, 40, 224, 0.2) 0%, transparent 55%),
+              radial-gradient(circle at 80% 45%, rgba(255, 110, 0, 0.22) 0%, transparent 60%);
   filter: blur(80px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.groundReflection {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: radial-gradient(ellipse at 25% 100%, rgba(0, 102, 255, 0.4) 0%, transparent 60%),
+              radial-gradient(ellipse at 50% 100%, rgba(184, 40, 224, 0.35) 0%, transparent 60%),
+              radial-gradient(ellipse at 75% 100%, rgba(255, 110, 0, 0.35) 0%, transparent 60%);
+  filter: blur(35px);
   pointer-events: none;
   z-index: 1;
 }
@@ -80,29 +90,29 @@
   margin-bottom: 4rem;
 }
 
-/* Gradient highlight word classes */
+/* Gradient highlight word classes matching exact trio */
 .highlightCyan {
-  color: #12C9E8;
+  color: var(--cyan);
   font-weight: 700;
-  text-shadow: 0 0 16px rgba(18, 201, 232, 0.35);
+  text-shadow: 0 0 16px rgba(0, 153, 255, 0.45);
 }
 
 .highlightBlue {
-  color: #4B92FF;
+  color: var(--blue);
   font-weight: 700;
-  text-shadow: 0 0 16px rgba(7, 95, 232, 0.4);
+  text-shadow: 0 0 16px rgba(0, 102, 255, 0.5);
 }
 
 .highlightMagenta {
-  color: #FF5CD7;
+  color: var(--purple);
   font-weight: 700;
-  text-shadow: 0 0 16px rgba(229, 43, 184, 0.4);
+  text-shadow: 0 0 16px rgba(184, 40, 224, 0.5);
 }
 
 .highlightOrange {
-  color: #FFB357;
+  color: var(--orange);
   font-weight: 700;
-  text-shadow: 0 0 16px rgba(255, 157, 37, 0.45);
+  text-shadow: 0 0 16px rgba(255, 110, 0, 0.5);
 }
 
 /* 4-Stage Pipeline Grid */

@@ -6,11 +6,12 @@ export default function FeatureCard({
   icon: Icon,
   title,
   description,
+  accentColor = 'blue',
 }) {
   return (
-    <div className={styles.card}>
+    <div className={`${styles.card} ${styles[`card_${accentColor}`] || ''}`}>
       <div className={styles.cardHeader}>
-        <div className={styles.iconContainer}>
+        <div className={`${styles.iconContainer} ${styles[`icon_${accentColor}`] || ''}`}>
           {Icon && <Icon size={24} strokeWidth={2} />}
         </div>
         <span className={styles.cardNumber}>{number}</span>
@@ -22,7 +23,7 @@ export default function FeatureCard({
       </div>
 
       <div className={styles.cardFooter}>
-        <div className={styles.cardIndicator} />
+        <div className={`${styles.cardIndicator} ${styles[`indicator_${accentColor}`] || ''}`} />
       </div>
     </div>
   );

@@ -1,77 +1,93 @@
 :root {
-  /* Brand Core Palette - Deeper, richer tones from reference graphic */
+  /* Brand Core Palette - Exact 3-Color Trio: Electric Blue, Vivid Purple, Radiant Orange */
   --navy: #051A3E;
   --navy-deep: #020C1F;
   --navy-surface: #092350;
   --navy-card: rgba(5, 26, 62, 0.95);
   
-  --blue: #0045E6;
-  --blue-hover: #0031B8;
-  --blue-soft: rgba(0, 69, 230, 0.08);
-  --blue-tint: rgba(0, 69, 230, 0.16);
-  --blue-glow: rgba(0, 69, 230, 0.28);
+  /* Plane 1: Electric Royal Blue */
+  --blue: #0066FF;
+  --blue-hover: #0052D9;
+  --blue-soft: rgba(0, 102, 255, 0.08);
+  --blue-tint: rgba(0, 102, 255, 0.16);
+  --blue-glow: rgba(0, 102, 255, 0.32);
   
-  --cyan: #0095FF;
-  --cyan-hover: #007ED9;
-  --cyan-soft: rgba(0, 149, 255, 0.08);
-  --cyan-tint: rgba(0, 149, 255, 0.18);
-  --cyan-glow: rgba(0, 149, 255, 0.28);
+  /* Cyan / Blue Highlight */
+  --cyan: #0099FF;
+  --cyan-hover: #0080E6;
+  --cyan-soft: rgba(0, 153, 255, 0.08);
+  --cyan-tint: rgba(0, 153, 255, 0.16);
+  --cyan-glow: rgba(0, 153, 255, 0.32);
   
-  --magenta: #E6107D;
-  --magenta-hover: #C70866;
-  --magenta-soft: rgba(230, 16, 125, 0.08);
-  --magenta-tint: rgba(230, 16, 125, 0.16);
-  --magenta-glow: rgba(230, 16, 125, 0.28);
+  /* Plane 2: Vivid Violet-Purple / Magenta */
+  --purple: #B828E0;
+  --purple-hover: #9D1FC4;
+  --purple-soft: rgba(184, 40, 224, 0.08);
+  --purple-tint: rgba(184, 40, 224, 0.16);
+  --purple-glow: rgba(184, 40, 224, 0.32);
   
-  --orange: #F58400;
-  --orange-hover: #D96E00;
-  --orange-soft: rgba(245, 132, 0, 0.08);
-  --orange-tint: rgba(245, 132, 0, 0.16);
-  --orange-glow: rgba(245, 132, 0, 0.28);
+  --magenta: #B828E0;
+  --magenta-hover: #9D1FC4;
+  --magenta-soft: rgba(184, 40, 224, 0.08);
+  --magenta-tint: rgba(184, 40, 224, 0.16);
+  --magenta-glow: rgba(184, 40, 224, 0.32);
   
-  /* Darker, executive slate background with deeper contrast */
-  --background: #EAF0F9;
-  --surface: #F4F8FD;
+  /* Plane 3: Vibrant Radiant Orange */
+  --orange: #FF6E00;
+  --orange-hover: #E65A00;
+  --orange-soft: rgba(255, 110, 0, 0.08);
+  --orange-tint: rgba(255, 110, 0, 0.16);
+  --orange-glow: rgba(255, 110, 0, 0.32);
+  
+  /* Luminous executive background with high contrast */
+  --background: #F5F8FE;
+  --surface: #FFFFFF;
   --white: #FFFFFF;
-  --text: #0B1F40;
-  --text-heading: #051A3E;
-  --muted: #485A75;
-  --muted-light: #7284A0;
+  --text: #081A38;
+  --text-heading: #041430;
+  --muted: #415372;
+  --muted-light: #6D80A0;
   
   /* Borders & Shadows */
-  --border-subtle: rgba(5, 26, 62, 0.10);
-  --border-card: rgba(0, 69, 230, 0.16);
-  --border-focus: rgba(0, 69, 230, 0.45);
+  --border-subtle: rgba(5, 26, 62, 0.08);
+  --border-card: rgba(0, 102, 255, 0.14);
+  --border-focus: rgba(0, 102, 255, 0.45);
   
-  --shadow-sm: 0 2px 8px rgba(5, 26, 62, 0.05);
-  --shadow-md: 0 8px 24px rgba(5, 26, 62, 0.08), 0 2px 6px rgba(5, 26, 62, 0.04);
-  --shadow-lg: 0 16px 40px rgba(5, 26, 62, 0.10), 0 4px 12px rgba(5, 26, 62, 0.05);
-  --shadow-hover: 0 20px 48px rgba(0, 69, 230, 0.15), 0 6px 16px rgba(5, 26, 62, 0.08);
+  --shadow-sm: 0 2px 8px rgba(5, 26, 62, 0.04);
+  --shadow-md: 0 8px 24px rgba(5, 26, 62, 0.07), 0 2px 6px rgba(0, 102, 255, 0.04);
+  --shadow-lg: 0 16px 40px rgba(5, 26, 62, 0.09), 0 4px 12px rgba(0, 102, 255, 0.06);
+  --shadow-hover: 0 20px 48px rgba(0, 102, 255, 0.14), 0 6px 16px rgba(184, 40, 224, 0.08);
   
-  /* Signature Brand Gradient - Richer, deeper hues matching reference sheets */
+  /* Signature Brand Gradient - Exact Trio: Blue -> Purple -> Orange */
   --signature-gradient: linear-gradient(
     90deg,
-    #0045E6 0%,
-    #0095FF 30%,
-    #E6107D 65%,
-    #F58400 100%
+    #0066FF 0%,
+    #B828E0 50%,
+    #FF6E00 100%
+  );
+  
+  --signature-gradient-angled: linear-gradient(
+    135deg,
+    #0066FF 0%,
+    #B828E0 50%,
+    #FF6E00 100%
   );
   
   --signature-gradient-vertical: linear-gradient(
     180deg,
-    #0045E6 0%,
-    #0095FF 30%,
-    #E6107D 65%,
-    #F58400 100%
+    #0066FF 0%,
+    #B828E0 50%,
+    #FF6E00 100%
   );
 
   --signature-gradient-subtle: linear-gradient(
     90deg,
-    rgba(0, 69, 230, 0.12) 0%,
-    rgba(0, 149, 255, 0.12) 30%,
-    rgba(230, 16, 125, 0.12) 65%,
-    rgba(245, 132, 0, 0.12) 100%
+    rgba(0, 102, 255, 0.12) 0%,
+    rgba(184, 40, 224, 0.12) 50%,
+    rgba(255, 110, 0, 0.12) 100%
   );
+
+  --signature-trio-glow: 0 0 35px rgba(0, 102, 255, 0.28), 0 0 45px rgba(184, 40, 224, 0.22), 0 0 35px rgba(255, 110, 0, 0.22);
 
   /* Typography */
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;

@@ -16,11 +16,11 @@
 }
 
 .headerScrolled {
-  background-color: rgba(234, 240, 249, 0.72);
+  background-color: rgba(245, 248, 254, 0.85);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(5, 26, 62, 0.08);
-  box-shadow: 0 4px 20px rgba(5, 26, 62, 0.06);
+  border-bottom: 1px solid rgba(5, 26, 62, 0.06);
+  box-shadow: 0 4px 20px rgba(5, 26, 62, 0.04), 0 1px 0 rgba(0, 102, 255, 0.06);
 }
 
 .headerSpacer {

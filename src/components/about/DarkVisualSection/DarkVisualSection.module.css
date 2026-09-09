@@ -1,5 +1,5 @@
 .darkSection {
-  background-color: #092B63;
+  background-color: var(--navy-deep);
   color: var(--white);
   position: relative;
   overflow: hidden;
@@ -12,15 +12,26 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 700px;
-  height: 450px;
-  background: radial-gradient(
-    circle,
-    rgba(7, 95, 232, 0.28) 0%,
-    rgba(18, 201, 232, 0.12) 40%,
-    transparent 70%
-  );
+  width: min(900px, 95vw);
+  height: 480px;
+  background: radial-gradient(circle at 20% 45%, rgba(0, 102, 255, 0.28) 0%, transparent 60%),
+              radial-gradient(circle at 50% 50%, rgba(184, 40, 224, 0.22) 0%, transparent 55%),
+              radial-gradient(circle at 80% 45%, rgba(255, 110, 0, 0.22) 0%, transparent 60%);
   filter: blur(80px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.groundReflection {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: radial-gradient(ellipse at 25% 100%, rgba(0, 102, 255, 0.4) 0%, transparent 60%),
+              radial-gradient(ellipse at 50% 100%, rgba(184, 40, 224, 0.35) 0%, transparent 60%),
+              radial-gradient(ellipse at 75% 100%, rgba(255, 110, 0, 0.35) 0%, transparent 60%);
+  filter: blur(35px);
   pointer-events: none;
   z-index: 1;
 }
@@ -79,7 +90,7 @@
 }
 
 .highlightLogic {
-  color: #12C9E8;
+  color: var(--cyan);
   font-weight: 800;
 }
 
@@ -115,18 +126,42 @@
 
 .transformItem:hover {
   background: rgba(255, 255, 255, 0.09);
-  border-color: rgba(18, 201, 232, 0.4);
   transform: translateY(-4px);
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
 }
 
+.transformItem:nth-child(1):hover {
+  border-color: rgba(0, 102, 255, 0.55);
+}
+
+.transformItem:nth-child(2):hover {
+  border-color: rgba(184, 40, 224, 0.55);
+}
+
+.transformItem:nth-child(3):hover {
+  border-color: rgba(255, 110, 0, 0.55);
+}
+
 .checkIcon {
-  color: var(--cyan);
   flex-shrink: 0;
-  background: rgba(18, 201, 232, 0.12);
   padding: 0.5rem;
   border-radius: var(--radius-md);
   box-sizing: content-box;
+}
+
+.transformItem:nth-child(1) .checkIcon {
+  color: var(--blue);
+  background: rgba(0, 102, 255, 0.16);
+}
+
+.transformItem:nth-child(2) .checkIcon {
+  color: var(--purple);
+  background: rgba(184, 40, 224, 0.16);
+}
+
+.transformItem:nth-child(3) .checkIcon {
+  color: var(--orange);
+  background: rgba(255, 110, 0, 0.16);
 }
 
 .itemText {

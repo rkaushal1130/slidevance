@@ -5,9 +5,9 @@
 
 .ctaBox {
   position: relative;
-  background: linear-gradient(180deg, #F0F6FE 0%, #E2EEFD 100%);
-  border: 1.5px solid rgba(0, 85, 255, 0.18);
-  border-bottom: 3.5px solid #0055FF;
+  background: linear-gradient(180deg, #FFFFFF 0%, #F5F9FE 100%);
+  border: 1.5px solid rgba(0, 102, 255, 0.18);
+  border-bottom: 3.5px solid var(--blue);
   border-radius: var(--radius-xl);
   padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 5vw, 4rem);
   text-align: center;
@@ -18,13 +18,23 @@
   overflow: hidden;
 }
 
+.ctaBox::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--signature-gradient);
+}
+
 .glow {
   position: absolute;
   top: -80px;
   right: -80px;
-  width: 320px;
-  height: 320px;
-  background: radial-gradient(circle, rgba(18, 201, 232, 0.15) 0%, rgba(229, 43, 184, 0.08) 50%, transparent 70%);
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle, rgba(0, 102, 255, 0.2) 0%, rgba(184, 40, 224, 0.16) 40%, rgba(255, 110, 0, 0.14) 70%, transparent 85%);
   filter: blur(50px);
   pointer-events: none;
 }

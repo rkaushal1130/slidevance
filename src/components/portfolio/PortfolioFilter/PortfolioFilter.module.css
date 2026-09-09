@@ -50,14 +50,15 @@
 
 .activeBtn {
   color: #FFFFFF;
-  background-color: var(--navy);
+  background-color: var(--blue);
   font-weight: 700;
-  box-shadow: 0 4px 14px rgba(9, 43, 99, 0.2);
+  box-shadow: 0 4px 14px rgba(0, 102, 255, 0.3);
 }
 
 .activeBtn:hover {
   color: #FFFFFF;
-  background-color: var(--navy);
+  background-color: var(--blue);
+  box-shadow: 0 6px 18px rgba(0, 102, 255, 0.4);
 }
 
 @media (max-width: 768px) {

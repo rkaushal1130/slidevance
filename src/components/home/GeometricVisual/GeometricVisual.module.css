@@ -22,7 +22,7 @@
 .glowBlue {
   width: 240px;
   height: 240px;
-  background: rgba(0, 69, 230, 0.25);
+  background: rgba(0, 102, 255, 0.35);
   top: 10%;
   left: 5%;
   animation: pulseGlow 6s ease-in-out infinite alternate;
@@ -31,7 +31,7 @@
 .glowCyan {
   width: 200px;
   height: 200px;
-  background: rgba(0, 149, 255, 0.25);
+  background: rgba(0, 153, 255, 0.28);
   top: 5%;
   right: 15%;
   animation: pulseGlow 5s ease-in-out 1s infinite alternate;
@@ -40,19 +40,34 @@
 .glowMagenta {
   width: 220px;
   height: 220px;
-  background: rgba(230, 16, 125, 0.22);
+  background: rgba(184, 40, 224, 0.32);
   bottom: 12%;
   left: 20%;
   animation: pulseGlow 7s ease-in-out 0.5s infinite alternate;
 }
 
 .glowOrange {
-  width: 190px;
-  height: 190px;
-  background: rgba(245, 132, 0, 0.24);
+  width: 210px;
+  height: 210px;
+  background: rgba(255, 110, 0, 0.32);
   bottom: 5%;
   right: 10%;
   animation: pulseGlow 6s ease-in-out 1.5s infinite alternate;
+}
+
+/* Base ground glow spotlight from screenshot */
+.groundReflection {
+  position: absolute;
+  bottom: -25px;
+  left: 5%;
+  right: 5%;
+  height: 50px;
+  background: radial-gradient(ellipse at 25% 50%, rgba(0, 102, 255, 0.5) 0%, transparent 60%),
+              radial-gradient(ellipse at 50% 50%, rgba(184, 40, 224, 0.45) 0%, transparent 60%),
+              radial-gradient(ellipse at 75% 50%, rgba(255, 110, 0, 0.45) 0%, transparent 60%);
+  filter: blur(20px);
+  pointer-events: none;
+  z-index: 1;
 }
 
 /* Stage container with 3D transform */
@@ -81,9 +96,9 @@
 .panelBlue {
   width: 340px;
   height: 220px;
-  background: linear-gradient(135deg, rgba(0, 69, 230, 0.18) 0%, rgba(5, 26, 62, 0.32) 100%);
-  border: 1.5px solid rgba(0, 69, 230, 0.45);
-  box-shadow: 0 16px 36px rgba(0, 69, 230, 0.2), 0 2px 8px rgba(5, 26, 62, 0.12);
+  background: linear-gradient(135deg, rgba(0, 102, 255, 0.24) 0%, rgba(5, 26, 62, 0.42) 100%);
+  border: 1.5px solid rgba(0, 102, 255, 0.65);
+  box-shadow: 0 16px 36px rgba(0, 102, 255, 0.28), 0 2px 8px rgba(5, 26, 62, 0.12);
   transform: translate3d(-60px, -70px, -40px) rotate(-6deg);
   z-index: 2;
   padding: 1.25rem;
@@ -93,21 +108,21 @@
 .panelCyan {
   width: 320px;
   height: 210px;
-  background: linear-gradient(135deg, rgba(0, 149, 255, 0.18) 0%, rgba(255, 255, 255, 0.75) 100%);
-  border: 1.5px solid rgba(0, 149, 255, 0.48);
-  box-shadow: 0 18px 40px rgba(0, 149, 255, 0.2), 0 4px 10px rgba(5, 26, 62, 0.08);
+  background: linear-gradient(135deg, rgba(0, 153, 255, 0.22) 0%, rgba(255, 255, 255, 0.85) 100%);
+  border: 1.5px solid rgba(0, 153, 255, 0.55);
+  box-shadow: 0 18px 40px rgba(0, 153, 255, 0.22), 0 4px 10px rgba(5, 26, 62, 0.08);
   transform: translate3d(55px, -50px, 0px) rotate(4deg);
   z-index: 3;
   padding: 1.25rem;
 }
 
-/* Panel 3: Translucent Magenta Panel */
+/* Panel 3: Translucent Magenta/Purple Panel */
 .panelMagenta {
   width: 330px;
   height: 210px;
-  background: linear-gradient(135deg, rgba(230, 16, 125, 0.16) 0%, rgba(255, 255, 255, 0.8) 100%);
-  border: 1.5px solid rgba(230, 16, 125, 0.45);
-  box-shadow: 0 20px 42px rgba(230, 16, 125, 0.2), 0 4px 12px rgba(5, 26, 62, 0.08);
+  background: linear-gradient(135deg, rgba(184, 40, 224, 0.22) 0%, rgba(255, 255, 255, 0.88) 100%);
+  border: 1.5px solid rgba(184, 40, 224, 0.55);
+  box-shadow: 0 20px 42px rgba(184, 40, 224, 0.25), 0 4px 12px rgba(5, 26, 62, 0.08);
   transform: translate3d(-45px, 50px, 20px) rotate(-3deg);
   z-index: 4;
   padding: 1.25rem;
@@ -117,9 +132,9 @@
 .panelOrange {
   width: 370px;
   height: 240px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 244, 232, 0.92) 100%);
-  border: 1.5px solid rgba(245, 132, 0, 0.6);
-  box-shadow: 0 28px 56px rgba(5, 26, 62, 0.18), 0 8px 24px rgba(245, 132, 0, 0.25);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 244, 230, 0.94) 100%);
+  border: 1.5px solid rgba(255, 110, 0, 0.65);
+  box-shadow: 0 28px 56px rgba(5, 26, 62, 0.18), 0 8px 24px rgba(255, 110, 0, 0.28);
   transform: translate3d(30px, 35px, 60px) rotate(1.5deg);
   z-index: 5;
   padding: 1.4rem;
@@ -270,17 +285,17 @@
 
 .chartBar {
   flex: 1;
-  background: rgba(0, 149, 255, 0.25);
+  background: rgba(0, 153, 255, 0.25);
   border-radius: 3px 3px 0 0;
   transition: height 0.3s ease;
 }
 
 .chartBarHighlight {
-  background: linear-gradient(180deg, #0095FF 0%, #0045E6 100%);
-  box-shadow: 0 0 12px rgba(0, 149, 255, 0.4);
+  background: linear-gradient(180deg, #0099FF 0%, #0066FF 100%);
+  box-shadow: 0 0 12px rgba(0, 102, 255, 0.45);
 }
 
-/* Magenta Panel Content: Matrix */
+/* Magenta / Purple Panel Content: Matrix */
 .matrixContainer {
   display: flex;
   flex-direction: column;
@@ -292,9 +307,9 @@
   align-items: center;
   justify-content: space-between;
   padding: 0.45rem 0.65rem;
-  background: rgba(230, 16, 125, 0.07);
+  background: rgba(184, 40, 224, 0.08);
   border-radius: var(--radius-sm);
-  border-left: 2.5px solid var(--magenta);
+  border-left: 2.5px solid var(--purple);
 }
 
 .matrixCell {
@@ -313,7 +328,7 @@
   font-size: 0.65rem;
   font-weight: 800;
   letter-spacing: 0.05em;
-  color: var(--magenta);
+  color: var(--purple);
 }
 
 /* Orange Panel Content */
@@ -325,8 +340,8 @@
 }
 
 .kpiCard {
-  background: rgba(245, 132, 0, 0.08);
-  border: 1px solid rgba(245, 132, 0, 0.22);
+  background: rgba(255, 110, 0, 0.08);
+  border: 1px solid rgba(255, 110, 0, 0.25);
   padding: 0.6rem 0.75rem;
   border-radius: var(--radius-sm);
   display: flex;
@@ -336,7 +351,7 @@
 .kpiNumber {
   font-size: 1.15rem;
   font-weight: 800;
-  color: #B85F00;
+  color: var(--orange);
   line-height: 1.1;
 }
 

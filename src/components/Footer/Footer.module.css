@@ -7,6 +7,17 @@
   z-index: 10;
 }
 
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--signature-gradient);
+  z-index: 2;
+}
+
 .footerContainer {
   width: 100%;
   padding-top: 4.5rem;

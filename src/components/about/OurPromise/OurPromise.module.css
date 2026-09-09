@@ -5,9 +5,9 @@
 
 .promiseCard {
   position: relative;
-  background: linear-gradient(180deg, #F0F6FE 0%, #E2EEFD 100%);
-  border: 1.5px solid rgba(0, 85, 255, 0.18);
-  border-bottom: 3.5px solid #0055FF;
+  background: linear-gradient(180deg, #FFFFFF 0%, #F5F9FE 100%);
+  border: 1.5px solid rgba(0, 102, 255, 0.18);
+  border-bottom: 3.5px solid var(--blue);
   border-radius: var(--radius-xl);
   padding: clamp(3.5rem, 6vw, 5.5rem) clamp(2rem, 5vw, 4.5rem);
   text-align: center;
@@ -16,6 +16,16 @@
   align-items: center;
   box-shadow: 0 16px 48px rgba(9, 43, 99, 0.08);
   overflow: hidden;
+}
+
+.promiseCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--signature-gradient);
 }
 
 /* Subtle Geometric Corner Decorations */
@@ -29,29 +39,29 @@
 .cornerTopLeft {
   top: 18px;
   left: 18px;
-  border-top: 2px solid rgba(18, 201, 232, 0.5);
-  border-left: 2px solid rgba(18, 201, 232, 0.5);
+  border-top: 2px solid rgba(0, 153, 255, 0.6);
+  border-left: 2px solid rgba(0, 153, 255, 0.6);
 }
 
 .cornerTopRight {
   top: 18px;
   right: 18px;
-  border-top: 2px solid rgba(7, 95, 232, 0.5);
-  border-right: 2px solid rgba(7, 95, 232, 0.5);
+  border-top: 2px solid rgba(0, 102, 255, 0.6);
+  border-right: 2px solid rgba(0, 102, 255, 0.6);
 }
 
 .cornerBottomLeft {
   bottom: 18px;
   left: 18px;
-  border-bottom: 2px solid rgba(229, 43, 184, 0.5);
-  border-left: 2px solid rgba(229, 43, 184, 0.5);
+  border-bottom: 2px solid rgba(184, 40, 224, 0.6);
+  border-left: 2px solid rgba(184, 40, 224, 0.6);
 }
 
 .cornerBottomRight {
   bottom: 18px;
   right: 18px;
-  border-bottom: 2px solid rgba(255, 157, 37, 0.5);
-  border-right: 2px solid rgba(255, 157, 37, 0.5);
+  border-bottom: 2px solid rgba(255, 110, 0, 0.6);
+  border-right: 2px solid rgba(255, 110, 0, 0.6);
 }
 
 .cornerDotCyan,

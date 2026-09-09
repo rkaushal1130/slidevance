@@ -1,0 +1,206 @@
+.showcaseBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Ambient glow in background with exact brand trio */
+.ambientGlow {
+  position: absolute;
+  top: 40%;
+  right: 15%;
+  transform: translateY(-50%);
+  width: min(850px, 80vw);
+  height: 600px;
+  background: radial-gradient(circle at 40% 40%, rgba(0, 102, 255, 0.18) 0%, rgba(184, 40, 224, 0.12) 45%, rgba(255, 110, 0, 0.09) 75%, transparent 100%);
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* 3D Tilted Perspective Stage - Angled like Reference Screenshot */
+.tiltedStage {
+  display: flex;
+  gap: clamp(1rem, 1.8vw, 1.6rem);
+  transform: rotate(-12deg) skew(-2deg, 2deg) scale(1.05) translate(4%, -4%);
+  transform-origin: center right;
+  will-change: transform;
+  z-index: 1;
+  position: relative;
+  align-items: center;
+  height: 140%;
+  margin-top: -8%;
+}
+
+/* Slide Columns */
+.slideColumn {
+  display: flex;
+  flex-direction: column;
+  width: clamp(240px, 20vw, 310px);
+  flex-shrink: 0;
+}
+
+.columnTrack {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem, 1.6vw, 1.5rem);
+  will-change: transform;
+}
+
+/* Continuous smooth scrolling animations */
+.columnUp .columnTrack {
+  animation: scrollStreamUp 44s linear infinite;
+}
+
+.columnDown .columnTrack {
+  animation: scrollStreamDown 48s linear infinite;
+}
+
+@keyframes scrollStreamUp {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-33.333%);
+  }
+}
+
+@keyframes scrollStreamDown {
+  0% {
+    transform: translateY(-33.333%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Slide Card - Exactly styled like Reference Image 2 */
+.slideCard {
+  background: #FFFFFF;
+  border: 1.5px solid rgba(255, 255, 255, 0.9);
+  border-radius: var(--radius-md, 14px);
+  overflow: hidden;
+  box-shadow: 0 16px 36px rgba(5, 26, 62, 0.14), 0 2px 8px rgba(0, 102, 255, 0.06);
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slideImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Gradient Overlays: Ensure text on left is 100% crisp & readable */
+.leftFadeOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 58%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    var(--background) 0%,
+    var(--background) 38%,
+    rgba(245, 248, 254, 0.92) 58%,
+    rgba(245, 248, 254, 0.45) 80%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+
+.topFadeOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 90px;
+  background: linear-gradient(to bottom, var(--background) 0%, rgba(245, 248, 254, 0.7) 50%, transparent 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.bottomFadeOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(to top, var(--background) 0%, rgba(245, 248, 254, 0.8) 50%, transparent 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.rightFadeOverlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 100%;
+  background: linear-gradient(to left, var(--background) 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1360px) {
+  .columnExtra {
+    display: none;
+  }
+
+  .leftFadeOverlay {
+    width: 62%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .leftFadeOverlay {
+    width: 100%;
+    background: linear-gradient(
+      to bottom,
+      rgba(245, 248, 254, 0.82) 0%,
+      rgba(245, 248, 254, 0.9) 50%,
+      rgba(245, 248, 254, 0.95) 100%
+    );
+  }
+
+  .slideColumn {
+    width: 210px;
+  }
+
+  .tiltedStage {
+    transform: rotate(-10deg) scale(0.95);
+    opacity: 0.45;
+  }
+}
+
+@media (max-width: 640px) {
+  .slideColumn {
+    width: 170px;
+  }
+
+  .tiltedStage {
+    transform: rotate(-8deg) scale(0.88);
+    opacity: 0.35;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .columnTrack {
+    animation: none !important;
+  }
+}

@@ -164,8 +164,8 @@
 }
 
 .matrixBox {
-  background: rgba(229, 43, 184, 0.06);
-  border: 1px solid rgba(229, 43, 184, 0.15);
+  background: rgba(184, 40, 224, 0.06);
+  border: 1px solid rgba(184, 40, 224, 0.15);
   border-radius: var(--radius-sm);
   padding: 0.45rem;
   display: flex;
@@ -176,7 +176,7 @@
 .matrixBoxNum {
   font-size: 0.55rem;
   font-weight: 800;
-  color: var(--magenta);
+  color: var(--purple);
 }
 
 .matrixBoxTitle {
@@ -188,7 +188,7 @@
 
 .miniProgress {
   height: 3px;
-  background: var(--magenta);
+  background: var(--purple);
   border-radius: var(--radius-pill);
   margin-top: 0.2rem;
 }
