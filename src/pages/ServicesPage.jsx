@@ -12,7 +12,6 @@ import ServicesHero from '../components/services/ServicesHero/ServicesHero';
 import ServicesStickyNav from '../components/services/ServicesStickyNav/ServicesStickyNav';
 import ServiceDetailSection from '../components/services/ServiceDetailSection/ServiceDetailSection';
 import DeliveryStandards from '../components/services/DeliveryStandards/DeliveryStandards';
-import TurnaroundTable from '../components/services/TurnaroundTable/TurnaroundTable';
 import EngagementModels from '../components/services/EngagementModels/EngagementModels';
 import SkeletonCard from '../components/common/SkeletonCard/SkeletonCard';
 import { getServices, getServiceBySlug } from '../api/services';
@@ -298,10 +297,7 @@ export default function ServicesPage() {
       {/* 4. Delivery Standards */}
       <DeliveryStandards />
 
-      {/* 5. Turnaround & Urgency Support */}
-      <TurnaroundTable />
-
-      {/* 6. Investment & Flexible Engagement Models */}
+      {/* 5. Investment & Flexible Engagement Models */}
       <EngagementModels />
     </main>
   );

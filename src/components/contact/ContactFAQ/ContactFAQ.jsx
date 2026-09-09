@@ -36,10 +36,18 @@ const FAQ_ITEMS = [
 ];
 
 export default function ContactFAQ() {
-  const [openItem, setOpenItem] = useState('faq-1');
+  const [openItem, setOpenItem] = useState(null);
 
   const toggleItem = (id) => {
     setOpenItem((prev) => (prev === id ? null : id));
+  };
+
+  const handleMouseEnter = (id) => {
+    setOpenItem(id);
+  };
+
+  const handleMouseLeave = () => {
+    setOpenItem(null);
   };
 
   return (
@@ -59,6 +67,8 @@ export default function ContactFAQ() {
               <div
                 key={item.id}
                 className={`${styles.accordionItem} ${isOpen ? styles.accordionItemOpen : ''}`}
+                onMouseEnter={() => handleMouseEnter(item.id)}
+                onMouseLeave={handleMouseLeave}
               >
                 <button
                   type="button"

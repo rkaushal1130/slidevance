@@ -13,7 +13,6 @@ import {
 import IndustriesHero from '../components/industries/IndustriesHero/IndustriesHero';
 import IndustryGrid from '../components/industries/IndustryGrid/IndustryGrid';
 import IndustryDetail from '../components/industries/IndustryDetail/IndustryDetail';
-import CommunicationTypes from '../components/industries/CommunicationTypes/CommunicationTypes';
 import IndustriesVisualSection from '../components/industries/IndustriesVisualSection/IndustriesVisualSection';
 import { getIndustries, getIndustryBySlug } from '../api/industries';
 import { getIconComponent } from '../utils/iconMap';
@@ -244,10 +243,7 @@ export default function IndustriesPage() {
         <IndustryDetail industries={industries} />
       )}
 
-      {/* 4. Communication Types Section */}
-      <CommunicationTypes />
-
-      {/* 5. Dark Navy Visual Section */}
+      {/* 4. Dark Navy Visual Section */}
       <IndustriesVisualSection />
     </main>
   );
