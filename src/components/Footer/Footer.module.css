@@ -20,54 +20,57 @@
 
 .footerContainer {
   width: 100%;
-  padding-top: 4.5rem;
-  padding-bottom: 3rem;
+  padding-top: 2.75rem;
+  padding-bottom: 2rem;
 }
 
 .topSection {
   display: grid;
-  grid-template-columns: 2fr 1.2fr 1.8fr;
-  gap: 3.5rem;
-  padding-bottom: 3.5rem;
+  grid-template-columns: 2fr 1.3fr 1.7fr;
+  gap: 2.75rem;
+  padding-bottom: 2.25rem;
   border-bottom: 1px solid rgba(9, 43, 99, 0.06);
+  align-items: start;
 }
 
 .brandCol {
   display: flex;
   flex-direction: column;
-  max-width: 460px;
+  max-width: 420px;
 }
 
 .brandLogo {
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
   display: inline-block;
 }
 
 .brandLogo img {
-  height: clamp(56px, 6vw, 76px);
+  height: clamp(62px, 6vw, 72px);
+  width: auto;
+  object-fit: contain;
 }
 
 .tagline {
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   font-weight: 700;
   color: var(--navy);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.6rem;
   line-height: 1.4;
 }
 
 .subtext {
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   color: var(--muted);
   line-height: 1.6;
 }
 
 .columnTitle {
-  font-size: 0.8125rem;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--navy);
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.85rem;
 }
 
 .navCol {
@@ -77,20 +80,20 @@
 
 .navList {
   list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 0.65rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.55rem 1.5rem;
 }
 
 .navItem {
-  line-height: 1;
+  line-height: 1.25;
 }
 
 .navLink {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
-  font-size: 0.9375rem;
+  gap: 0.25rem;
+  font-size: 0.875rem;
   font-weight: 500;
   color: var(--muted);
   transition: all var(--transition-fast);
@@ -119,17 +122,17 @@
 }
 
 .contactDesc {
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   color: var(--muted);
-  margin-bottom: 1.25rem;
-  line-height: 1.55;
+  margin-bottom: 0.85rem;
+  line-height: 1.5;
 }
 
 .emailCard {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  padding: 1rem 1.25rem;
+  gap: 0.85rem;
+  padding: 0.65rem 1rem;
   background-color: var(--background);
   border: 1px solid rgba(7, 95, 232, 0.12);
   border-radius: var(--radius-md);
@@ -141,8 +144,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   background-color: var(--blue-soft);
   color: var(--blue);
@@ -156,27 +159,27 @@
 }
 
 .emailLabel {
-  font-size: 0.75rem;
+  font-size: 0.6875rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--muted);
-  line-height: 1.2;
+  line-height: 1.1;
 }
 
 .emailAddress {
-  font-size: 1rem;
+  font-size: 0.875rem;
   font-weight: 700;
   color: var(--navy);
-  line-height: 1.3;
+  line-height: 1.25;
   transition: color var(--transition-fast);
 }
 
 .emailCard:hover {
   border-color: var(--blue);
   background-color: #FFFFFF;
-  box-shadow: 0 6px 20px rgba(7, 95, 232, 0.12);
-  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(7, 95, 232, 0.1);
+  transform: translateY(-1px);
 }
 
 .emailCard:hover .emailIconWrapper {
@@ -193,8 +196,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 2rem;
-  font-size: 0.875rem;
+  padding-top: 1.5rem;
+  font-size: 0.8125rem;
   color: var(--muted);
 }
 
@@ -216,30 +219,30 @@
 
 .badge {
   margin: 0;
-  font-size: 0.8125rem;
+  font-size: 0.75rem;
   color: var(--muted);
 }
 
 .bottomStatus {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.35rem 0.85rem;
+  gap: 0.4rem;
+  padding: 0.25rem 0.65rem;
   background-color: rgba(18, 201, 232, 0.08);
   border: 1px solid rgba(18, 201, 232, 0.2);
   border-radius: var(--radius-pill);
 }
 
 .statusDot {
-  width: 7px;
-  height: 7px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   background-color: #10B981;
-  box-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
+  box-shadow: 0 0 6px rgba(16, 185, 129, 0.6);
 }
 
 .statusText {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 600;
   color: var(--navy);
   letter-spacing: 0.02em;
@@ -249,7 +252,8 @@
 @media (max-width: 991px) {
   .topSection {
     grid-template-columns: 1fr 1fr;
-    gap: 2.5rem;
+    gap: 2.25rem;
+    padding-bottom: 1.75rem;
   }
 
   .brandCol {
@@ -260,18 +264,23 @@
   .bottomSection {
     flex-direction: column;
     align-items: flex-start;
-    gap: 1.25rem;
+    gap: 1rem;
   }
 }
 
 @media (max-width: 600px) {
   .topSection {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1.75rem;
   }
 
   .footerContainer {
-    padding-top: 3rem;
-    padding-bottom: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .navList {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.45rem 1rem;
   }
 }

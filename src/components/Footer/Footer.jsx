@@ -39,7 +39,7 @@ export default function Footer() {
                 <li key={link.path} className={styles.navItem}>
                   <Link to={link.path} className={styles.navLink}>
                     <span>{link.label}</span>
-                    <ArrowUpRight size={14} className={styles.navArrow} />
+                    <ArrowUpRight size={13} className={styles.navArrow} />
                   </Link>
                 </li>
               ))}
@@ -54,7 +54,7 @@ export default function Footer() {
             </p>
             <a href="mailto:hello@slidevance.com" className={styles.emailCard}>
               <div className={styles.emailIconWrapper}>
-                <Mail size={18} />
+                <Mail size={16} />
               </div>
               <div className={styles.emailInfo}>
                 <span className={styles.emailLabel}>Direct Inquiries</span>

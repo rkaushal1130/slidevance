@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import ContactHero from '../components/contact/ContactHero/ContactHero';
 import ContactSection from '../components/contact/ContactSection/ContactSection';
 import ContactFAQ from '../components/contact/ContactFAQ/ContactFAQ';
-import ContactFinalCTA from '../components/contact/ContactFinalCTA/ContactFinalCTA';
 
 export default function ContactPage() {
   useEffect(() => {
@@ -27,7 +26,6 @@ export default function ContactPage() {
       <ContactHero />
       <ContactSection />
       <ContactFAQ />
-      <ContactFinalCTA />
     </main>
   );
 }

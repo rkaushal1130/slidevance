@@ -3,7 +3,6 @@ import { Presentation, ArrowRight } from 'lucide-react';
 import SectionHeading from '../../common/SectionHeading/SectionHeading';
 import Button from '../../common/Button/Button';
 import SkeletonCard from '../../common/SkeletonCard/SkeletonCard';
-import ErrorMessage from '../../common/ErrorMessage/ErrorMessage';
 import ServiceCard from './ServiceCard';
 import { getServices } from '../../../api/services';
 import { getIconComponent } from '../../../utils/iconMap';
@@ -130,15 +129,6 @@ export default function ServicesPreview() {
           align="center"
           maxWidth="760px"
         />
-
-        {error && (
-          <ErrorMessage
-            title="Notice"
-            message={error}
-            onRetry={loadServices}
-            compact
-          />
-        )}
 
         <div className={styles.servicesGrid}>
           {loading ? (

@@ -14,9 +14,7 @@ import ServiceDetailSection from '../components/services/ServiceDetailSection/Se
 import DeliveryStandards from '../components/services/DeliveryStandards/DeliveryStandards';
 import TurnaroundTable from '../components/services/TurnaroundTable/TurnaroundTable';
 import EngagementModels from '../components/services/EngagementModels/EngagementModels';
-import ServicesCTA from '../components/services/ServicesCTA/ServicesCTA';
 import SkeletonCard from '../components/common/SkeletonCard/SkeletonCard';
-import ErrorMessage from '../components/common/ErrorMessage/ErrorMessage';
 import { getServices, getServiceBySlug } from '../api/services';
 import { getIconComponent } from '../utils/iconMap';
 import { getMockupType } from '../utils/mockupMap';
@@ -272,17 +270,6 @@ export default function ServicesPage() {
       {/* 2. Sticky & Smooth-Scrolling Practice Navigation */}
       <ServicesStickyNav items={navItems} />
 
-      {error && (
-        <div className="container" style={{ marginTop: '2rem' }}>
-          <ErrorMessage
-            title="Notice"
-            message={error}
-            onRetry={loadServices}
-            compact
-          />
-        </div>
-      )}
-
       {/* 3. Detailed Service Sections */}
       {loading ? (
         <div className="container" style={{ padding: '4rem 2rem', display: 'grid', gap: '2rem' }}>
@@ -316,9 +303,6 @@ export default function ServicesPage() {
 
       {/* 6. Investment & Flexible Engagement Models */}
       <EngagementModels />
-
-      {/* 7. Final Call to Action */}
-      <ServicesCTA />
     </main>
   );
 }

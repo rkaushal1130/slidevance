@@ -15,8 +15,6 @@ import IndustryGrid from '../components/industries/IndustryGrid/IndustryGrid';
 import IndustryDetail from '../components/industries/IndustryDetail/IndustryDetail';
 import CommunicationTypes from '../components/industries/CommunicationTypes/CommunicationTypes';
 import IndustriesVisualSection from '../components/industries/IndustriesVisualSection/IndustriesVisualSection';
-import IndustriesCTA from '../components/industries/IndustriesCTA/IndustriesCTA';
-import ErrorMessage from '../components/common/ErrorMessage/ErrorMessage';
 import { getIndustries, getIndustryBySlug } from '../api/industries';
 import { getIconComponent } from '../utils/iconMap';
 
@@ -234,17 +232,6 @@ export default function IndustriesPage() {
       {/* 1. Page Hero */}
       <IndustriesHero />
 
-      {error && (
-        <div className="container" style={{ marginTop: '1.5rem' }}>
-          <ErrorMessage
-            title="Notice"
-            message={error}
-            onRetry={loadIndustries}
-            compact
-          />
-        </div>
-      )}
-
       {/* 2. Industry Grid with Loading Support */}
       <IndustryGrid
         industries={industries}
@@ -262,9 +249,6 @@ export default function IndustriesPage() {
 
       {/* 5. Dark Navy Visual Section */}
       <IndustriesVisualSection />
-
-      {/* 6. Call to Action */}
-      <IndustriesCTA />
     </main>
   );
 }

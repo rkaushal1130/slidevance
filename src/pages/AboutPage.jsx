@@ -7,7 +7,6 @@ import OurPromise from '../components/about/OurPromise/OurPromise';
 import SlidevanceAdvantage from '../components/about/SlidevanceAdvantage/SlidevanceAdvantage';
 import DeliveryCapabilities from '../components/about/DeliveryCapabilities/DeliveryCapabilities';
 import DarkVisualSection from '../components/about/DarkVisualSection/DarkVisualSection';
-import AboutCTA from '../components/about/AboutCTA/AboutCTA';
 import { getPublicSettings } from '../api/settings';
 
 export default function AboutPage() {
@@ -82,9 +81,6 @@ export default function AboutPage() {
 
       {/* 8. Dark Visual Section (#092B63 with Geometric Visual) */}
       <DarkVisualSection />
-
-      {/* 9. Final Call to Action */}
-      <AboutCTA settings={settings} />
     </main>
   );
 }

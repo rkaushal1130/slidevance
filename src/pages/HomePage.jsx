@@ -6,8 +6,6 @@ import WhatSetsUsApart from '../components/home/WhatSetsUsApart/WhatSetsUsApart'
 import ServicesPreview from '../components/home/ServicesPreview/ServicesPreview';
 import Process from '../components/home/Process/Process';
 import PromiseSection from '../components/home/PromiseSection/PromiseSection';
-import FinalCTA from '../components/home/FinalCTA/FinalCTA';
-
 export default function HomePage() {
   useEffect(() => {
     document.title = 'SLIDEVANCE | Creative Presentation & Business Communication Studio';
@@ -47,9 +45,6 @@ export default function HomePage() {
 
       {/* 7. Dark Navy Promise Section */}
       <PromiseSection />
-
-      {/* 8. Final Call to Action */}
-      <FinalCTA />
     </main>
   );
 }

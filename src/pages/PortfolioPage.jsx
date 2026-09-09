@@ -5,10 +5,8 @@ import FeaturedProject from '../components/portfolio/FeaturedProject/FeaturedPro
 import PortfolioFilter from '../components/portfolio/PortfolioFilter/PortfolioFilter';
 import PortfolioGrid from '../components/portfolio/PortfolioGrid/PortfolioGrid';
 import CaseStudyModal from '../components/portfolio/CaseStudyModal/CaseStudyModal';
-import PortfolioCTA from '../components/portfolio/PortfolioCTA/PortfolioCTA';
 import SectionHeading from '../components/common/SectionHeading/SectionHeading';
 import SkeletonCard from '../components/common/SkeletonCard/SkeletonCard';
-import ErrorMessage from '../components/common/ErrorMessage/ErrorMessage';
 import { getPortfolio, getPortfolioBySlug } from '../api/portfolio';
 import { getMockupType } from '../utils/mockupMap';
 
@@ -346,15 +344,6 @@ export default function PortfolioPage() {
             align="center"
           />
 
-          {error && (
-            <ErrorMessage
-              title="Notice"
-              message={error}
-              onRetry={loadProjects}
-              compact
-            />
-          )}
-
           {/* Interactive filter tabs */}
           <PortfolioFilter
             categories={categories}
@@ -377,9 +366,6 @@ export default function PortfolioPage() {
           )}
         </div>
       </section>
-
-      {/* 4. Process Call to Action */}
-      <PortfolioCTA />
 
       {/* Interactive Case Study Detail Modal */}
       {activeCaseStudy && (
