@@ -54,7 +54,11 @@ export default function ContactFAQ() {
     <section className={`section-spacing ${styles.faqSection}`} aria-label="Frequently Asked Questions">
       <div className="container">
         <div className={styles.headerWrapper}>
-          <h2 className={styles.heading}>Everything You Need to Know.</h2>
+          <h2 className={styles.heading}>
+            Everything You Need
+            <br />
+            <span className="gradient-text">to Know.</span>
+          </h2>
           <p className={styles.subheading}>
             Clear answers about our turnaround times, confidentiality, deliverables, and engagement formats.
           </p>

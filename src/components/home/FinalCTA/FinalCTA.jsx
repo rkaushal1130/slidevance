@@ -12,7 +12,9 @@ export default function FinalCTA() {
           <div className={styles.glowAccent} />
 
           <h2 className={styles.heading}>
-            Let’s Advance Your Next Deliverable.
+            Let’s Advance
+            <br />
+            <span className="gradient-text">Your Next Deliverable.</span>
           </h2>
 
           <p className={styles.paragraph}>

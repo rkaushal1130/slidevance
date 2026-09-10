@@ -1,25 +1,48 @@
 import React from 'react';
-import GradientLine from '../../common/GradientLine/GradientLine';
 import styles from './PositioningStrip.module.css';
+
+const PILLARS = [
+  { text: 'PRESENTATION', bulletColor: 'blue' },
+  { text: 'RESEARCH', bulletColor: 'purple' },
+  { text: 'BUSINESS COMMUNICATION', bulletColor: 'orange' },
+  { text: 'EXECUTIVE ONE-PAGER / SERVICE SHEET', bulletColor: 'blue' },
+  { text: 'PRESENTATION DECK', bulletColor: 'purple' },
+  { text: 'COMPREHENSIVE DECK', bulletColor: 'orange' },
+  { text: 'INTERACTIVE DECKS & MASTER TEMPLATE', bulletColor: 'blue' },
+  { text: 'PROPOSAL, BID & RFP DOCUMENT', bulletColor: 'purple' },
+  { text: 'DESK RESEARCH & MARKET BENCHMARKING', bulletColor: 'orange' },
+];
 
 export default function PositioningStrip() {
   return (
-    <section className={styles.stripSection} aria-label="Brand Core Capabilities">
-      {/* Thin gradient line above */}
-      <GradientLine height="2px" width="100%" />
+    <section className={styles.ribbonSection} aria-label="Brand Core Capabilities Ribbon">
+      <div className={styles.ribbonContainer}>
+        <div className={styles.ribbonTrack}>
+          {/* Group 1 */}
+          <div className={styles.ribbonGroup}>
+            {PILLARS.map((pillar, idx) => (
+              <span key={`p1-${idx}`} className={styles.pillarItem}>
+                <span className={styles.pillarText}>{pillar.text}</span>
+                <span className={`${styles.bullet} ${styles[`bullet_${pillar.bulletColor}`]}`}>
+                  •
+                </span>
+              </span>
+            ))}
+          </div>
 
-      <div className={`container ${styles.stripContainer}`}>
-        <div className={styles.stripContent}>
-          <span className={`${styles.pillarText} ${styles.pillarBlue}`}>PRESENTATION</span>
-          <span className={`${styles.bullet} ${styles.bulletBlue}`}>•</span>
-          <span className={`${styles.pillarText} ${styles.pillarPurple}`}>RESEARCH</span>
-          <span className={`${styles.bullet} ${styles.bulletPurple}`}>•</span>
-          <span className={`${styles.pillarText} ${styles.pillarOrange}`}>BUSINESS COMMUNICATION</span>
+          {/* Group 2 (Clone for infinite seamless loop) */}
+          <div className={styles.ribbonGroup} aria-hidden="true">
+            {PILLARS.map((pillar, idx) => (
+              <span key={`p2-${idx}`} className={styles.pillarItem}>
+                <span className={styles.pillarText}>{pillar.text}</span>
+                <span className={`${styles.bullet} ${styles[`bullet_${pillar.bulletColor}`]}`}>
+                  •
+                </span>
+              </span>
+            ))}
+          </div>
         </div>
       </div>
-
-      {/* Thin gradient line below for crisp visual enclosure */}
-      <GradientLine height="1.5px" width="100%" opacity={0.6} />
     </section>
   );
 }

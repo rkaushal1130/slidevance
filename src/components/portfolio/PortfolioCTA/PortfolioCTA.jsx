@@ -12,7 +12,9 @@ export default function PortfolioCTA() {
           <div className={styles.glow} />
 
           <h2 className={styles.heading}>
-            Have a Complex Story to Tell?
+            Have a Complex
+            <br />
+            <span className="gradient-text">Story to Tell?</span>
           </h2>
 
           <p className={styles.paragraph}>

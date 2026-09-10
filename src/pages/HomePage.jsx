@@ -3,7 +3,7 @@ import Hero from '../components/home/Hero/Hero';
 import PositioningStrip from '../components/home/PositioningStrip/PositioningStrip';
 import IntroSection from '../components/home/IntroSection/IntroSection';
 import WhatSetsUsApart from '../components/home/WhatSetsUsApart/WhatSetsUsApart';
-import ServicesPreview from '../components/home/ServicesPreview/ServicesPreview';
+import ShowcaseCarousel from '../components/home/ShowcaseCarousel/ShowcaseCarousel';
 import Process from '../components/home/Process/Process';
 import PromiseSection from '../components/home/PromiseSection/PromiseSection';
 export default function HomePage() {
@@ -37,8 +37,8 @@ export default function HomePage() {
       {/* 4. What Sets Us Apart (4 Feature Cards) */}
       <WhatSetsUsApart />
 
-      {/* 5. Services Preview (6 Service Cards) */}
-      <ServicesPreview />
+      {/* 5. Work Showcase Cards Slider */}
+      <ShowcaseCarousel />
 
       {/* 6. Process: From Brief to Boardroom (5-Phase Timeline) */}
       <Process />

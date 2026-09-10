@@ -12,7 +12,9 @@ export default function ServicesCTA() {
           <div className={styles.glow} />
 
           <h2 className={styles.heading}>
-            Tell Us What You’re Building.
+            Tell Us
+            <br />
+            <span className="gradient-text">What You’re Building.</span>
           </h2>
 
           <p className={styles.paragraph}>

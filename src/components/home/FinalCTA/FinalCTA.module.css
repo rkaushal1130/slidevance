@@ -5,16 +5,15 @@
 
 .ctaBox {
   position: relative;
-  background: linear-gradient(180deg, #FFFFFF 0%, #F5F9FE 100%);
-  border: 1.5px solid rgba(0, 102, 255, 0.18);
-  border-bottom: 3.5px solid var(--blue);
+  background: #FFFFFF;
+  border: 1px solid rgba(9, 43, 99, 0.08);
   border-radius: var(--radius-xl);
   padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 5vw, 4rem);
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 0 20px 60px rgba(9, 43, 99, 0.08);
+  box-shadow: 0 20px 60px rgba(9, 43, 99, 0.06);
   overflow: hidden;
 }
 

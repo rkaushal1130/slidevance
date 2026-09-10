@@ -11,6 +11,8 @@
 }
 
 .modelCard {
+  background: #FFFFFF;
+  border: 1px solid rgba(9, 43, 99, 0.09);
   border-radius: var(--radius-xl);
   padding: 2.5rem 2rem;
   display: flex;
@@ -19,25 +21,6 @@
   position: relative;
   overflow: hidden;
   transition: all var(--transition-normal);
-}
-
-.modelCard:nth-child(1) {
-  background: linear-gradient(180deg, #F0F6FE 0%, #E2EEFD 100%);
-  border: 1px solid rgba(0, 102, 255, 0.2);
-  border-bottom: 3.5px solid var(--blue);
-}
-
-.modelCard:nth-child(2) {
-  background: linear-gradient(180deg, #FAF4FE 0%, #F1E2FA 100%);
-  border: 2px solid var(--purple);
-  border-bottom: 4px solid var(--purple);
-  box-shadow: 0 16px 44px rgba(184, 40, 224, 0.15);
-}
-
-.modelCard:nth-child(3) {
-  background: linear-gradient(180deg, #FFF6EE 0%, #FEE8D8 100%);
-  border: 1px solid rgba(255, 110, 0, 0.22);
-  border-bottom: 3.5px solid var(--orange);
 }
 
 .modelCard:hover {

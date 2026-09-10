@@ -31,7 +31,17 @@ export default function ServiceDetailSection({
           </div>
 
           <span className={styles.serviceTag}>{tagline || 'STUDIO PRACTICE'}</span>
-          <h2 className={styles.serviceTitle}>{title}</h2>
+          <h2 className={styles.serviceTitle}>
+            {title.includes('&') ? (
+              <>
+                {title.split('&')[0].trim()}
+                <br />
+                <span className="gradient-text">&amp; {title.split('&')[1].trim()}</span>
+              </>
+            ) : (
+              title
+            )}
+          </h2>
           <p className={styles.serviceDescription}>{description}</p>
 
           {/* Deliverables List */}

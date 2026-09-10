@@ -99,9 +99,9 @@ img, svg {
 h1, h2, h3, h4, h5, h6 {
   color: var(--navy);
   font-family: var(--font-sans);
-  font-weight: 700;
+  font-weight: 800;
   line-height: 1.15;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.03em;
 }
 
 p {

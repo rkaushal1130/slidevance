@@ -10,6 +10,8 @@
 }
 
 .columnCard {
+  background: #FFFFFF;
+  border: 1px solid rgba(9, 43, 99, 0.08);
   border-radius: var(--radius-lg);
   padding: 2.25rem 1.75rem 2rem;
   display: flex;
@@ -18,30 +20,6 @@
   position: relative;
   overflow: hidden;
   box-shadow: 0 4px 18px rgba(5, 26, 62, 0.04);
-}
-
-.columnCard:nth-child(4n + 1) {
-  background: linear-gradient(180deg, #F0F6FE 0%, #E2EEFD 100%);
-  border: 1px solid rgba(0, 102, 255, 0.2);
-  border-bottom: 3.5px solid var(--blue);
-}
-
-.columnCard:nth-child(4n + 2) {
-  background: linear-gradient(180deg, #EFF8FF 0%, #E0F2FE 100%);
-  border: 1px solid rgba(0, 153, 255, 0.22);
-  border-bottom: 3.5px solid var(--cyan);
-}
-
-.columnCard:nth-child(4n + 3) {
-  background: linear-gradient(180deg, #F9F0FD 0%, #F3E3FA 100%);
-  border: 1px solid rgba(184, 40, 224, 0.2);
-  border-bottom: 3.5px solid var(--purple);
-}
-
-.columnCard:nth-child(4n + 4) {
-  background: linear-gradient(180deg, #FFF6EE 0%, #FEE8D8 100%);
-  border: 1px solid rgba(255, 110, 0, 0.22);
-  border-bottom: 3.5px solid var(--orange);
 }
 
 .columnCard:hover {

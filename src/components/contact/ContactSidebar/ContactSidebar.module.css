@@ -67,9 +67,8 @@
 
 /* Official Studio Email Card */
 .emailCard {
-  background: linear-gradient(180deg, #F0F6FE 0%, #E2EEFD 100%);
-  border: 1px solid rgba(0, 102, 255, 0.18);
-  border-bottom: 3.5px solid #0066FF;
+  background: #FFFFFF;
+  border: 1px solid rgba(9, 43, 99, 0.08);
   border-radius: var(--radius-lg);
   padding: 1.25rem 1.5rem;
   display: flex;
@@ -159,6 +158,8 @@
 }
 
 .pillarItem {
+  background: #FFFFFF;
+  border: 1px solid rgba(9, 43, 99, 0.08);
   display: flex;
   gap: 1.1rem;
   border-radius: var(--radius-lg);
@@ -169,18 +170,6 @@
 
 .pillarItem:hover {
   transform: translateY(-2px);
-}
-
-.pillarItem:nth-child(1) {
-  background: linear-gradient(180deg, #F0F6FE 0%, #E2EEFD 100%);
-  border: 1px solid rgba(0, 102, 255, 0.18);
-  border-bottom: 3.5px solid #0066FF;
-}
-
-.pillarItem:nth-child(2) {
-  background: linear-gradient(180deg, #FAF2FC 0%, #F4E3F9 100%);
-  border: 1px solid rgba(184, 40, 224, 0.18);
-  border-bottom: 3.5px solid #B828E0;
 }
 
 .pillarIconBox {

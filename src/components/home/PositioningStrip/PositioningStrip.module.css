@@ -1,81 +1,129 @@
-.stripSection {
-  background-color: var(--background);
-  border-top: 1px solid var(--border-subtle);
-  border-bottom: 1px solid var(--border-subtle);
+.ribbonSection {
+  background: linear-gradient(
+    90deg,
+    #0066FF 0%,
+    #7B2CBF 28%,
+    #B828E0 50%,
+    #E62480 72%,
+    #FF6E00 100%
+  );
   position: relative;
   z-index: 5;
+  width: 100%;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0, 102, 255, 0.18), 0 2px 10px rgba(255, 110, 0, 0.12);
+  border-top: 1px solid rgba(255, 255, 255, 0.28);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
 }
 
-.stripContainer {
-  padding-top: 1.75rem;
-  padding-bottom: 1.75rem;
+.ribbonContainer {
+  width: 100%;
+  overflow: hidden;
+  padding: 1.15rem 0;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 4%,
+    black 96%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 4%,
+    black 96%,
+    transparent 100%
+  );
 }
 
-.stripContent {
+.ribbonTrack {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: ribbonScroll 42s linear infinite;
+}
+
+.ribbonTrack:hover {
+  animation-play-state: paused;
+}
+
+.ribbonGroup {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: clamp(1rem, 3vw, 2.5rem);
-  flex-wrap: wrap;
-  text-align: center;
+  flex-shrink: 0;
+}
+
+.pillarItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.75rem;
+  padding: 0 1.25rem;
+  white-space: nowrap;
 }
 
 .pillarText {
-  font-size: clamp(0.8125rem, 1.3vw, 1rem);
+  font-size: clamp(0.8125rem, 1.1vw, 0.9375rem);
   font-weight: 800;
   letter-spacing: 0.18em;
-  color: var(--navy);
+  color: #ffffff;
   text-transform: uppercase;
-  transition: color var(--transition-fast);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.22);
+  transition: opacity var(--transition-fast), text-shadow var(--transition-fast);
+  user-select: none;
 }
 
 .pillarText:hover {
-  color: var(--blue);
-}
-
-.pillarBlue:hover {
-  color: var(--blue);
-}
-
-.pillarPurple:hover {
-  color: var(--purple);
-}
-
-.pillarOrange:hover {
-  color: var(--orange);
+  opacity: 0.92;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.7), 0 1px 4px rgba(0, 0, 0, 0.3);
 }
 
 .bullet {
-  font-size: 1.25rem;
-  opacity: 0.9;
+  font-size: 1.15rem;
+  line-height: 1;
   display: inline-flex;
   align-items: center;
-  line-height: 1;
+  user-select: none;
+  color: rgba(255, 255, 255, 0.78);
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.45);
 }
 
-.bulletBlue {
-  color: var(--blue);
+.bullet_blue,
+.bullet_purple,
+.bullet_orange {
+  color: rgba(255, 255, 255, 0.78);
 }
 
-.bulletPurple {
-  color: var(--purple);
+@keyframes ribbonScroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ribbonTrack {
+    animation: none;
+    transform: none;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
 
 @media (max-width: 600px) {
-  .stripContainer {
-    padding-top: 1.25rem;
-    padding-bottom: 1.25rem;
+  .ribbonContainer {
+    padding: 0.95rem 0;
   }
 
-  .stripContent {
-    gap: 0.75rem;
+  .pillarItem {
+    gap: 1.15rem;
+    padding: 0 0.85rem;
   }
 
   .pillarText {
-    font-size: 0.75rem;
-    letter-spacing: 0.12em;
+    font-size: 0.775rem;
+    letter-spacing: 0.14em;
   }
 }

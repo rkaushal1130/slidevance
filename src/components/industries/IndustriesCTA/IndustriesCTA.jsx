@@ -12,7 +12,9 @@ export default function IndustriesCTA() {
           <div className={styles.glow} />
 
           <h2 className={styles.heading}>
-            Have a Complex Communication Challenge?
+            Have a Complex
+            <br />
+            <span className="gradient-text">Communication Challenge?</span>
           </h2>
 
           <p className={styles.paragraph}>

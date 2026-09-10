@@ -21,7 +21,11 @@ export default function ContactSidebar() {
   return (
     <aside className={styles.sidebarWrapper} aria-label="Contact Information and Studio Commitments">
       <div className={styles.introHeader}>
-        <h2 className={styles.heading}>Start the Conversation.</h2>
+        <h2 className={styles.heading}>
+          Start the
+          <br />
+          <span className="gradient-text">Conversation.</span>
+        </h2>
         <p className={styles.description}>
           Whether you need a presentation, proposal, business document, research asset or ongoing design support, share your requirements with us.
         </p>
