@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './SectionHeading.module.css';
 
-function renderTitle(title) {
+function renderTitle(title, singleLine = false) {
   if (!title) return null;
   if (typeof title !== 'string') return title;
 
@@ -9,6 +9,16 @@ function renderTitle(title) {
   const words = trimmed.split(/\s+/);
   if (words.length <= 1) {
     return <span className="gradient-text">{trimmed}</span>;
+  }
+
+  if (singleLine) {
+    const part1 = words.slice(0, -1).join(' ');
+    const part2 = words[words.length - 1];
+    return (
+      <span className={styles.singleLineHeading}>
+        {part1} <span className="gradient-text">{part2}</span>
+      </span>
+    );
   }
 
   let splitIndex = Math.ceil(words.length / 2);
@@ -75,7 +85,8 @@ export default function SectionHeading({
   align = 'center', // 'center' | 'left'
   dark = false,
   className = '',
-  maxWidth = '780px'
+  maxWidth = '780px',
+  singleLine = false
 }) {
   const containerClasses = [
     styles.container,
@@ -88,7 +99,7 @@ export default function SectionHeading({
     <div className={containerClasses} style={{ '--max-w': maxWidth }}>
       {title && (
         <h2 className={styles.title}>
-          {renderTitle(title)}
+          {renderTitle(title, singleLine)}
         </h2>
       )}
       {subtitle && (

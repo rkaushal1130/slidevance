@@ -15,9 +15,12 @@ export default function Hero() {
         <div className={styles.contentCol}>
           {/* H1 Heading */}
           <h1 className={styles.heroTitle}>
-            Ideas That <span className="gradient-text">Slide.</span>
-            <br />
-            Solutions That <span className="gradient-text">Advance.</span>
+            <span className={styles.heroLine}>
+              Ideas That <span className="gradient-text">Slide.</span>
+            </span>
+            <span className={styles.heroLine}>
+              Solutions That <span className="gradient-text">Advance.</span>
+            </span>
           </h1>
 
           {/* Secondary Heading */}

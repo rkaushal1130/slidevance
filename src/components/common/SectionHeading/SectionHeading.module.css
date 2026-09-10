@@ -43,8 +43,19 @@
   color: rgba(255, 255, 255, 0.7);
 }
 
+.singleLineHeading {
+  display: inline-block;
+  white-space: nowrap;
+}
+
 @media (max-width: 768px) {
   .container {
     margin-bottom: 2.5rem;
+  }
+}
+
+@media (max-width: 540px) {
+  .singleLineHeading {
+    white-space: normal;
   }
 }

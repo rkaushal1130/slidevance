@@ -20,7 +20,7 @@ export default function AboutSetsUsApart() {
       title: 'Research-Backed Insight',
       description:
         'Deep industry, competitor and market research to strengthen the message behind your numbers.',
-      accentColor: 'cyan',
+      accentColor: 'teal',
     },
     {
       number: '03',

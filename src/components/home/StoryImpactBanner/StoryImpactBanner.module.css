@@ -1,0 +1,46 @@
+.section {
+  position: relative;
+  width: 100%;
+  margin-top: clamp(2.5rem, 5vw, 4.5rem);
+  margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
+  padding: 0;
+  overflow: hidden;
+  display: block;
+  background-color: #030816;
+  box-shadow: 
+    0 -8px 24px rgba(5, 26, 62, 0.04),
+    0 16px 36px rgba(5, 26, 62, 0.08);
+}
+
+.bannerLink {
+  width: 100%;
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
+  line-height: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  transition: opacity 0.3s ease;
+}
+
+.bannerLink:hover {
+  opacity: 0.96;
+}
+
+.bannerImg {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  vertical-align: middle;
+}
+
+@media (max-width: 768px) {
+  .section {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+}

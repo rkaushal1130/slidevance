@@ -16,25 +16,37 @@ import styles from './HeroSlideShowcase.module.css';
 const COLUMN_1 = [
   { img: slide01, title: 'Pitch Deck Cover' },
   { img: slide04, title: 'The Solution' },
-  { img: slide06, title: 'Financial Performance' }
+  { img: slide06, title: 'Financial Performance' },
+  { img: slide09, title: 'Industry & Market Insight' },
+  { img: slide02, title: 'Company Introduction' },
+  { img: slide07, title: 'Business Model Canvas' }
 ];
 
 const COLUMN_2 = [
   { img: slide02, title: 'Company Introduction' },
   { img: slide03, title: 'The Problem' },
-  { img: slide07, title: 'Business Model Canvas' }
+  { img: slide07, title: 'Business Model Canvas' },
+  { img: slide10, title: 'Competitive Landscape (01)' },
+  { img: slide05, title: 'Leadership Impact' },
+  { img: slide08, title: 'USP & Competitive Moat' }
 ];
 
 const COLUMN_3 = [
   { img: slide05, title: 'Leadership Impact' },
   { img: slide08, title: 'USP & Competitive Moat' },
-  { img: slide12, title: 'Funds Requirement' }
+  { img: slide12, title: 'Funds Requirement & Expected Return' },
+  { img: slide11, title: 'Competitive Landscape (02)' },
+  { img: slide01, title: 'Pitch Deck Cover' },
+  { img: slide04, title: 'The Solution' }
 ];
 
 const COLUMN_4 = [
   { img: slide09, title: 'Industry & Market Insight' },
   { img: slide10, title: 'Competitive Landscape (01)' },
-  { img: slide11, title: 'Competitive Landscape (02)' }
+  { img: slide11, title: 'Competitive Landscape (02)' },
+  { img: slide03, title: 'The Problem' },
+  { img: slide06, title: 'Financial Performance' },
+  { img: slide12, title: 'Funds Requirement & Expected Return' }
 ];
 
 export default function HeroSlideShowcase() {
@@ -45,64 +57,64 @@ export default function HeroSlideShowcase() {
 
       {/* 3D Tilted Perspective Stage with 4 Streams of Gunsberg Pitch Deck Slides */}
       <div className={styles.tiltedStage}>
-        {/* Column 1 - Marquee Up */}
-        <div className={`${styles.slideColumn} ${styles.columnUp}`}>
+        {/* Column 1 - Smooth Stream Up */}
+        <div className={`${styles.slideColumn} ${styles.col1}`}>
           <div className={styles.columnTrack}>
-            {[...COLUMN_1, ...COLUMN_1, ...COLUMN_1].map((slide, idx) => (
+            {[...COLUMN_1, ...COLUMN_1].map((slide, idx) => (
               <div key={`c1-${idx}`} className={styles.slideCard}>
                 <img
                   src={slide.img}
                   alt={slide.title}
                   className={styles.slideImg}
-                  loading={idx < 3 ? 'eager' : 'lazy'}
+                  loading={idx < 4 ? 'eager' : 'lazy'}
                 />
               </div>
             ))}
           </div>
         </div>
 
-        {/* Column 2 - Marquee Down */}
-        <div className={`${styles.slideColumn} ${styles.columnDown}`}>
+        {/* Column 2 - Smooth Stream Down */}
+        <div className={`${styles.slideColumn} ${styles.col2}`}>
           <div className={styles.columnTrack}>
-            {[...COLUMN_2, ...COLUMN_2, ...COLUMN_2].map((slide, idx) => (
+            {[...COLUMN_2, ...COLUMN_2].map((slide, idx) => (
               <div key={`c2-${idx}`} className={styles.slideCard}>
                 <img
                   src={slide.img}
                   alt={slide.title}
                   className={styles.slideImg}
-                  loading={idx < 3 ? 'eager' : 'lazy'}
+                  loading={idx < 4 ? 'eager' : 'lazy'}
                 />
               </div>
             ))}
           </div>
         </div>
 
-        {/* Column 3 - Marquee Up */}
-        <div className={`${styles.slideColumn} ${styles.columnUp}`}>
+        {/* Column 3 - Smooth Stream Up */}
+        <div className={`${styles.slideColumn} ${styles.col3}`}>
           <div className={styles.columnTrack}>
-            {[...COLUMN_3, ...COLUMN_3, ...COLUMN_3].map((slide, idx) => (
+            {[...COLUMN_3, ...COLUMN_3].map((slide, idx) => (
               <div key={`c3-${idx}`} className={styles.slideCard}>
                 <img
                   src={slide.img}
                   alt={slide.title}
                   className={styles.slideImg}
-                  loading={idx < 3 ? 'eager' : 'lazy'}
+                  loading={idx < 4 ? 'eager' : 'lazy'}
                 />
               </div>
             ))}
           </div>
         </div>
 
-        {/* Column 4 - Marquee Down */}
-        <div className={`${styles.slideColumn} ${styles.columnDown} ${styles.columnExtra}`}>
+        {/* Column 4 - Smooth Stream Down */}
+        <div className={`${styles.slideColumn} ${styles.col4} ${styles.columnExtra}`}>
           <div className={styles.columnTrack}>
-            {[...COLUMN_4, ...COLUMN_4, ...COLUMN_4].map((slide, idx) => (
+            {[...COLUMN_4, ...COLUMN_4].map((slide, idx) => (
               <div key={`c4-${idx}`} className={styles.slideCard}>
                 <img
                   src={slide.img}
                   alt={slide.title}
                   className={styles.slideImg}
-                  loading={idx < 3 ? 'eager' : 'lazy'}
+                  loading={idx < 4 ? 'eager' : 'lazy'}
                 />
               </div>
             ))}

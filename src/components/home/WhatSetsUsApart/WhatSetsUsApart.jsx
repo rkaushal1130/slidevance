@@ -20,7 +20,7 @@ export default function WhatSetsUsApart() {
       title: 'Research-Backed Insight',
       description:
         'Deep industry, competitor and market research to strengthen the message behind your numbers.',
-      accentColor: 'cyan',
+      accentColor: 'teal',
     },
     {
       number: '03',
@@ -47,6 +47,7 @@ export default function WhatSetsUsApart() {
           title="What Sets Us Apart"
           subtitle="Engineered from the ground up for high-stakes corporate communication where standard templates fail."
           align="center"
+          singleLine={true}
         />
 
         <div className={styles.grid}>

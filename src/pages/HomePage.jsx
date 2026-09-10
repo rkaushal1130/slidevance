@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import Hero from '../components/home/Hero/Hero';
 import PositioningStrip from '../components/home/PositioningStrip/PositioningStrip';
-import IntroSection from '../components/home/IntroSection/IntroSection';
+import OverviewBanner from '../components/home/OverviewBanner/OverviewBanner';
 import WhatSetsUsApart from '../components/home/WhatSetsUsApart/WhatSetsUsApart';
 import ShowcaseCarousel from '../components/home/ShowcaseCarousel/ShowcaseCarousel';
+import StoryImpactBanner from '../components/home/StoryImpactBanner/StoryImpactBanner';
 import Process from '../components/home/Process/Process';
 import PromiseSection from '../components/home/PromiseSection/PromiseSection';
 export default function HomePage() {
@@ -31,14 +32,17 @@ export default function HomePage() {
       {/* 2. Positioning Strip with Thin Gradient Line */}
       <PositioningStrip />
 
-      {/* 3. Clean Two-Column Intro Section */}
-      <IntroSection />
+      {/* 3. Visual Overview Showcase Banner */}
+      <OverviewBanner />
 
       {/* 4. What Sets Us Apart (4 Feature Cards) */}
       <WhatSetsUsApart />
 
-      {/* 5. Work Showcase Cards Slider */}
+      {/* 4. Work Showcase Cards Slider */}
       <ShowcaseCarousel />
+
+      {/* 5. Story & Impact Visual Banner */}
+      <StoryImpactBanner />
 
       {/* 6. Process: From Brief to Boardroom (5-Phase Timeline) */}
       <Process />

@@ -11,6 +11,7 @@
   z-index: 1;
   display: flex;
   justify-content: flex-end;
+  isolation: isolate;
 }
 
 /* Ambient glow in background with exact brand trio */
@@ -18,13 +19,14 @@
   position: absolute;
   top: 40%;
   right: 15%;
-  transform: translateY(-50%);
+  transform: translate3d(0, -50%, 0);
   width: min(850px, 80vw);
   height: 600px;
   background: radial-gradient(circle at 40% 40%, rgba(0, 102, 255, 0.18) 0%, rgba(184, 40, 224, 0.12) 45%, rgba(255, 110, 0, 0.09) 75%, transparent 100%);
   filter: blur(60px);
   pointer-events: none;
   z-index: 0;
+  contain: strict;
 }
 
 /* 3D Tilted Perspective Stage - Angled like Reference Screenshot */
@@ -39,62 +41,82 @@
   align-items: center;
   height: 140%;
   margin-top: -8%;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
 }
 
 /* Slide Columns */
 .slideColumn {
   display: flex;
   flex-direction: column;
-  width: clamp(240px, 20vw, 310px);
+  width: clamp(240px, 19.5vw, 310px);
   flex-shrink: 0;
+  overflow: hidden;
+  transform-style: preserve-3d;
 }
 
 .columnTrack {
   display: flex;
   flex-direction: column;
-  gap: clamp(1rem, 1.6vw, 1.5rem);
   will-change: transform;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  perspective: 1000px;
 }
 
-/* Continuous smooth scrolling animations */
-.columnUp .columnTrack {
-  animation: scrollStreamUp 44s linear infinite;
+/* Continuous ultra-smooth scrolling animations with staggered natural speeds */
+.col1 .columnTrack {
+  animation: scrollStreamUp 48s linear infinite;
 }
 
-.columnDown .columnTrack {
-  animation: scrollStreamDown 48s linear infinite;
+.col2 .columnTrack {
+  animation: scrollStreamDown 54s linear infinite;
+}
+
+.col3 .columnTrack {
+  animation: scrollStreamUp 45s linear infinite;
+}
+
+.col4 .columnTrack {
+  animation: scrollStreamDown 52s linear infinite;
 }
 
 @keyframes scrollStreamUp {
   0% {
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: translateY(-33.333%);
+    transform: translate3d(0, -50%, 0);
   }
 }
 
 @keyframes scrollStreamDown {
   0% {
-    transform: translateY(-33.333%);
+    transform: translate3d(0, -50%, 0);
   }
   100% {
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
-/* Slide Card - Exactly styled like Reference Image 2 */
+/* Single Slide Card */
 .slideCard {
   background: #FFFFFF;
-  border: 1.5px solid rgba(255, 255, 255, 0.9);
+  border: 1.5px solid rgba(255, 255, 255, 0.95);
   border-radius: var(--radius-md, 14px);
   overflow: hidden;
-  box-shadow: 0 16px 36px rgba(5, 26, 62, 0.14), 0 2px 8px rgba(0, 102, 255, 0.06);
-  aspect-ratio: 16 / 9;
+  box-shadow: 0 12px 28px rgba(5, 26, 62, 0.1), 0 2px 6px rgba(0, 102, 255, 0.04);
+  aspect-ratio: 64 / 42;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: clamp(1rem, 1.6vw, 1.5rem);
+  flex-shrink: 0;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  contain: content;
 }
 
 .slideImg {
