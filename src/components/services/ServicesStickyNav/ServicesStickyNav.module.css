@@ -76,6 +76,12 @@
   border-radius: var(--radius-pill);
 }
 
+@media (max-width: 1024px) {
+  .stickyNavWrapper {
+    top: var(--header-height-mobile, 72px);
+  }
+}
+
 @media (max-width: 768px) {
   .container {
     justify-content: flex-start;

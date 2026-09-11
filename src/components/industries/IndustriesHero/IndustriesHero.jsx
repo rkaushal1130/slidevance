@@ -8,14 +8,14 @@ export default function IndustriesHero() {
       <div className={`container ${styles.container}`}>
         <div className={styles.contentBox}>
           {/* Heading */}
-          <h1 className={styles.heading}>
+          <h1 className={`${styles.heading} reveal-on-scroll`}>
             Communication Built
             <br />
             for <span className="gradient-text">Complex Industries.</span>
           </h1>
 
           {/* Paragraph */}
-          <p className={styles.paragraph}>
+          <p className={`${styles.paragraph} reveal-on-scroll reveal-delay-2`}>
             Strategic visual communication designed around your business, audience and decision-making environment.
           </p>
         </div>

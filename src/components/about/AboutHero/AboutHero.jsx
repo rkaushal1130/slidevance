@@ -10,13 +10,13 @@ export default function AboutHero({ settings }) {
       <div className={`container ${styles.heroContainer}`}>
         {/* Centered Column: H1, Paragraph */}
         <div className={styles.contentCol}>
-          <h1 className={styles.heroTitle}>
+          <h1 className={`${styles.heroTitle} reveal-on-scroll`}>
             We Turn Complex Ideas
             <br />
             Into <span className="gradient-text">Clear, Decisive Communication.</span>
           </h1>
 
-          <p className={styles.heroParagraph}>
+          <p className={`${styles.heroParagraph} reveal-on-scroll reveal-delay-2`}>
             {companyName} is a creative business communication studio combining narrative strategy,
             research, and corporate visual design to build materials engineered for high-stakes decisions.
           </p>

@@ -132,7 +132,7 @@ export default function ShowcaseCarousel() {
   return (
     <section className={styles.showcaseSection} aria-label="Featured Work Showcase">
       <div className={styles.container}>
-        <div className={styles.showcaseBox}>
+        <div className={`${styles.showcaseBox} reveal-on-scroll`}>
           {/* Left Column: Heading, Description & Navigation */}
           <div className={styles.leftColumn}>
             <div className={styles.leftHeader}>

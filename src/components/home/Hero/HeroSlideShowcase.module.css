@@ -194,9 +194,9 @@
     width: 100%;
     background: linear-gradient(
       to bottom,
-      rgba(245, 248, 254, 0.82) 0%,
-      rgba(245, 248, 254, 0.9) 50%,
-      rgba(245, 248, 254, 0.95) 100%
+      rgba(245, 248, 254, 0.88) 0%,
+      rgba(245, 248, 254, 0.94) 50%,
+      rgba(245, 248, 254, 0.98) 100%
     );
   }
 
@@ -210,14 +210,26 @@
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
+  .col3 {
+    display: none;
+  }
+
   .slideColumn {
-    width: 170px;
+    width: clamp(140px, 42vw, 185px);
   }
 
   .tiltedStage {
-    transform: rotate(-8deg) scale(0.88);
-    opacity: 0.35;
+    transform: rotate(-7deg) scale(0.88) translate(2%, 0);
+    opacity: 0.32;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .tiltedStage {
+    transform: rotate(-5deg) scale(0.8) translate(5%, 0);
+    opacity: 0.25;
   }
 }
 

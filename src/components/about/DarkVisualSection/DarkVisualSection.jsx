@@ -25,7 +25,7 @@ export default function DarkVisualSection() {
           </p>
 
           <div className={styles.transformationList}>
-            <div className={styles.transformItem}>
+            <div className={`${styles.transformItem} reveal-on-scroll reveal-delay-1`}>
               <div className={styles.checkIcon}>
                 <CheckCircle2 size={20} />
               </div>
@@ -35,7 +35,7 @@ export default function DarkVisualSection() {
               </div>
             </div>
 
-            <div className={styles.transformItem}>
+            <div className={`${styles.transformItem} reveal-on-scroll reveal-delay-2`}>
               <div className={styles.checkIcon}>
                 <CheckCircle2 size={20} />
               </div>
@@ -45,7 +45,7 @@ export default function DarkVisualSection() {
               </div>
             </div>
 
-            <div className={styles.transformItem}>
+            <div className={`${styles.transformItem} reveal-on-scroll reveal-delay-3`}>
               <div className={styles.checkIcon}>
                 <CheckCircle2 size={20} />
               </div>

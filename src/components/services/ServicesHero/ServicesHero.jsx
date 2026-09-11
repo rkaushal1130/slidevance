@@ -10,20 +10,20 @@ export default function ServicesHero() {
       <div className={`container ${styles.container}`}>
         <div className={styles.contentBox}>
           {/* Heading */}
-          <h1 className={styles.heading}>
+          <h1 className={`${styles.heading} reveal-on-scroll`}>
             End-to-End Visual Communication,
             <br />
             <span className="gradient-text">Narrative Strategy &amp; Intelligent Design.</span>
           </h1>
 
           {/* Paragraph */}
-          <p className={styles.paragraph}>
+          <p className={`${styles.paragraph} reveal-on-scroll reveal-delay-2`}>
             We translate complex business logic, raw financial data and technical
             specifications into boardroom-ready visual assets that drive decisions.
           </p>
 
           {/* CTA Button */}
-          <div className={styles.ctaWrapper}>
+          <div className={`${styles.ctaWrapper} reveal-on-scroll reveal-delay-3`}>
             <Button
               to="/contact"
               variant="primary"

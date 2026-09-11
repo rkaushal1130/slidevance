@@ -21,7 +21,7 @@ export default function FeaturedProject({ project, onOpenCaseStudy }) {
   return (
     <section className={`section-spacing ${styles.section}`} aria-label="Featured Portfolio Project">
       <div className="container">
-        <div className={styles.featuredCard}>
+        <div className={`${styles.featuredCard} reveal-on-scroll`}>
           {/* Left Column: Large Visual Mockup */}
           <div className={styles.visualCol}>
             <SlideMockup type={displayProject.mockupType || 'featured'} className={styles.featuredMockup} />

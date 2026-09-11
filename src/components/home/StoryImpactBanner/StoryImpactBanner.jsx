@@ -5,7 +5,7 @@ import styles from './StoryImpactBanner.module.css';
 
 export default function StoryImpactBanner() {
   return (
-    <section className={styles.section} aria-label="Elevate Your Story with Stunning Presentations">
+    <section className={`${styles.section} reveal-on-scroll`} aria-label="Elevate Your Story with Stunning Presentations">
       <Link
         to="/contact"
         className={styles.bannerLink}

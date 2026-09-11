@@ -110,7 +110,7 @@
 }
 
 /* Tablet & Mobile Responsiveness */
-@media (max-width: 1100px) {
+@media (max-width: 1200px) {
   .stepsContainer {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -122,7 +122,14 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+  .stepsContainer {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.15rem;
+  }
+}
+
+@media (max-width: 540px) {
   .stepsContainer {
     grid-template-columns: 1fr;
     gap: 1rem;
@@ -133,10 +140,10 @@
   }
 
   .cardTitle {
-    font-size: 1rem;
+    font-size: 1.02rem;
   }
 
   .cardDescription {
-    font-size: 0.825rem;
+    font-size: 0.85rem;
   }
 }

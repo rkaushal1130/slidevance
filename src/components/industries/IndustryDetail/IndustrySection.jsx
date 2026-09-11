@@ -13,7 +13,7 @@ export default function IndustrySection({
   accentColor = 'blue'
 }) {
   return (
-    <div className={`${styles.industrySectionCard} ${styles[`card_${accentColor}`]}`} id={`industry-${number}`}>
+    <div className={`${styles.industrySectionCard} ${styles[`card_${accentColor}`]} reveal-on-scroll`} id={`industry-${number}`}>
       <div className={styles.sectionCardHeader}>
         <div className={styles.headerLeft}>
           <div className={`${styles.iconWrap} ${styles[`icon_${accentColor}`]}`}>

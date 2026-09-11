@@ -3,9 +3,10 @@ import { ArrowRight } from 'lucide-react';
 import SlideMockup from '../SlideMockup/SlideMockup';
 import styles from './PortfolioGrid.module.css';
 
-export default function PortfolioCard({ project, onOpenCaseStudy }) {
+export default function PortfolioCard({ project, onOpenCaseStudy, index = 0 }) {
+  const delayClass = `reveal-delay-${(index % 3) + 1}`;
   return (
-    <article className={styles.card}>
+    <article className={`${styles.card} reveal-on-scroll ${delayClass}`}>
       {/* Large Visual Area */}
       <div className={styles.imageArea} onClick={() => onOpenCaseStudy(project)}>
         <div className={styles.mockupWrapper}>

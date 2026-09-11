@@ -6,7 +6,7 @@
 
 .blocksGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 1.75rem;
 }
 
@@ -98,6 +98,7 @@
   color: #1C3050;
   line-height: 1.65;
   margin-bottom: 1.5rem;
+  flex: 1;
 }
 
 .blockNumber {
@@ -109,19 +110,9 @@
   letter-spacing: 0.05em;
 }
 
-/* For the 4th and 5th items on 3-col grid, make them span nicely or center */
-@media (min-width: 992px) {
-  .advantageBlock:nth-child(4) {
-    grid-column: 1 / 2;
-  }
-  .advantageBlock:nth-child(5) {
-    grid-column: 2 / 4;
-  }
-}
-
 @media (max-width: 991px) {
   .blocksGrid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1.5rem;
   }
 }

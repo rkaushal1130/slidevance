@@ -8,8 +8,9 @@ export default function FeatureCard({
   description,
   accentColor = 'blue',
 }) {
+  const delayIndex = parseInt(number, 10) || 1;
   return (
-    <div className={`${styles.card} ${styles[`card_${accentColor}`] || ''}`}>
+    <div className={`${styles.card} ${styles[`card_${accentColor}`] || ''} reveal-on-scroll reveal-delay-${Math.min(delayIndex, 5)}`}>
       <div className={styles.cardHeader}>
         <div className={`${styles.iconContainer} ${styles[`icon_${accentColor}`] || ''}`}>
           {Icon && <Icon size={24} strokeWidth={2} />}

@@ -361,24 +361,60 @@
     padding: 1.75rem 1.25rem;
   }
 
+  .leftColumn {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+
   .card {
-    flex: 0 0 280px;
-    width: 280px;
+    flex: 0 0 clamp(260px, 78vw, 300px);
+    width: clamp(260px, 78vw, 300px);
   }
 
   .cardTitle {
     font-size: 0.94rem;
     min-height: 38px;
   }
+
+  .modalOverlay {
+    padding: 0.75rem;
+  }
+
+  .modalHeader {
+    padding: 1rem 1.25rem;
+  }
+
+  .modalTitle {
+    font-size: 1.1rem;
+  }
+
+  .modalCloseBtn {
+    width: 38px;
+    height: 38px;
+  }
 }
 
 @media (max-width: 480px) {
+  .container {
+    padding: 0 0.75rem;
+  }
+
+  .showcaseBox {
+    padding: 1.35rem 1rem;
+  }
+
   .card {
-    flex: 0 0 82vw;
-    width: 82vw;
+    flex: 0 0 clamp(240px, 84vw, 290px);
+    width: clamp(240px, 84vw, 290px);
+    padding: 10px;
   }
 
   .heading {
-    font-size: 1.65rem;
+    font-size: 1.55rem;
+  }
+
+  .description {
+    font-size: 0.925rem;
   }
 }

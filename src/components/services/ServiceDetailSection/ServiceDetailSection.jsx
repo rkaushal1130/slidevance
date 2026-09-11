@@ -20,7 +20,7 @@ export default function ServiceDetailSection({
     <section id={id} className={styles.serviceSection} aria-label={title}>
       <div className={`container ${styles.container} ${reverse ? styles.reverse : ''}`}>
         {/* Text Content Column */}
-        <div className={styles.contentCol}>
+        <div className={`${styles.contentCol} reveal-on-scroll`}>
           <div className={styles.headerRow}>
             <span className={`${styles.serviceNumber} ${styles[`num_${accentColor}`]}`}>
               {number}
@@ -74,7 +74,7 @@ export default function ServiceDetailSection({
 
         {/* Visual Mockup Showcase Column */}
         <div className={styles.visualCol}>
-          <div className={styles.mockupCard}>
+          <div className={`${styles.mockupCard} reveal-on-scroll`}>
             <div className={styles.cardCornerAccent} />
             <SlideMockup type={mockupType} />
             <div className={styles.mockupMeta}>

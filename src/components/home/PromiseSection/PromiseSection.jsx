@@ -52,20 +52,20 @@ export default function PromiseSection() {
 
         {/* Supporting Line with gradient highlighted keywords */}
         <p className={styles.supportingLine}>
-          From <span className={styles.highlightCyan}>raw data</span>
-          {' '}→{' '}
-          <span className={styles.highlightBlue}>business logic</span>
-          {' '}→{' '}
-          <span className={styles.highlightMagenta}>visual narrative</span>
-          {' '}→{' '}
-          <span className={styles.highlightOrange}>boardroom-ready deliverable</span>.
+          <span className={styles.stageStep}>From <span className={styles.highlightCyan}>raw data</span></span>
+          <span className={styles.stepArrow} aria-hidden="true"> → </span>
+          <span className={styles.stageStep}><span className={styles.highlightBlue}>business logic</span></span>
+          <span className={styles.stepArrow} aria-hidden="true"> → </span>
+          <span className={styles.stageStep}><span className={styles.highlightMagenta}>visual narrative</span></span>
+          <span className={styles.stepArrow} aria-hidden="true"> → </span>
+          <span className={styles.stageStep}><span className={styles.highlightOrange}>boardroom deliverable</span></span>
         </p>
 
         {/* Interactive 4-Stage Visual Transformation Pipeline */}
         <div className={styles.pipelineGrid}>
           {pipelineStages.map((stage, idx) => (
             <React.Fragment key={stage.title}>
-              <div className={styles.pipelineCard}>
+              <div className={`${styles.pipelineCard} reveal-on-scroll reveal-delay-${idx + 1}`}>
                 <div className={styles.stageHeader}>
                   <span className={styles.stageNumber}>{stage.step}</span>
                   <div

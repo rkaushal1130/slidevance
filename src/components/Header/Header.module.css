@@ -213,19 +213,32 @@
 }
 
 .mobileNavItem {
-  animation: fadeIn 0.3s ease forwards;
+  opacity: 0;
+  transform: translateX(16px);
+}
+
+.mobileDrawerOpen .mobileNavItem {
+  animation: drawerItemSlide 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes drawerItemSlide {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .mobileNavLink {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.85rem 1rem;
+  padding: 0.9rem 1rem;
   border-radius: var(--radius-sm);
   font-size: 1.05rem;
   font-weight: 600;
   color: var(--navy);
   transition: all var(--transition-fast);
+  min-height: 44px;
 }
 
 .mobileNavArrow {
@@ -236,7 +249,7 @@
 .mobileNavLink:hover {
   background-color: var(--blue-soft);
   color: var(--blue);
-  transform: translateX(4px) scale(1.02);
+  transform: translateX(4px);
 }
 
 .mobileNavLink:hover .mobileNavArrow {
@@ -268,6 +281,7 @@
 .mobileCtaButton {
   width: 100%;
   justify-content: center;
+  min-height: 48px;
 }
 
 .mobileContactNote {
@@ -282,8 +296,8 @@
   position: fixed;
   inset: 0;
   background-color: rgba(9, 43, 99, 0.45);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   z-index: 1005;
   animation: fadeIn 0.25s ease forwards;
 }
@@ -311,18 +325,40 @@
   outline: none;
 }
 
-/* Responsive queries */
-@media (min-width: 992px) and (max-width: 1140px) {
+/* Mobile Header Height */
+@media (max-width: 768px) {
+  .header {
+    height: var(--header-height-mobile, 72px);
+  }
+
+  .headerSpacer {
+    height: var(--header-height-mobile, 72px);
+  }
+
+  .mobileMenuToggle {
+    width: 44px;
+    height: 44px;
+  }
+
+  .mobileDrawerInner {
+    padding-top: max(1.25rem, env(safe-area-inset-top));
+    padding-bottom: max(1.25rem, env(safe-area-inset-bottom));
+  }
+}
+
+/* Tablet & Laptop Breakpoints */
+@media (min-width: 1025px) and (max-width: 1240px) {
   .navList {
-    gap: 1.15rem;
+    gap: clamp(1rem, 1.4vw, 1.75rem);
   }
 
   .navLink {
     font-size: 0.875rem;
+    padding: 0.4rem 0.2rem;
   }
 }
 
-@media (max-width: 991px) {
+@media (max-width: 1024px) {
   .desktopNav,
   .desktopCta {
     display: none;

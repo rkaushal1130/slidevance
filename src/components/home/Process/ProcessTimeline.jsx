@@ -26,7 +26,7 @@ export default function ProcessTimeline({ steps }) {
           return (
             <React.Fragment key={step.number}>
               <div
-                className={styles.stepCard}
+                className={`${styles.stepCard} reveal-on-scroll reveal-delay-${Math.min(index + 1, 5)}`}
                 style={{
                   '--card-accent': step.color,
                   '--card-bg': step.bgColor,

@@ -249,7 +249,7 @@
 }
 
 /* Responsive */
-@media (max-width: 991px) {
+@media (max-width: 1024px) {
   .topSection {
     grid-template-columns: 1fr 1fr;
     gap: 2.25rem;
@@ -268,10 +268,10 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
   .topSection {
     grid-template-columns: 1fr;
-    gap: 1.75rem;
+    gap: 2rem;
   }
 
   .footerContainer {
@@ -281,6 +281,26 @@
 
   .navList {
     grid-template-columns: 1fr 1fr;
-    gap: 0.45rem 1rem;
+    gap: 0.5rem 1rem;
+  }
+
+  .emailCard {
+    width: 100%;
+  }
+
+  .emailAddress {
+    font-size: clamp(0.775rem, 3.8vw, 0.875rem);
+    word-break: break-all;
+  }
+
+  .bottomLegal {
+    font-size: 0.775rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .navList {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
   }
 }

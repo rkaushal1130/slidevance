@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import ScrollToTop from './components/common/ScrollToTop';
+import { useScrollReveal } from './hooks/useScrollReveal';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import PortfolioPage from './pages/PortfolioPage';
@@ -11,6 +12,8 @@ import ServicesPage from './pages/ServicesPage';
 import ContactPage from './pages/ContactPage';
 
 export default function App() {
+  useScrollReveal();
+
   return (
     <BrowserRouter>
       <ScrollToTop />

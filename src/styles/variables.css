@@ -94,16 +94,27 @@
   
   /* Layout Constants */
   --container-max-width: 1720px;
-  --container-padding: clamp(1.5rem, 2.5vw, 2.75rem);
-  --header-height: 86px;
+  --container-padding: clamp(1rem, 2.5vw, 2.75rem);
+  --header-height: 84px;
+  --header-height-mobile: 72px;
   --radius-sm: 8px;
   --radius-md: 14px;
   --radius-lg: 20px;
   --radius-xl: 28px;
   --radius-pill: 9999px;
 
-  /* Transitions */
+  /* Fluid Spacing Scale */
+  --space-2xs: clamp(0.25rem, 0.5vw, 0.375rem);
+  --space-xs: clamp(0.5rem, 1vw, 0.75rem);
+  --space-sm: clamp(0.75rem, 1.5vw, 1rem);
+  --space-md: clamp(1rem, 2vw, 1.5rem);
+  --space-lg: clamp(1.5rem, 3vw, 2.25rem);
+  --space-xl: clamp(2.25rem, 4.5vw, 3.5rem);
+  --space-2xl: clamp(3rem, 6vw, 5rem);
+
+  /* Transitions & Motion Curves */
   --transition-fast: 0.18s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-normal: 0.28s cubic-bezier(0.16, 1, 0.3, 1);
-  --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 0.42s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-spring: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
 }

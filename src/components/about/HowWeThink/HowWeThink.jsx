@@ -41,7 +41,7 @@ export default function HowWeThink() {
 
           <div className={styles.stagesGrid}>
             {stages.map((stage, index) => (
-              <div key={stage.title} className={styles.stageItem}>
+              <div key={stage.title} className={`${styles.stageItem} reveal-on-scroll reveal-delay-${index + 1}`}>
                 {/* Node Ring Indicator */}
                 <div className={styles.nodeWrapper}>
                   <div className={styles.nodeRing}>

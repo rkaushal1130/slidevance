@@ -10,20 +10,20 @@ export default function PortfolioHero() {
       <div className={`container ${styles.container}`}>
         <div className={styles.contentBox}>
           {/* Heading */}
-          <h1 className={styles.heading}>
+          <h1 className={`${styles.heading} reveal-on-scroll`}>
             Work That Moves
             <br />
             <span className="gradient-text">Business Forward.</span>
           </h1>
 
           {/* Paragraph */}
-          <p className={styles.paragraph}>
+          <p className={`${styles.paragraph} reveal-on-scroll reveal-delay-2`}>
             Selected presentation, communication and visual storytelling work designed
             to make complex information clear, compelling and decision-ready.
           </p>
 
           {/* CTA Button */}
-          <div className={styles.ctaWrapper}>
+          <div className={`${styles.ctaWrapper} reveal-on-scroll reveal-delay-3`}>
             <Button
               to="/contact"
               variant="primary"

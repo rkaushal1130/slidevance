@@ -41,10 +41,10 @@ export default function DeliveryCapabilities() {
         />
 
         <div className={styles.columnsGrid}>
-          {capabilities.map((cap) => {
+          {capabilities.map((cap, idx) => {
             const Icon = cap.icon;
             return (
-              <div key={cap.title} className={styles.columnCard}>
+              <div key={cap.title} className={`${styles.columnCard} reveal-on-scroll reveal-delay-${idx + 1}`}>
                 <div className={styles.iconBox}>
                   <Icon size={24} strokeWidth={1.75} />
                 </div>

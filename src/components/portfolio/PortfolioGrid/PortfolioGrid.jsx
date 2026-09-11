@@ -13,10 +13,11 @@ export default function PortfolioGrid({ projects, onOpenCaseStudy }) {
 
   return (
     <div className={styles.grid}>
-      {projects.map((project) => (
+      {projects.map((project, index) => (
         <PortfolioCard
           key={project.number + project.title}
           project={project}
+          index={index}
           onOpenCaseStudy={onOpenCaseStudy}
         />
       ))}

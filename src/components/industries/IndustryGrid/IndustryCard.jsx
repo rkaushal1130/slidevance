@@ -8,10 +8,11 @@ export default function IndustryCard({
   name,
   description,
   accentColor = 'blue',
-  onExplore
+  onExplore,
 }) {
+  const delay = (parseInt(number, 10) % 4) + 1;
   return (
-    <div className={`${styles.card} ${styles[`card_${accentColor}`]}`}>
+    <div className={`${styles.card} ${styles[`card_${accentColor}`]} reveal-on-scroll reveal-delay-${delay}`}>
       <div className={styles.cardGradientAccent} />
 
       <div className={styles.cardTop}>

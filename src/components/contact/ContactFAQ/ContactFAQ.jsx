@@ -36,24 +36,16 @@ const FAQ_ITEMS = [
 ];
 
 export default function ContactFAQ() {
-  const [openItem, setOpenItem] = useState(null);
+  const [openItem, setOpenItem] = useState('faq-1');
 
   const toggleItem = (id) => {
     setOpenItem((prev) => (prev === id ? null : id));
   };
 
-  const handleMouseEnter = (id) => {
-    setOpenItem(id);
-  };
-
-  const handleMouseLeave = () => {
-    setOpenItem(null);
-  };
-
   return (
     <section className={`section-spacing ${styles.faqSection}`} aria-label="Frequently Asked Questions">
       <div className="container">
-        <div className={styles.headerWrapper}>
+        <div className={`${styles.headerWrapper} reveal-on-scroll`}>
           <h2 className={styles.heading}>
             Everything You Need
             <br />
@@ -65,14 +57,12 @@ export default function ContactFAQ() {
         </div>
 
         <div className={styles.accordionContainer}>
-          {FAQ_ITEMS.map((item) => {
+          {FAQ_ITEMS.map((item, index) => {
             const isOpen = openItem === item.id;
             return (
               <div
                 key={item.id}
-                className={`${styles.accordionItem} ${isOpen ? styles.accordionItemOpen : ''}`}
-                onMouseEnter={() => handleMouseEnter(item.id)}
-                onMouseLeave={handleMouseLeave}
+                className={`${styles.accordionItem} ${isOpen ? styles.accordionItemOpen : ''} reveal-on-scroll reveal-delay-${index + 1}`}
               >
                 <button
                   type="button"

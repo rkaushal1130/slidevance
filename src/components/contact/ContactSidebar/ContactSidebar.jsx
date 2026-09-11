@@ -20,7 +20,7 @@ export default function ContactSidebar() {
 
   return (
     <aside className={styles.sidebarWrapper} aria-label="Contact Information and Studio Commitments">
-      <div className={styles.introHeader}>
+      <div className={`${styles.introHeader} reveal-on-scroll`}>
         <h2 className={styles.heading}>
           Start the
           <br />
@@ -32,12 +32,12 @@ export default function ContactSidebar() {
       </div>
 
       {/* Official Studio Email Card */}
-      <div className={styles.emailCard}>
+      <div className={`${styles.emailCard} reveal-on-scroll reveal-delay-1`}>
         <div className={styles.emailHeader}>
           <div className={styles.iconCircle}>
             <Mail size={20} className={styles.mailIcon} />
           </div>
-          <div>
+          <div style={{ minWidth: 0, overflow: 'hidden' }}>
             <span className={styles.cardLabel}>Direct Studio Email</span>
             <a href={`mailto:${contactConfig.email}`} className={styles.emailLink}>
               {contactConfig.email}
@@ -67,7 +67,7 @@ export default function ContactSidebar() {
       </div>
 
       {/* Studio Value & Operational Pillars */}
-      <div className={styles.pillarsList}>
+      <div className={`${styles.pillarsList} reveal-on-scroll reveal-delay-2`}>
         {/* Pillar 1: 24/7 Agile Availability */}
         <div className={styles.pillarItem}>
           <div className={`${styles.pillarIconBox} ${styles.pillarIconBlue}`}>
@@ -96,7 +96,7 @@ export default function ContactSidebar() {
       </div>
 
       {/* Layered Geometric Visual Accent */}
-      <div className={styles.accentGraphic}>
+      <div className={`${styles.accentGraphic} reveal-on-scroll reveal-delay-3`}>
         <div className={styles.accentLayerBlue} />
         <div className={styles.accentLayerCyan} />
         <div className={styles.accentLayerMagenta} />

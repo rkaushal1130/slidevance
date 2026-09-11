@@ -62,7 +62,7 @@ export default function SlidevanceAdvantage() {
           {advantageBlocks.map((block, idx) => {
             const Icon = block.icon;
             return (
-              <div key={block.title} className={styles.advantageBlock}>
+              <div key={block.title} className={`${styles.advantageBlock} reveal-on-scroll reveal-delay-${idx + 1}`}>
                 <div className={styles.blockTop}>
                   <div className={styles.iconWrapper}>
                     <Icon size={22} />

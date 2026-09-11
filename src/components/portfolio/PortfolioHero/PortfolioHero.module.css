@@ -82,11 +82,11 @@
 
 @media (max-width: 600px) {
   .heading {
-    font-size: 2.25rem;
+    font-size: clamp(1.85rem, 6.5vw, 2.35rem);
   }
 
   .paragraph {
-    font-size: 1rem;
+    font-size: 0.975rem;
     margin-bottom: 1.75rem;
   }
 }

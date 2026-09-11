@@ -6,7 +6,7 @@ export default function OurPromise() {
   return (
     <section className={`section-spacing ${styles.promiseSection}`} aria-label="Our Promise">
       <div className="container">
-        <div className={styles.promiseCard}>
+        <div className={`${styles.promiseCard} reveal-on-scroll`}>
           {/* Subtle Geometric Corner Decorations */}
           <div className={`${styles.cornerDecoration} ${styles.cornerTopLeft}`} aria-hidden="true">
             <span className={styles.cornerDotCyan} />

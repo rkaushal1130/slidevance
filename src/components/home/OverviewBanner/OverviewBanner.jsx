@@ -8,7 +8,7 @@ export default function OverviewBanner() {
       <div className="container">
         <div className={styles.bannerWrapper}>
           <div className={styles.glow} aria-hidden="true" />
-          <div className={styles.imageCard}>
+          <div className={`${styles.imageCard} reveal-on-scroll`}>
             <img
               src={overviewImg}
               alt="Slidevance Presentation Design, Strategy, Storytelling and Brand Solutions Overview"
