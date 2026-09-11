@@ -155,6 +155,7 @@ p {
   background-clip: text;
   color: transparent;
   display: inline-block;
+  text-shadow: none !important;
 }
 
 /* Fluid Section Spacing Utility */
