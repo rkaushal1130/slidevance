@@ -66,7 +66,8 @@ export default function HeroSlideShowcase() {
                   src={slide.img}
                   alt={slide.title}
                   className={styles.slideImg}
-                  loading={idx < 4 ? 'eager' : 'lazy'}
+                  loading="eager"
+                  decoding="async"
                 />
               </div>
             ))}
@@ -82,7 +83,8 @@ export default function HeroSlideShowcase() {
                   src={slide.img}
                   alt={slide.title}
                   className={styles.slideImg}
-                  loading={idx < 4 ? 'eager' : 'lazy'}
+                  loading="eager"
+                  decoding="async"
                 />
               </div>
             ))}
@@ -98,7 +100,8 @@ export default function HeroSlideShowcase() {
                   src={slide.img}
                   alt={slide.title}
                   className={styles.slideImg}
-                  loading={idx < 4 ? 'eager' : 'lazy'}
+                  loading="eager"
+                  decoding="async"
                 />
               </div>
             ))}
@@ -114,7 +117,8 @@ export default function HeroSlideShowcase() {
                   src={slide.img}
                   alt={slide.title}
                   className={styles.slideImg}
-                  loading={idx < 4 ? 'eager' : 'lazy'}
+                  loading="eager"
+                  decoding="async"
                 />
               </div>
             ))}
