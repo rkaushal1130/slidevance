@@ -13,10 +13,10 @@
 /* Horizontal line for desktop */
 .desktopLine {
   position: absolute;
-  top: 28px;
-  left: 10%;
-  right: 10%;
-  height: 3px;
+  top: 9px;
+  left: 16.67%;
+  right: 16.67%;
+  height: 2px;
   z-index: 1;
 }
 
@@ -41,22 +41,21 @@
   position: relative;
 }
 
-/* Node marker */
+/* Node marker / Bullet sign */
 .nodeWrapper {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 1.5rem;
+  justify-content: center;
+  margin-bottom: 1.25rem;
 }
 
 .nodeRing {
-  width: 58px;
-  height: 58px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   background-color: #FFFFFF;
-  border: 2px solid rgba(7, 95, 232, 0.2);
-  box-shadow: 0 4px 16px rgba(7, 95, 232, 0.12);
+  border: 2px solid rgba(7, 95, 232, 0.3);
+  box-shadow: 0 2px 8px rgba(7, 95, 232, 0.16);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -65,8 +64,8 @@
 }
 
 .nodeCore {
-  width: 20px;
-  height: 20px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background: var(--signature-gradient);
   transition: transform var(--transition-fast);
@@ -74,22 +73,12 @@
 
 .stageItem:hover .nodeRing {
   border-color: var(--blue);
-  transform: scale(1.12);
-  box-shadow: 0 8px 24px rgba(7, 95, 232, 0.25);
+  transform: scale(1.25);
+  box-shadow: 0 0 0 4px rgba(7, 95, 232, 0.12), 0 4px 12px rgba(7, 95, 232, 0.2);
 }
 
 .stageItem:hover .nodeCore {
   transform: scale(1.2);
-}
-
-.stageNumber {
-  font-size: 0.75rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  color: var(--blue);
-  background: var(--blue-soft);
-  padding: 0.2rem 0.65rem;
-  border-radius: var(--radius-pill);
 }
 
 .mobileLine {
@@ -197,22 +186,23 @@
   .stageItem {
     flex-direction: row;
     align-items: flex-start;
-    gap: 1.5rem;
+    gap: 1.25rem;
   }
 
   .nodeWrapper {
     margin-bottom: 0;
     position: relative;
     flex-shrink: 0;
+    padding-top: 2.35rem;
   }
 
   .mobileLine {
     display: block;
     position: absolute;
-    top: 58px;
-    left: 29px;
+    top: calc(2.35rem + 20px);
+    left: 9px;
     bottom: -1.75rem;
-    width: 3px;
+    width: 2px;
     background: var(--signature-gradient-vertical);
     z-index: 1;
   }
@@ -227,19 +217,23 @@
     gap: 1rem;
   }
 
+  .nodeWrapper {
+    padding-top: 1.6rem;
+  }
+
   .nodeRing {
-    width: 46px;
-    height: 46px;
+    width: 18px;
+    height: 18px;
   }
 
   .nodeCore {
-    width: 16px;
-    height: 16px;
+    width: 7px;
+    height: 7px;
   }
 
   .mobileLine {
-    top: 46px;
-    left: 23px;
+    top: calc(1.6rem + 18px);
+    left: 8px;
   }
 
   .stageCard {

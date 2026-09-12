@@ -6,8 +6,8 @@ import { useEffect } from 'react';
  */
 export function useScrollReveal(options = {}) {
   const {
-    threshold = 0.1,
-    rootMargin = '0px 0px -30px 0px',
+    threshold = 0.02,
+    rootMargin = '0px 0px 50px 0px',
     selector = '.reveal-on-scroll',
   } = options;
 
