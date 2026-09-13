@@ -67,12 +67,14 @@ export default function Hero() {
               Start a Project
             </Button>
             <Button
-              to="/portfolio"
+              href="/Slidevance-pricing.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               variant="secondary"
               size="lg"
               icon={<ArrowRight size={18} />}
             >
-              Explore Our Work
+              View Pricing
             </Button>
           </div>
 

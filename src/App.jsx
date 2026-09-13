@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
@@ -10,6 +10,13 @@ import PortfolioPage from './pages/PortfolioPage';
 import IndustriesPage from './pages/IndustriesPage';
 import ServicesPage from './pages/ServicesPage';
 import ContactPage from './pages/ContactPage';
+
+function PricingRedirect() {
+  useEffect(() => {
+    window.location.replace('/Slidevance-pricing.pdf');
+  }, []);
+  return null;
+}
 
 export default function App() {
   useScrollReveal();
@@ -36,6 +43,9 @@ export default function App() {
 
         {/* Contact Page */}
         <Route path="/contact" element={<ContactPage />} />
+
+        {/* Pricing Shortcut */}
+        <Route path="/pricing" element={<PricingRedirect />} />
 
         {/* Fallback to Home */}
         <Route path="*" element={<Navigate to="/" replace />} />

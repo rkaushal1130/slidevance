@@ -54,7 +54,7 @@ export default function EngagementModels() {
   ];
 
   return (
-    <section className={`section-spacing ${styles.section}`} aria-label="Investment & Flexible Engagement">
+    <section id="pricing" className={`section-spacing ${styles.section}`} aria-label="Investment & Flexible Engagement">
       <div className="container">
         <SectionHeading
           title="Investment &amp; Flexible Engagement"
