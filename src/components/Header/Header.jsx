@@ -13,8 +13,8 @@ export default function Header() {
   const navLinks = [
     { label: 'Home', path: '/' },
     { label: 'About Us', path: '/about' },
-    { label: 'Portfolio', path: '/portfolio' },
     { label: 'Industries', path: '/industries' },
+    { label: 'Pricing', path: '/pricing' },
     { label: 'Services', path: '/services' },
     { label: 'Contact', path: '/contact' },
   ];
@@ -47,9 +47,15 @@ export default function Header() {
     };
   }, [isMobileMenuOpen]);
 
+  const isDarkHeroPage = location.pathname === '/contact';
+
   return (
     <>
-      <header className={`${styles.header} ${isScrolled ? styles.headerScrolled : ''}`}>
+      <header
+        className={`${styles.header} ${isScrolled ? styles.headerScrolled : ''} ${
+          isDarkHeroPage ? styles.headerDark : ''
+        }`}
+      >
       {/* Accessible Skip Link */}
       <a href="#main-content" className={styles.skipLink}>
         Skip to main content
@@ -178,7 +184,12 @@ export default function Header() {
         />
       )}
     </header>
-    <div className={styles.headerSpacer} aria-hidden="true" />
+    <div
+      className={`${styles.headerSpacer} ${
+        isDarkHeroPage ? styles.headerSpacerHidden : ''
+      }`}
+      aria-hidden="true"
+    />
   </>
   );
 }

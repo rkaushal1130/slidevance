@@ -1,0 +1,170 @@
+.teamSection {
+  padding-top: clamp(4rem, 6vw, 5.5rem);
+  padding-bottom: clamp(4rem, 6vw, 5.5rem);
+  background-color: #FFFFFF;
+  border-bottom: 1px solid rgba(9, 43, 99, 0.05);
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: clamp(2rem, 4vw, 3.5rem);
+  align-items: flex-start;
+}
+
+.introCol {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.tagWrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.25rem;
+}
+
+.sectionTag {
+  font-size: 0.8125rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+
+.tagLine {
+  display: inline-block;
+  width: 32px;
+  height: 2px;
+  background-color: var(--navy);
+  opacity: 0.35;
+}
+
+.heading {
+  font-size: clamp(2.25rem, 3.2vw, 3rem);
+  font-weight: 850;
+  color: #07152F;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.25rem;
+}
+
+.description {
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 1.75rem;
+}
+
+.handwrittenWrap {
+  display: inline-block;
+  margin-top: 0.5rem;
+}
+
+.handwrittenImg {
+  width: 135px;
+  height: auto;
+  display: block;
+}
+
+/* Team Grid */
+.cardsCol {
+  width: 100%;
+}
+
+.teamGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.85rem;
+}
+
+.memberCard {
+  background: #FFFFFF;
+  border: 1px solid rgba(9, 43, 99, 0.08);
+  border-radius: 8px;
+  padding: 0.65rem;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-normal);
+}
+
+.memberCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(9, 43, 99, 0.08);
+  border-color: rgba(0, 102, 255, 0.25);
+}
+
+.avatarBox {
+  width: 100%;
+  aspect-ratio: 114 / 102;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #F8FAFC;
+  margin-bottom: 0.75rem;
+}
+
+.avatarImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--transition-normal);
+}
+
+.memberCard:hover .avatarImg {
+  transform: scale(1.04);
+}
+
+.cardInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.roleTitle {
+  font-size: 0.8125rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #07152F;
+  margin-bottom: 0.35rem;
+}
+
+.roleDesc {
+  font-size: 0.775rem;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .teamGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .teamGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .teamGrid > :last-child {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 480px) {
+  .teamGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .teamGrid > :last-child {
+    grid-column: span 1;
+  }
+}

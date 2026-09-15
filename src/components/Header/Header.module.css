@@ -30,6 +30,31 @@
   pointer-events: none;
 }
 
+.headerSpacerHidden {
+  display: none;
+}
+
+/* Dark header styles for dark hero page */
+.headerDark:not(.headerScrolled) .navLink {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.headerDark:not(.headerScrolled) .navLink:hover {
+  color: #FFFFFF;
+}
+
+.headerDark:not(.headerScrolled) .navLinkActive {
+  color: #FFFFFF;
+}
+
+.headerDark:not(.headerScrolled) .logo :global(img) {
+  filter: brightness(0) invert(1);
+}
+
+.headerDark:not(.headerScrolled) .mobileMenuToggle {
+  color: #FFFFFF;
+}
+
 .headerContainer {
   display: flex;
   align-items: center;

@@ -66,16 +66,6 @@ export default function Hero() {
             >
               Start a Project
             </Button>
-            <Button
-              href="/Slidevance-pricing.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              variant="secondary"
-              size="lg"
-              icon={<ArrowRight size={18} />}
-            >
-              View Pricing
-            </Button>
           </div>
 
           {/* Trust Indicators / Credentials Strip */}

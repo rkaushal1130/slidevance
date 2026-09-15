@@ -1,0 +1,418 @@
+.section {
+  position: relative;
+  background-color: #010610;
+  color: #FFFFFF;
+  overflow: hidden;
+}
+
+.topContainer {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  align-items: start;
+  gap: clamp(2.5rem, 5vw, 5rem);
+  padding-top: clamp(4.5rem, 7vw, 6.5rem);
+  padding-bottom: clamp(4rem, 6vw, 5.5rem);
+}
+
+.leftCol {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Eyebrow with horizontal line */
+.eyebrowWrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 1.25rem;
+}
+
+.eyebrowText {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #94A3B8;
+}
+
+.eyebrowLine {
+  width: 48px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.heading {
+  font-size: clamp(2.25rem, 3.8vw, 3.25rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin: 0 0 1.25rem 0;
+}
+
+.description {
+  font-size: clamp(0.9375rem, 1.1vw, 1.0625rem);
+  color: #94A3B8;
+  line-height: 1.65;
+  margin: 0;
+  max-width: 460px;
+}
+
+/* 2x2 Trust Features Grid */
+.trustGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.25rem 2.5rem;
+}
+
+.trustCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.15rem;
+}
+
+.iconCircle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(99, 102, 241, 0.12);
+  border: 1px solid rgba(99, 102, 241, 0.28);
+  color: #818CF8;
+  flex-shrink: 0;
+  box-shadow: 0 0 16px rgba(99, 102, 241, 0.15);
+}
+
+.trustCardContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.trustCardTitle {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0 0 0.35rem 0;
+  letter-spacing: -0.01em;
+}
+
+.trustCardDesc {
+  font-size: 0.84375rem;
+  color: #94A3B8;
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* Bottom Action Strip */
+.bottomStripWrapper {
+  position: relative;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 2.25rem 0;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(1, 6, 16, 0.8) 0%, rgba(2, 9, 23, 0.95) 100%);
+}
+
+.ribbonWrapper {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  width: 280px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ribbonImage {
+  height: 100%;
+  width: auto;
+  object-fit: cover;
+  mix-blend-mode: screen;
+  opacity: 0.85;
+}
+
+.stripContainer {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+/* Direct Email Block */
+.emailBlock {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.stripIconBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #FFFFFF;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.stripIconBtn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.35);
+  transform: translateY(-1px);
+}
+
+.copiedIcon {
+  color: #10B981;
+}
+
+.stripTextBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.stripLabel {
+  font-size: 0.78125rem;
+  color: #94A3B8;
+}
+
+.stripLink {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.stripLink:hover {
+  color: #818CF8;
+}
+
+/* Vertical Separator */
+.stripDivider {
+  width: 1px;
+  height: 38px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* Booking Block */
+.bookingBlock {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.bookCallBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  border: none;
+  color: #FFFFFF;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.bookCallBtn:hover {
+  color: #818CF8;
+  transform: translateX(2px);
+}
+
+/* Slogan Block */
+.sloganBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.sloganTop {
+  font-size: 0.9375rem;
+  color: #94A3B8;
+  font-weight: 500;
+}
+
+.sloganBottom {
+  font-size: 1.0625rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  border-bottom: 2px solid #818CF8;
+  padding-bottom: 2px;
+  letter-spacing: -0.01em;
+}
+
+/* Modal */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.modalCard {
+  position: relative;
+  background: #0B1120;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  max-width: 480px;
+  width: 100%;
+  padding: 2.25rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  animation: modalIn 0.2s ease-out;
+}
+
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.closeModalBtn {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  background: transparent;
+  border: none;
+  color: #94A3B8;
+  cursor: pointer;
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.15s ease;
+}
+
+.closeModalBtn:hover {
+  color: #FFFFFF;
+}
+
+.modalHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 1.75rem;
+}
+
+.modalCalendarIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(99, 102, 241, 0.15);
+  color: #818CF8;
+  margin-bottom: 1.25rem;
+}
+
+.modalHeading {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0 0 0.5rem 0;
+}
+
+.modalSubheading {
+  font-size: 0.875rem;
+  color: #94A3B8;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.modalActions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.modalPrimaryBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.85rem 1.5rem;
+  background: linear-gradient(135deg, #6366F1 0%, #A855F7 100%);
+  color: #FFFFFF;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.modalPrimaryBtn:hover {
+  opacity: 0.95;
+  transform: translateY(-1px);
+}
+
+.modalSecondaryBtn {
+  width: 100%;
+  padding: 0.85rem 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #CBD5E1;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.modalSecondaryBtn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
+}
+
+/* Responsive */
+@media (max-width: 960px) {
+  .topContainer {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .stripContainer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+
+  .stripDivider {
+    display: none;
+  }
+
+  .sloganBlock {
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+@media (max-width: 640px) {
+  .trustGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}

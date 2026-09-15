@@ -9,8 +9,8 @@ export default function Footer() {
   const navLinks = [
     { label: 'Home', path: '/' },
     { label: 'About Us', path: '/about' },
-    { label: 'Portfolio', path: '/portfolio' },
     { label: 'Industries', path: '/industries' },
+    { label: 'Pricing', path: '/pricing' },
     { label: 'Services', path: '/services' },
     { label: 'Contact', path: '/contact' },
   ];

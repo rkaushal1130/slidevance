@@ -1,7 +1,6 @@
 import React from 'react';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import Button from '../../common/Button/Button';
-import SlideMockup from '../../portfolio/SlideMockup/SlideMockup';
 import styles from './ServiceDetailSection.module.css';
 
 export default function ServiceDetailSection({
@@ -12,7 +11,7 @@ export default function ServiceDetailSection({
   tagline,
   description,
   deliverables,
-  mockupType = 'investor',
+  image,
   reverse = false,
   accentColor = 'blue'
 }) {
@@ -45,19 +44,21 @@ export default function ServiceDetailSection({
           <p className={styles.serviceDescription}>{description}</p>
 
           {/* Deliverables List */}
-          <div className={`${styles.deliverablesBox} ${styles[`box_${accentColor}`] || ''}`}>
-            <h4 className={styles.deliverablesHeading}>Core Deliverables &amp; Scopes</h4>
-            <ul className={styles.deliverablesList}>
-              {deliverables.map((item) => (
-                <li key={item} className={styles.deliverableItem}>
-                  <div className={styles.checkWrap}>
-                    <CheckCircle2 size={16} />
-                  </div>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {deliverables && deliverables.length > 0 && (
+            <div className={`${styles.deliverablesBox} ${styles[`box_${accentColor}`] || ''}`}>
+              <h4 className={styles.deliverablesHeading}>Core Deliverables &amp; Scopes</h4>
+              <ul className={styles.deliverablesList}>
+                {deliverables.map((item) => (
+                  <li key={item} className={styles.deliverableItem}>
+                    <div className={styles.checkWrap}>
+                      <CheckCircle2 size={16} />
+                    </div>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
 
           {/* CTA Action */}
           <div className={styles.ctaRow}>
@@ -76,10 +77,19 @@ export default function ServiceDetailSection({
         <div className={styles.visualCol}>
           <div className={`${styles.mockupCard} reveal-on-scroll`}>
             <div className={styles.cardCornerAccent} />
-            <SlideMockup type={mockupType} />
+            <div className={styles.imageWrapper}>
+              <img
+                src={image}
+                alt={`${title} showcase`}
+                className={styles.serviceImage}
+                loading="lazy"
+              />
+            </div>
             <div className={styles.mockupMeta}>
               <span className={styles.metaLabel}>EXECUTIVE SPECIFICATION</span>
-              <span className={styles.metaValue}>PRACTICE {number} // DELIVERABLE SUITE</span>
+              <span className={`${styles.metaValue} ${styles[`meta_${accentColor}`] || ''}`}>
+                PRACTICE {number} // DELIVERABLE SUITE
+              </span>
             </div>
           </div>
         </div>

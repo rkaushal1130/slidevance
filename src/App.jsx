@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
@@ -6,17 +6,10 @@ import ScrollToTop from './components/common/ScrollToTop';
 import { useScrollReveal } from './hooks/useScrollReveal';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
-import PortfolioPage from './pages/PortfolioPage';
 import IndustriesPage from './pages/IndustriesPage';
+import PricingPage from './pages/PricingPage';
 import ServicesPage from './pages/ServicesPage';
 import ContactPage from './pages/ContactPage';
-
-function PricingRedirect() {
-  useEffect(() => {
-    window.location.replace('/Slidevance-pricing.pdf');
-  }, []);
-  return null;
-}
 
 export default function App() {
   useScrollReveal();
@@ -29,13 +22,12 @@ export default function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
         
-        {/* Portfolio Listing and Detail by Slug */}
-        <Route path="/portfolio" element={<PortfolioPage />} />
-        <Route path="/portfolio/:slug" element={<PortfolioPage />} />
-
         {/* Industries Listing and Detail by Slug */}
         <Route path="/industries" element={<IndustriesPage />} />
         <Route path="/industries/:slug" element={<IndustriesPage />} />
+
+        {/* Pricing Page */}
+        <Route path="/pricing" element={<PricingPage />} />
 
         {/* Services Listing and Detail by Slug */}
         <Route path="/services" element={<ServicesPage />} />
@@ -43,9 +35,6 @@ export default function App() {
 
         {/* Contact Page */}
         <Route path="/contact" element={<ContactPage />} />
-
-        {/* Pricing Shortcut */}
-        <Route path="/pricing" element={<PricingRedirect />} />
 
         {/* Fallback to Home */}
         <Route path="*" element={<Navigate to="/" replace />} />

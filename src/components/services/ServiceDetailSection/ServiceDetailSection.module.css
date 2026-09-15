@@ -116,8 +116,12 @@
   font-size: clamp(1.05rem, 1.35vw, 1.2rem);
   color: var(--muted);
   line-height: 1.7;
-  margin-bottom: 2rem;
+  margin-bottom: 1.75rem;
   max-width: 580px;
+}
+
+.ctaRow {
+  display: flex;
 }
 
 /* Deliverables Box */
@@ -125,36 +129,52 @@
   width: 100%;
   background: #FFFFFF;
   border: 1px solid rgba(9, 43, 99, 0.08);
-  border-radius: var(--radius-md);
-  padding: 1.5rem 1.75rem;
-  margin-bottom: 2.25rem;
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 2rem;
   box-shadow: 0 4px 16px rgba(9, 43, 99, 0.03);
+  position: relative;
+  overflow: hidden;
   transition: all var(--transition-normal);
 }
 
-.box_blue,
-.box_cyan,
+.deliverablesBox:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(9, 43, 99, 0.06);
+  border-color: rgba(0, 102, 255, 0.2);
+}
+
+.box_blue {
+  border-top: 3px solid var(--blue);
+}
+
+.box_cyan {
+  border-top: 3px solid var(--cyan);
+}
+
 .box_magenta,
-.box_purple,
+.box_purple {
+  border-top: 3px solid var(--purple);
+}
+
 .box_orange {
-  background: #FFFFFF;
-  border: 1px solid rgba(9, 43, 99, 0.08);
+  border-top: 3px solid var(--orange);
 }
 
 .deliverablesHeading {
   font-size: 0.8125rem;
   font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   color: var(--navy);
-  margin-bottom: 1rem;
+  margin-bottom: 0.85rem;
 }
 
 .deliverablesList {
   list-style: none;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 0.75rem 1.25rem;
+  gap: 0.65rem 1rem;
 }
 
 .deliverableItem {
@@ -164,6 +184,18 @@
   font-size: 0.875rem;
   font-weight: 600;
   color: var(--text);
+  padding: 0.45rem 0.65rem;
+  background: var(--background);
+  border: 1px solid rgba(9, 43, 99, 0.05);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.deliverableItem:hover {
+  background: #FFFFFF;
+  border-color: rgba(0, 102, 255, 0.2);
+  box-shadow: 0 2px 8px rgba(9, 43, 99, 0.04);
+  transform: translateX(2px);
 }
 
 .checkWrap {
@@ -172,11 +204,7 @@
   display: flex;
 }
 
-.ctaRow {
-  display: flex;
-}
-
-/* Visual Column */
+/* Visual Mockup Showcase Column */
 .visualCol {
   width: 100%;
   display: flex;
@@ -189,7 +217,7 @@
   background: #FFFFFF;
   border: 1.5px solid rgba(7, 95, 232, 0.16);
   border-radius: var(--radius-xl);
-  padding: 1.5rem;
+  padding: clamp(1rem, 2vw, 1.5rem);
   box-shadow: 0 16px 44px rgba(9, 43, 99, 0.06);
   position: relative;
   overflow: hidden;
@@ -198,7 +226,7 @@
 
 .mockupCard:hover {
   transform: translateY(-4px);
-  box-shadow: 0 24px 56px rgba(7, 95, 232, 0.1);
+  box-shadow: 0 24px 56px rgba(7, 95, 232, 0.12);
   border-color: rgba(7, 95, 232, 0.3);
 }
 
@@ -206,10 +234,34 @@
   position: absolute;
   top: 0;
   right: 0;
-  width: 70px;
-  height: 70px;
+  width: 80px;
+  height: 80px;
   background: radial-gradient(circle at top right, rgba(18, 201, 232, 0.25) 0%, transparent 70%);
   pointer-events: none;
+}
+
+.imageWrapper {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: #F8FAFC;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(9, 43, 99, 0.06);
+}
+
+.serviceImage {
+  width: 100%;
+  height: auto;
+  max-height: 480px;
+  object-fit: contain;
+  display: block;
+  transition: transform var(--transition-normal);
+}
+
+.mockupCard:hover .serviceImage {
+  transform: scale(1.015);
 }
 
 .mockupMeta {
@@ -219,7 +271,7 @@
   padding-top: 1rem;
   border-top: 1px solid rgba(9, 43, 99, 0.06);
   margin-top: 1rem;
-  font-size: 0.65rem;
+  font-size: 0.6875rem;
   font-weight: 700;
 }
 
@@ -233,12 +285,17 @@
   letter-spacing: 0.04em;
 }
 
+.meta_blue { color: var(--blue); }
+.meta_cyan { color: var(--cyan); }
+.meta_magenta, .meta_purple { color: var(--purple); }
+.meta_orange { color: var(--orange); }
+
 /* Responsive */
 @media (max-width: 1024px) {
   .container,
   .reverse {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 2.5rem;
   }
 
   .reverse .contentCol {
@@ -273,7 +330,17 @@
     padding: 1.25rem;
   }
 
+  .deliverablesList {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .deliverableItem {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+  }
+
   .mockupCard {
-    padding: 1rem;
+    padding: 0.85rem;
   }
 }

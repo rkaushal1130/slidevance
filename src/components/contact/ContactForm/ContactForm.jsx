@@ -1,31 +1,20 @@
 import React, { useState, useRef } from 'react';
-import { UploadCloud, FileText, X, CheckCircle2, AlertCircle, Loader2, Send } from 'lucide-react';
+import { UploadCloud, FileText, X, CheckCircle2, AlertCircle, Loader2, ArrowRight } from 'lucide-react';
 import Button from '../../common/Button/Button';
 import { submitInquiry } from '../../../api/inquiries';
 import styles from './ContactForm.module.css';
 
 const PROJECT_TYPE_OPTIONS = [
-  { value: '', label: 'Select project type *' },
-  { value: 'PRESENTATION_DESIGN', label: 'Presentation Design (Pitch Decks, Board Materials, Keynotes)' },
-  { value: 'PROPOSAL_RFP', label: 'Proposal & RFP (Bids, RFIs, Government Tenders)' },
-  { value: 'BUSINESS_DOCUMENTS', label: 'Business Documents (One-Pagers, Reports, Briefs)' },
-  { value: 'DATA_STORYTELLING', label: 'Data Storytelling (Dashboards, Financial Models, Infographics)' },
-  { value: 'SALES_ENABLEMENT', label: 'Sales Enablement (Playbooks, One-Sheets, Battlecards)' },
-  { value: 'RESEARCH', label: 'Secondary Research & Market Synthesis' },
-  { value: 'OTHER', label: 'Other Visual Communication Request' }
-];
-
-const BUDGET_OPTIONS = [
-  { value: '', label: 'Select budget range (optional)' },
-  { value: 'Exploring / Not sure yet', label: 'Exploring / Not sure yet' },
-  { value: 'Project-based (< $5,000)', label: 'Project-based (< $5,000)' },
-  { value: 'Project-based ($5,000 – $15,000)', label: 'Project-based ($5,000 – $15,000)' },
-  { value: 'Enterprise / Multi-deck ($15,000+)', label: 'Enterprise / Multi-deck ($15,000+)' },
-  { value: 'Monthly Retainer / Dedicated Designer', label: 'Monthly Retainer / Dedicated Designer' }
+  { value: 'PRESENTATION_DESIGN', label: 'Presentation Design' },
+  { value: 'BUSINESS_DOCUMENTS', label: 'Business Documents' },
+  { value: 'SALES_ENABLEMENT', label: 'Marketing Collateral' },
+  { value: 'RESEARCH', label: 'Research & Data' },
+  { value: 'DEDICATED_DESIGNER', label: 'Ongoing Design Support' },
+  { value: 'OTHER', label: 'Something Else' }
 ];
 
 const TIMELINE_OPTIONS = [
-  { value: '', label: 'Select target timeline (optional)' },
+  { value: '', label: 'Select timeline' },
   { value: 'Urgent (Within 24–48 hours)', label: 'Urgent (Within 24–48 hours)' },
   { value: 'Within 1 week', label: 'Within 1 week' },
   { value: '1 – 2 weeks', label: '1 – 2 weeks' },
@@ -34,7 +23,6 @@ const TIMELINE_OPTIONS = [
 ];
 
 const MAX_FILE_SIZE_BYTES = 10 * 1024 * 1024; // 10 MB
-
 const ALLOWED_EXTENSIONS = ['.pdf', '.doc', '.docx', '.ppt', '.pptx', '.png', '.jpg', '.jpeg', '.webp'];
 
 function formatFileSize(bytes) {
@@ -43,16 +31,14 @@ function formatFileSize(bytes) {
   return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
 }
 
-export default function ContactForm() {
+export default function ContactForm({ selectedProjectType = 'PRESENTATION_DESIGN', onSelectProjectType }) {
   const [formData, setFormData] = useState({
     fullName: '',
-    companyName: '',
     email: '',
-    phone: '',
-    projectType: '',
-    budgetRange: '',
+    companyName: '',
+    description: '',
+    slidesCount: '',
     timeline: '',
-    description: ''
   });
 
   const [briefFile, setBriefFile] = useState(null);
@@ -63,9 +49,24 @@ export default function ContactForm() {
 
   const fileInputRef = useRef(null);
 
+  const handleProjectTypeChange = (e) => {
+    const val = e.target.value;
+    if (onSelectProjectType) {
+      onSelectProjectType(val);
+    }
+    if (errors.projectType) {
+      setErrors((prev) => ({ ...prev, projectType: null }));
+    }
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+
+    if (name === 'projectType' && onSelectProjectType) {
+      onSelectProjectType(value);
+    }
+
     if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: null }));
     }
@@ -77,22 +78,20 @@ export default function ContactForm() {
   const handleFileSelection = (file) => {
     if (!file) return;
 
-    // Check extension
     const fileName = file.name || '';
     const ext = fileName.slice(fileName.lastIndexOf('.')).toLowerCase();
     if (!ALLOWED_EXTENSIONS.includes(ext)) {
       setErrors((prev) => ({
         ...prev,
-        brief: `Invalid file format (${ext}). Supported formats: PDF, DOC, DOCX, PPT, PPTX, PNG, JPG.`
+        brief: `Invalid format (${ext}). Supported: PDF, PPT, DOC, PNG, JPG.`
       }));
       return;
     }
 
-    // Check size
     if (file.size > MAX_FILE_SIZE_BYTES) {
       setErrors((prev) => ({
         ...prev,
-        brief: `File exceeds 10MB limit (${formatFileSize(file.size)}). Please attach a smaller file.`
+        brief: `File exceeds 10MB limit (${formatFileSize(file.size)}).`
       }));
       return;
     }
@@ -149,12 +148,12 @@ export default function ContactForm() {
       }
     }
 
-    if (!formData.projectType) {
-      newErrors.projectType = 'Please select a project type.';
+    if (!selectedProjectType) {
+      newErrors.projectType = 'Please select what you need.';
     }
 
     if (!formData.description.trim()) {
-      newErrors.description = 'Please describe your project scope or objectives.';
+      newErrors.description = 'Please tell us about your project.';
     } else if (formData.description.trim().length < 10) {
       newErrors.description = 'Project description must be at least 10 characters long.';
     }
@@ -180,24 +179,23 @@ export default function ContactForm() {
     setErrors({});
 
     try {
-      // Build multipart/form-data payload
       const payload = new FormData();
       payload.append('fullName', formData.fullName.trim());
       if (formData.companyName.trim()) {
         payload.append('companyName', formData.companyName.trim());
       }
       payload.append('email', formData.email.trim());
-      if (formData.phone.trim()) {
-        payload.append('phone', formData.phone.trim());
-      }
-      payload.append('projectType', formData.projectType);
-      if (formData.budgetRange) {
-        payload.append('budgetRange', formData.budgetRange);
-      }
+      payload.append('projectType', selectedProjectType || 'PRESENTATION_DESIGN');
+      
       if (formData.timeline) {
         payload.append('timeline', formData.timeline);
       }
-      payload.append('description', formData.description.trim());
+
+      let formattedDescription = formData.description.trim();
+      if (formData.slidesCount.trim()) {
+        formattedDescription = `[Approx. Slides/Pages: ${formData.slidesCount.trim()}]\n\n${formattedDescription}`;
+      }
+      payload.append('description', formattedDescription);
 
       if (briefFile) {
         payload.append('brief', briefFile);
@@ -222,7 +220,7 @@ export default function ContactForm() {
 
       setErrors({
         ...fieldErrors,
-        form: err.message || 'Unable to submit your inquiry at this moment. Please check your connection or contact us directly at hello@slidevance.com.',
+        form: err.message || 'Unable to submit your inquiry at this moment. Please email hello@slidevance.com directly.',
       });
     }
   };
@@ -230,78 +228,85 @@ export default function ContactForm() {
   const handleReset = () => {
     setFormData({
       fullName: '',
-      companyName: '',
       email: '',
-      phone: '',
-      projectType: '',
-      budgetRange: '',
+      companyName: '',
+      projectType: 'PRESENTATION_DESIGN',
+      description: '',
+      slidesCount: '',
       timeline: '',
-      description: ''
     });
     setBriefFile(null);
     setErrors({});
     setIsSubmitted(false);
+    if (onSelectProjectType) {
+      onSelectProjectType('PRESENTATION_DESIGN');
+    }
   };
 
   if (isSubmitted) {
     return (
-      <div className={styles.successCard} role="status" aria-live="polite">
-        <div className={styles.successIconCircle}>
-          <CheckCircle2 size={36} className={styles.successCheckIcon} />
-        </div>
-        <h3 className={styles.successHeading}>
-          Thank you. Your project inquiry has been submitted successfully.
-        </h3>
-        <p className={styles.successMessage}>
-          Our team has received your project details and will reach out within 24 hours (or faster for urgent requests).
-        </p>
+      <div className={styles.formCard} role="status" aria-live="polite">
+        <div className={styles.successCard}>
+          <div className={styles.successIconCircle}>
+            <CheckCircle2 size={36} className={styles.successCheckIcon} />
+          </div>
+          <h3 className={styles.successHeading}>
+            Thank you! Your project inquiry is submitted.
+          </h3>
+          <p className={styles.successMessage}>
+            We’ll review your details and get back to you within 1 business day.
+          </p>
 
-        <div className={styles.submissionDetails}>
-          <div className={styles.detailRow}>
-            <span className={styles.detailLabel}>Client Name:</span>
-            <span className={styles.detailValue}>{formData.fullName}</span>
-          </div>
-          <div className={styles.detailRow}>
-            <span className={styles.detailLabel}>Contact Email:</span>
-            <span className={styles.detailValue}>{formData.email}</span>
-          </div>
-          {formData.companyName && (
+          <div className={styles.submissionDetails}>
             <div className={styles.detailRow}>
-              <span className={styles.detailLabel}>Company:</span>
-              <span className={styles.detailValue}>{formData.companyName}</span>
+              <span className={styles.detailLabel}>Client Name:</span>
+              <span className={styles.detailValue}>{formData.fullName}</span>
             </div>
-          )}
-          <div className={styles.detailRow}>
-            <span className={styles.detailLabel}>Project Category:</span>
-            <span className={styles.detailValue}>
-              {PROJECT_TYPE_OPTIONS.find((opt) => opt.value === formData.projectType)?.label || formData.projectType}
-            </span>
-          </div>
-          {briefFile && (
             <div className={styles.detailRow}>
-              <span className={styles.detailLabel}>Attached Brief:</span>
-              <span className={styles.detailValue}>{briefFile.name} ({formatFileSize(briefFile.size)})</span>
+              <span className={styles.detailLabel}>Work Email:</span>
+              <span className={styles.detailValue}>{formData.email}</span>
             </div>
-          )}
-        </div>
+            {formData.companyName && (
+              <div className={styles.detailRow}>
+                <span className={styles.detailLabel}>Company:</span>
+                <span className={styles.detailValue}>{formData.companyName}</span>
+              </div>
+            )}
+            <div className={styles.detailRow}>
+              <span className={styles.detailLabel}>Project Category:</span>
+              <span className={styles.detailValue}>
+                {PROJECT_TYPE_OPTIONS.find((opt) => opt.value === formData.projectType)?.label || formData.projectType}
+              </span>
+            </div>
+            {briefFile && (
+              <div className={styles.detailRow}>
+                <span className={styles.detailLabel}>Attached Brief:</span>
+                <span className={styles.detailValue}>{briefFile.name} ({formatFileSize(briefFile.size)})</span>
+              </div>
+            )}
+          </div>
 
-        <div className={styles.successActions}>
-          <Button variant="primary" onClick={handleReset}>
-            Submit Another Project Inquiry
-          </Button>
+          <div className={styles.successActions}>
+            <Button variant="primary" onClick={handleReset}>
+              Submit Another Inquiry
+            </Button>
+          </div>
         </div>
       </div>
     );
   }
 
   return (
-    <div className={styles.formCard}>
-      <div className={styles.formHeader}>
-        <h3 className={styles.formTitle}>Project Brief &amp; Inquiry</h3>
-        <p className={styles.formSubtitle}>
-          Fields marked with an asterisk (<span className={styles.requiredStar}>*</span>) are required.
-        </p>
+    <div className={styles.formCard} id="inquiry-form-card">
+      {/* Step indicator header */}
+      <div className={styles.stepHeader}>
+        <span className={styles.stepText}>STEP 1 OF 1</span>
+        <div className={styles.stepBar} aria-hidden="true">
+          <div className={styles.stepBarFill} />
+        </div>
       </div>
+
+      <h2 className={styles.formTitle}>Tell us about your project.</h2>
 
       <form onSubmit={handleSubmit} noValidate className={styles.form}>
         {errors.form && (
@@ -311,7 +316,7 @@ export default function ContactForm() {
           </div>
         )}
 
-        {/* Row 1: Full Name & Company Name */}
+        {/* Row 1: Full Name & Work Email */}
         <div className={styles.formRow}>
           <div className={styles.formGroup}>
             <label htmlFor="fullName" className={styles.label}>
@@ -323,7 +328,7 @@ export default function ContactForm() {
               name="fullName"
               value={formData.fullName}
               onChange={handleChange}
-              placeholder="e.g. Eleanor Vance"
+              placeholder="Your full name"
               className={`${styles.input} ${errors.fullName ? styles.inputError : ''}`}
               aria-required="true"
               aria-invalid={errors.fullName ? 'true' : 'false'}
@@ -338,25 +343,6 @@ export default function ContactForm() {
           </div>
 
           <div className={styles.formGroup}>
-            <label htmlFor="companyName" className={styles.label}>
-              Company Name <span className={styles.optionalTag}>(Optional)</span>
-            </label>
-            <input
-              type="text"
-              id="companyName"
-              name="companyName"
-              value={formData.companyName}
-              onChange={handleChange}
-              placeholder="e.g. Apex Strategic Partners"
-              className={styles.input}
-              disabled={isSubmitting}
-            />
-          </div>
-        </div>
-
-        {/* Row 2: Work Email & Phone Number */}
-        <div className={styles.formRow}>
-          <div className={styles.formGroup}>
             <label htmlFor="email" className={styles.label}>
               Work Email <span className={styles.requiredStar}>*</span>
             </label>
@@ -366,7 +352,7 @@ export default function ContactForm() {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              placeholder="name@company.com"
+              placeholder="you@company.com"
               className={`${styles.input} ${errors.email ? styles.inputError : ''}`}
               aria-required="true"
               aria-invalid={errors.email ? 'true' : 'false'}
@@ -379,43 +365,45 @@ export default function ContactForm() {
               </span>
             )}
           </div>
-
-          <div className={styles.formGroup}>
-            <label htmlFor="phone" className={styles.label}>
-              Phone Number <span className={styles.optionalTag}>(Optional)</span>
-            </label>
-            <input
-              type="tel"
-              id="phone"
-              name="phone"
-              value={formData.phone}
-              onChange={handleChange}
-              placeholder="+1 (555) 000-0000"
-              className={styles.input}
-              disabled={isSubmitting}
-            />
-          </div>
         </div>
 
-        {/* Row 3: Project Type */}
+        {/* Row 2: Company Name */}
+        <div className={styles.formGroup}>
+          <label htmlFor="companyName" className={styles.label}>
+            Company Name
+          </label>
+          <input
+            type="text"
+            id="companyName"
+            name="companyName"
+            value={formData.companyName}
+            onChange={handleChange}
+            placeholder="Your company name"
+            className={styles.input}
+            disabled={isSubmitting}
+          />
+        </div>
+
+        {/* Row 3: What do you need? */}
         <div className={styles.formGroup}>
           <label htmlFor="projectType" className={styles.label}>
-            Project Type <span className={styles.requiredStar}>*</span>
+            What do you need? <span className={styles.requiredStar}>*</span>
           </label>
           <div className={styles.selectWrapper}>
             <select
               id="projectType"
               name="projectType"
-              value={formData.projectType}
-              onChange={handleChange}
+              value={selectedProjectType}
+              onChange={handleProjectTypeChange}
               className={`${styles.select} ${errors.projectType ? styles.inputError : ''}`}
               aria-required="true"
               aria-invalid={errors.projectType ? 'true' : 'false'}
               aria-describedby={errors.projectType ? 'projectType-error' : undefined}
               disabled={isSubmitting}
             >
+              <option value="" disabled>Select project type</option>
               {PROJECT_TYPE_OPTIONS.map((opt) => (
-                <option key={opt.value} value={opt.value} disabled={opt.value === ''}>
+                <option key={opt.value} value={opt.value}>
                   {opt.label}
                 </option>
               ))}
@@ -428,33 +416,58 @@ export default function ContactForm() {
           )}
         </div>
 
-        {/* Row 4: Budget Range & Timeline */}
+        {/* Row 4: Tell us about your project */}
+        <div className={styles.formGroup}>
+          <label htmlFor="description" className={styles.label}>
+            Tell us about your project <span className={styles.requiredStar}>*</span>
+          </label>
+          <div className={styles.textareaWrapper}>
+            <textarea
+              id="description"
+              name="description"
+              rows={4}
+              maxLength={500}
+              value={formData.description}
+              onChange={handleChange}
+              placeholder="What are you looking to create or improve?"
+              className={`${styles.textarea} ${errors.description ? styles.inputError : ''}`}
+              aria-required="true"
+              aria-invalid={errors.description ? 'true' : 'false'}
+              aria-describedby={errors.description ? 'description-error' : undefined}
+              disabled={isSubmitting}
+            />
+            <span className={styles.charCount}>
+              {formData.description.length}/500
+            </span>
+          </div>
+          {errors.description && (
+            <span id="description-error" className={styles.errorText} role="alert">
+              <AlertCircle size={13} /> {errors.description}
+            </span>
+          )}
+        </div>
+
+        {/* Row 5: Approx slides & Timeline */}
         <div className={styles.formRow}>
           <div className={styles.formGroup}>
-            <label htmlFor="budgetRange" className={styles.label}>
-              Budget Range <span className={styles.optionalTag}>(Optional)</span>
+            <label htmlFor="slidesCount" className={styles.label}>
+              Approx. number of slides/pages
             </label>
-            <div className={styles.selectWrapper}>
-              <select
-                id="budgetRange"
-                name="budgetRange"
-                value={formData.budgetRange}
-                onChange={handleChange}
-                className={styles.select}
-                disabled={isSubmitting}
-              >
-                {BUDGET_OPTIONS.map((opt) => (
-                  <option key={opt.value} value={opt.value} disabled={opt.value === ''}>
-                    {opt.label}
-                  </option>
-                ))}
-              </select>
-            </div>
+            <input
+              type="text"
+              id="slidesCount"
+              name="slidesCount"
+              value={formData.slidesCount}
+              onChange={handleChange}
+              placeholder="e.g. 15 slides"
+              className={styles.input}
+              disabled={isSubmitting}
+            />
           </div>
 
           <div className={styles.formGroup}>
             <label htmlFor="timeline" className={styles.label}>
-              Target Timeline <span className={styles.optionalTag}>(Optional)</span>
+              When do you need it?
             </label>
             <div className={styles.selectWrapper}>
               <select
@@ -466,7 +479,7 @@ export default function ContactForm() {
                 disabled={isSubmitting}
               >
                 {TIMELINE_OPTIONS.map((opt) => (
-                  <option key={opt.value} value={opt.value} disabled={opt.value === ''}>
+                  <option key={opt.value} value={opt.value}>
                     {opt.label}
                   </option>
                 ))}
@@ -475,35 +488,10 @@ export default function ContactForm() {
           </div>
         </div>
 
-        {/* Row 5: Description */}
-        <div className={styles.formGroup}>
-          <label htmlFor="description" className={styles.label}>
-            Project Description <span className={styles.requiredStar}>*</span>
-          </label>
-          <textarea
-            id="description"
-            name="description"
-            rows={4}
-            value={formData.description}
-            onChange={handleChange}
-            placeholder="Tell us about your audience, objectives, number of slides or pages, key themes, or any specific constraints..."
-            className={`${styles.textarea} ${errors.description ? styles.inputError : ''}`}
-            aria-required="true"
-            aria-invalid={errors.description ? 'true' : 'false'}
-            aria-describedby={errors.description ? 'description-error' : undefined}
-            disabled={isSubmitting}
-          />
-          {errors.description && (
-            <span id="description-error" className={styles.errorText} role="alert">
-              <AlertCircle size={13} /> {errors.description}
-            </span>
-          )}
-        </div>
-
-        {/* Row 6: Upload Brief */}
+        {/* Row 6: Upload Files */}
         <div className={styles.formGroup}>
           <span className={styles.label}>
-            Upload Project Brief <span className={styles.optionalTag}>(Optional, max 10MB)</span>
+            Upload your files <span className={styles.optionalTag}>(Optional)</span>
           </span>
 
           {!briefFile ? (
@@ -521,7 +509,7 @@ export default function ContactForm() {
                   fileInputRef.current?.click();
                 }
               }}
-              aria-label="Upload brief file dropzone"
+              aria-label="Upload files dropzone"
             >
               <input
                 ref={fileInputRef}
@@ -533,11 +521,15 @@ export default function ContactForm() {
                 tabIndex={-1}
               />
               <div className={styles.dropzoneContent}>
-                <UploadCloud size={28} className={styles.uploadIcon} />
-                <div className={styles.uploadText}>
-                  <span className={styles.uploadPrompt}>Click to browse or drag and drop</span>
-                  <span className={styles.uploadFormats}>Supported: PDF, DOC, DOCX, PPT, PPTX, PNG, JPG (max 10MB)</span>
+                <div className={styles.uploadIconCircle}>
+                  <UploadCloud size={24} className={styles.uploadIcon} />
                 </div>
+                <p className={styles.dropPrompt}>
+                  Drag &amp; drop or <span className={styles.browseLink}>browse</span>
+                </p>
+                <span className={styles.uploadFormats}>
+                  PDF, PPT, DOC, PNG, JPG (Max 10MB)
+                </span>
               </div>
             </div>
           ) : (
@@ -568,7 +560,7 @@ export default function ContactForm() {
           )}
         </div>
 
-        {/* Submit Button */}
+        {/* Submit Button & Reassurance */}
         <div className={styles.submitWrapper}>
           <button
             type="submit"
@@ -583,14 +575,14 @@ export default function ContactForm() {
             ) : (
               <>
                 <span>Submit Project Inquiry</span>
-                <Send size={16} />
+                <ArrowRight size={16} />
               </>
             )}
           </button>
 
-          <span className={styles.confidentialNote}>
-            Strict Confidentiality • Standard Mutual NDA Compliance
-          </span>
+          <p className={styles.reassuranceNote}>
+            We’ll get back to you within 1 business day.
+          </p>
         </div>
       </form>
     </div>

@@ -16,7 +16,22 @@ import EngagementModels from '../components/services/EngagementModels/Engagement
 import SkeletonCard from '../components/common/SkeletonCard/SkeletonCard';
 import { getServices, getServiceBySlug } from '../api/services';
 import { getIconComponent } from '../utils/iconMap';
-import { getMockupType } from '../utils/mockupMap';
+
+import imgService01 from '../assets/services/service-01.png';
+import imgService02 from '../assets/services/service-02.png';
+import imgService03 from '../assets/services/service-03.png';
+import imgService04 from '../assets/services/service-04.png';
+import imgService05 from '../assets/services/service-05.png';
+import imgService06 from '../assets/services/service-06.png';
+
+const SERVICE_IMAGES = [
+  imgService01,
+  imgService02,
+  imgService03,
+  imgService04,
+  imgService05,
+  imgService06,
+];
 
 const ACCENT_COLORS = ['blue', 'cyan', 'magenta', 'orange'];
 
@@ -37,6 +52,7 @@ const FALLBACK_SERVICES = [
       'Dynamic Motion & Interactivity',
       'Enterprise Master Templates'
     ],
+    image: imgService01,
     mockupType: 'investor',
     reverse: false
   },
@@ -55,6 +71,7 @@ const FALLBACK_SERVICES = [
       'Bids, Tenders & Competitive Pitches',
       'Executive Redesign'
     ],
+    image: imgService02,
     mockupType: 'rfp',
     reverse: true
   },
@@ -75,6 +92,7 @@ const FALLBACK_SERVICES = [
       'Executive Summaries',
       'Fact Sheets'
     ],
+    image: imgService03,
     mockupType: 'strategy',
     reverse: false
   },
@@ -93,6 +111,7 @@ const FALLBACK_SERVICES = [
       'Process & Framework Mapping',
       'Financial & Data Visualization'
     ],
+    image: imgService04,
     mockupType: 'data',
     reverse: true
   },
@@ -111,6 +130,7 @@ const FALLBACK_SERVICES = [
       'Visual Marketing Assets',
       'AI-Assisted Conceptual Renders'
     ],
+    image: imgService05,
     mockupType: 'sales',
     reverse: false
   },
@@ -129,6 +149,7 @@ const FALLBACK_SERVICES = [
       'Desk Research Synthesis',
       'Insight-to-Slide Structuring'
     ],
+    image: imgService06,
     mockupType: 'research',
     reverse: true
   }
@@ -162,7 +183,7 @@ function formatServices(rawList) {
       title: svc.title,
       description: svc.description || svc.shortDescription,
       deliverables,
-      mockupType: getMockupType(svc, index),
+      image: svc.image || SERVICE_IMAGES[index % SERVICE_IMAGES.length],
       reverse: index % 2 !== 0,
     };
   });
@@ -288,7 +309,7 @@ export default function ServicesPage() {
             title={service.title}
             description={service.description}
             deliverables={service.deliverables}
-            mockupType={service.mockupType}
+            image={service.image}
             reverse={service.reverse}
           />
         ))

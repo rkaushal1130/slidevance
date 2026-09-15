@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import AboutHero from '../components/about/AboutHero/AboutHero';
-import AboutIntro from '../components/about/AboutIntro/AboutIntro';
-import AboutSetsUsApart from '../components/about/AboutSetsUsApart/AboutSetsUsApart';
-import HowWeThink from '../components/about/HowWeThink/HowWeThink';
-import OurPromise from '../components/about/OurPromise/OurPromise';
-import SlidevanceAdvantage from '../components/about/SlidevanceAdvantage/SlidevanceAdvantage';
-import DeliveryCapabilities from '../components/about/DeliveryCapabilities/DeliveryCapabilities';
-import DarkVisualSection from '../components/about/DarkVisualSection/DarkVisualSection';
+import AboutProcess from '../components/about/AboutProcess/AboutProcess';
+import AboutDNA from '../components/about/AboutDNA/AboutDNA';
+import AboutTeam from '../components/about/AboutTeam/AboutTeam';
+import AboutPromise from '../components/about/AboutPromise/AboutPromise';
+import AboutCTA from '../components/about/AboutCTA/AboutCTA';
 import { getPublicSettings } from '../api/settings';
 
 export default function AboutPage() {
   const [settings, setSettings] = useState({
-    companyName: 'Slidevance',
+    companyName: 'SlideVance',
     tagline: 'Ideas That Slide. Solutions That Advance.',
     contactEmail: 'hello@slidevance.com',
   });
@@ -24,13 +22,13 @@ export default function AboutPage() {
     if (metaDescription) {
       metaDescription.setAttribute(
         'content',
-        `Learn how ${settings.companyName} combines narrative strategy, research and intelligent visual design to transform complex business information into clear, decision-ready communication.`
+        `Learn how ${settings.companyName} transforms complex business information into clear, compelling and visually powerful stories. We don't make slides. We make ideas visible.`
       );
     } else {
       metaDescription = document.createElement('meta');
       metaDescription.name = 'description';
       metaDescription.content =
-        `Learn how ${settings.companyName} combines narrative strategy, research and intelligent visual design to transform complex business information into clear, decision-ready communication.`;
+        `Learn how ${settings.companyName} transforms complex business information into clear, compelling and visually powerful stories. We don't make slides. We make ideas visible.`;
       document.head.appendChild(metaDescription);
     }
   }, [settings]);
@@ -58,29 +56,23 @@ export default function AboutPage() {
 
   return (
     <main id="main-content" tabIndex={-1}>
-      {/* 1. Page Hero */}
+      {/* 1. Page Hero: "We don't make slides. We make ideas visible." */}
       <AboutHero settings={settings} />
 
-      {/* 2. Introduction */}
-      <AboutIntro />
+      {/* 2. Our Process: "From confusion to clarity." */}
+      <AboutProcess />
 
-      {/* 3. What Sets Us Apart */}
-      <AboutSetsUsApart />
+      {/* 3. Our DNA: "Five values. One vision." */}
+      <AboutDNA />
 
-      {/* 4. How We Think (3 Connected Stages) */}
-      <HowWeThink />
+      {/* 4. The Team: "Different minds. Same goal." */}
+      <AboutTeam />
 
-      {/* 5. Our Promise (Light Blue with Geometric Corner Accents) */}
-      <OurPromise />
+      {/* 5. Our Promise: "More than just slides. We design what you need." */}
+      <AboutPromise />
 
-      {/* 6. Slidevance Advantage (5 Enterprise Blocks) */}
-      <SlidevanceAdvantage />
-
-      {/* 7. Delivery Capabilities (4 Minimal Columns) */}
-      <DeliveryCapabilities />
-
-      {/* 8. Dark Visual Section (#092B63 with Geometric Visual) */}
-      <DarkVisualSection />
+      {/* 6. Call to Action: "Your idea deserves more than a bullet point." */}
+      <AboutCTA />
     </main>
   );
 }
