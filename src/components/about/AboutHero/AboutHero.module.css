@@ -40,9 +40,9 @@
 
 .heroContainer {
   display: grid;
-  grid-template-columns: 1.05fr 1fr;
+  grid-template-columns: 1fr 1.12fr;
   align-items: center;
-  gap: clamp(2.5rem, 5vw, 4.5rem);
+  gap: clamp(2rem, 4vw, 3.75rem);
 }
 
 .contentCol {
@@ -135,7 +135,7 @@
 
 .artworkWrapper {
   width: 100%;
-  max-width: 580px;
+  max-width: 680px;
   display: flex;
   justify-content: center;
   position: relative;
@@ -185,7 +185,7 @@
   }
 
   .artworkWrapper {
-    max-width: 480px;
+    max-width: 560px;
   }
 }
 

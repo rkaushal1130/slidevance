@@ -1,6 +1,5 @@
 import React from 'react';
 import { Lightbulb, ShieldCheck, Zap, Headphones, Star, Info } from 'lucide-react';
-import customQuotesNote from '../../../assets/pricing-custom-quotes-note.png';
 import styles from './PricingWhyChoose.module.css';
 
 const WHY_CHOOSE_PILLARS = [
@@ -63,7 +62,7 @@ export default function PricingWhyChoose() {
           </div>
         </div>
 
-        {/* Disclaimer Info Banner with Handwritten Note */}
+        {/* Disclaimer Info Banner */}
         <div className={`${styles.disclaimerWrapper} reveal-on-scroll reveal-delay-1`}>
           <div className={styles.disclaimerBox}>
             <div className={styles.infoIconCircle}>
@@ -72,16 +71,6 @@ export default function PricingWhyChoose() {
             <p className={styles.disclaimerText}>
               Final pricing may vary based on project complexity, content volume, design requirements, and turnaround time.
             </p>
-          </div>
-
-          {/* Handwritten Annotation on the Right */}
-          <div className={styles.noteWrap}>
-            <img
-              src={customQuotesNote}
-              alt="Custom quotes for complex projects"
-              className={styles.noteImage}
-              loading="lazy"
-            />
           </div>
         </div>
       </div>

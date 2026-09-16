@@ -10,7 +10,7 @@ export default function AboutCTA() {
         {/* Left Column: Heading */}
         <div className={`${styles.leftCol} reveal-on-scroll`}>
           <div className={styles.tagWrap}>
-            <span className={styles.sectionTag}>OUR PROMISE</span>
+            <span className={styles.sectionTag}>GET IN TOUCH</span>
             <span className={styles.tagLine} />
           </div>
 

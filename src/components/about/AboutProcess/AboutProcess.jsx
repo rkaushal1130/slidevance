@@ -4,7 +4,6 @@ import p2 from '../../../assets/about/process-02-structure.png';
 import p3 from '../../../assets/about/process-03-design.png';
 import p4 from '../../../assets/about/process-04-refine.png';
 import p5 from '../../../assets/about/process-05-deliver.png';
-import processNote from '../../../assets/about/process-handwritten-note.png';
 import styles from './AboutProcess.module.css';
 
 const PROCESS_STEPS = [
@@ -66,15 +65,6 @@ export default function AboutProcess() {
             Our job is to bring structure, create a visual language and turn it into something
             that makes sense — and makes an impact.
           </p>
-
-          <div className={styles.handwrittenWrap}>
-            <img
-              src={processNote}
-              alt="This is how we work"
-              className={styles.handwrittenImg}
-              loading="lazy"
-            />
-          </div>
         </div>
 
         {/* Right Column: 5 Process Cards */}

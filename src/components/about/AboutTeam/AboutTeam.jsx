@@ -4,7 +4,6 @@ import t2 from '../../../assets/about/team-02-design.png';
 import t3 from '../../../assets/about/team-03-storytelling.png';
 import t4 from '../../../assets/about/team-04-research.png';
 import t5 from '../../../assets/about/team-05-detail.png';
-import teamNote from '../../../assets/about/team-handwritten-note.png';
 import styles from './AboutTeam.module.css';
 
 const TEAM_MEMBERS = [
@@ -60,15 +59,6 @@ export default function AboutTeam() {
             We’re a small, passionate team of designers, thinkers and problem-solvers who care about clarity,
             creativity and real-world impact.
           </p>
-
-          <div className={styles.handwrittenWrap}>
-            <img
-              src={teamNote}
-              alt="Ideas look better in good company"
-              className={styles.handwrittenImg}
-              loading="lazy"
-            />
-          </div>
         </div>
 
         {/* Right Column: 5 Team Cards */}

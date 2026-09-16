@@ -21,9 +21,9 @@
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
+  grid-template-columns: 1fr 1.1fr;
   align-items: center;
-  gap: clamp(2rem, 4.5vw, 4rem);
+  gap: clamp(1.75rem, 3.5vw, 3.5rem);
 }
 
 .contentCol {
@@ -124,7 +124,7 @@
 
 .showcaseWrapper {
   width: 100%;
-  max-width: 540px;
+  max-width: 650px;
   position: relative;
   filter: drop-shadow(0 20px 40px rgba(0, 102, 255, 0.1));
 }
@@ -144,6 +144,10 @@
 
   .visualCol {
     order: -1;
+  }
+
+  .showcaseWrapper {
+    max-width: 580px;
   }
 }
 

@@ -11,9 +11,9 @@ export default function AboutHero({ settings }) {
       {/* Top Anchor Navigation */}
       <div className={`container ${styles.topNavContainer}`}>
         <nav className={styles.topNav} aria-label="About page sub-navigation">
-          <a href="#what-we-do" className={styles.navLink}>What We Do</a>
-          <span className={styles.navDivider}>|</span>
           <a href="#our-process" className={styles.navLink}>Our Process</a>
+          <span className={styles.navDivider}>|</span>
+          <a href="#our-dna" className={styles.navLink}>Our DNA</a>
           <span className={styles.navDivider}>|</span>
           <a href="#the-team" className={styles.navLink}>Our Team</a>
           <span className={styles.navDivider}>|</span>

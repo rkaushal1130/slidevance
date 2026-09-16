@@ -3,7 +3,6 @@ import AboutHero from '../components/about/AboutHero/AboutHero';
 import AboutProcess from '../components/about/AboutProcess/AboutProcess';
 import AboutDNA from '../components/about/AboutDNA/AboutDNA';
 import AboutTeam from '../components/about/AboutTeam/AboutTeam';
-import AboutPromise from '../components/about/AboutPromise/AboutPromise';
 import AboutCTA from '../components/about/AboutCTA/AboutCTA';
 import { getPublicSettings } from '../api/settings';
 
@@ -68,10 +67,7 @@ export default function AboutPage() {
       {/* 4. The Team: "Different minds. Same goal." */}
       <AboutTeam />
 
-      {/* 5. Our Promise: "More than just slides. We design what you need." */}
-      <AboutPromise />
-
-      {/* 6. Call to Action: "Your idea deserves more than a bullet point." */}
+      {/* 5. Call to Action: "Your idea deserves more than a bullet point." */}
       <AboutCTA />
     </main>
   );
