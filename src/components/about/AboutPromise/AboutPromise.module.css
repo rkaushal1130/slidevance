@@ -45,7 +45,7 @@
   font-size: clamp(2.25rem, 3.2vw, 3rem);
   font-weight: 850;
   color: #07152F;
-  line-height: 1.15;
+  line-height: 1.22;
   letter-spacing: -0.03em;
   margin-bottom: 1.25rem;
 }
@@ -54,6 +54,10 @@
   background: linear-gradient(135deg, #0066FF 0%, #B828E0 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  display: inline-block;
+  padding-bottom: 0.18em;
+  margin-bottom: -0.18em;
+  padding-right: 0.05em;
 }
 
 .description {

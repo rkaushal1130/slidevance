@@ -16,7 +16,7 @@
 }
 
 .headerScrolled {
-  background-color: rgba(245, 248, 254, 0.85);
+  background-color: rgba(245, 248, 254, 0.88);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(5, 26, 62, 0.06);
@@ -28,31 +28,7 @@
   width: 100%;
   flex-shrink: 0;
   pointer-events: none;
-}
-
-.headerSpacerHidden {
-  display: none;
-}
-
-/* Dark header styles for dark hero page */
-.headerDark:not(.headerScrolled) .navLink {
-  color: rgba(255, 255, 255, 0.9);
-}
-
-.headerDark:not(.headerScrolled) .navLink:hover {
-  color: #FFFFFF;
-}
-
-.headerDark:not(.headerScrolled) .navLinkActive {
-  color: #FFFFFF;
-}
-
-.headerDark:not(.headerScrolled) .logo :global(img) {
-  filter: brightness(0) invert(1);
-}
-
-.headerDark:not(.headerScrolled) .mobileMenuToggle {
-  color: #FFFFFF;
+  background-color: var(--background);
 }
 
 .headerContainer {

@@ -26,11 +26,13 @@ export default function Header() {
     setIsMobileMenuOpen(false);
   }
 
-  // Track scroll state for enhanced subtle shadow
+  // Track scroll state
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
+
+    handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -47,14 +49,10 @@ export default function Header() {
     };
   }, [isMobileMenuOpen]);
 
-  const isDarkHeroPage = location.pathname === '/contact';
-
   return (
     <>
       <header
-        className={`${styles.header} ${isScrolled ? styles.headerScrolled : ''} ${
-          isDarkHeroPage ? styles.headerDark : ''
-        }`}
+        className={`${styles.header} ${isScrolled ? styles.headerScrolled : ''}`}
       >
       {/* Accessible Skip Link */}
       <a href="#main-content" className={styles.skipLink}>
@@ -184,12 +182,7 @@ export default function Header() {
         />
       )}
     </header>
-    <div
-      className={`${styles.headerSpacer} ${
-        isDarkHeroPage ? styles.headerSpacerHidden : ''
-      }`}
-      aria-hidden="true"
-    />
+    <div className={styles.headerSpacer} aria-hidden="true" />
   </>
   );
 }

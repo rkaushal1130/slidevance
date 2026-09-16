@@ -54,7 +54,7 @@
   font-weight: 800;
   color: #051A3E;
   letter-spacing: -0.03em;
-  line-height: 1.15;
+  line-height: 1.22;
   margin: 0 0 1rem 0;
 }
 
@@ -63,6 +63,9 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
+  padding-bottom: 0.18em;
+  margin-bottom: -0.18em;
+  padding-right: 0.05em;
 }
 
 .subtitle {

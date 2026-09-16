@@ -43,7 +43,7 @@
   font-size: clamp(1.85rem, 3vw, 2.45rem);
   font-weight: 800;
   color: #051A3E;
-  line-height: 1.15;
+  line-height: 1.22;
   letter-spacing: -0.03em;
   margin: 0 0 0.85rem 0;
 }
@@ -53,6 +53,9 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
+  padding-bottom: 0.18em;
+  margin-bottom: -0.18em;
+  padding-right: 0.05em;
 }
 
 .projectSubtitle {
