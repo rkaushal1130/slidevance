@@ -45,9 +45,20 @@
   font-size: clamp(2.25rem, 3.8vw, 3.25rem);
   font-weight: 800;
   color: #FFFFFF;
-  line-height: 1.1;
+  line-height: 1.15;
   letter-spacing: -0.03em;
   margin: 0 0 1.25rem 0;
+}
+
+.safeGradient {
+  background: linear-gradient(135deg, #00D2FF 0%, #A855F7 50%, #FF6E00 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  padding-bottom: 0.18em;
+  margin-bottom: -0.18em;
+  padding-right: 0.05em;
+  filter: drop-shadow(0 0 20px rgba(168, 85, 247, 0.3));
 }
 
 .description {
@@ -69,6 +80,11 @@
   display: flex;
   align-items: flex-start;
   gap: 1.15rem;
+  transition: transform 0.2s ease;
+}
+
+.trustCard:hover {
+  transform: translateY(-2px);
 }
 
 .iconCircle {
@@ -78,11 +94,40 @@
   width: 46px;
   height: 46px;
   border-radius: 50%;
-  background: rgba(99, 102, 241, 0.12);
-  border: 1px solid rgba(99, 102, 241, 0.28);
-  color: #818CF8;
   flex-shrink: 0;
-  box-shadow: 0 0 16px rgba(99, 102, 241, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.trustCard:hover .iconCircle {
+  transform: scale(1.08);
+}
+
+.theme_blue {
+  background: rgba(0, 210, 255, 0.12);
+  border: 1px solid rgba(0, 210, 255, 0.35);
+  color: #00D2FF;
+  box-shadow: 0 0 16px rgba(0, 210, 255, 0.2);
+}
+
+.theme_purple {
+  background: rgba(168, 85, 247, 0.12);
+  border: 1px solid rgba(168, 85, 247, 0.35);
+  color: #C084FC;
+  box-shadow: 0 0 16px rgba(168, 85, 247, 0.2);
+}
+
+.theme_orange {
+  background: rgba(255, 110, 0, 0.12);
+  border: 1px solid rgba(255, 110, 0, 0.35);
+  color: #FB923C;
+  box-shadow: 0 0 16px rgba(255, 110, 0, 0.2);
+}
+
+.theme_magenta {
+  background: rgba(236, 72, 153, 0.12);
+  border: 1px solid rgba(236, 72, 153, 0.35);
+  color: #F472B6;
+  box-shadow: 0 0 16px rgba(236, 72, 153, 0.2);
 }
 
 .trustCardContent {
@@ -96,6 +141,23 @@
   color: #FFFFFF;
   margin: 0 0 0.35rem 0;
   letter-spacing: -0.01em;
+  transition: color 0.2s ease;
+}
+
+.trustCard:hover .title_blue {
+  color: #00D2FF;
+}
+
+.trustCard:hover .title_purple {
+  color: #C084FC;
+}
+
+.trustCard:hover .title_orange {
+  color: #FB923C;
+}
+
+.trustCard:hover .title_magenta {
+  color: #F472B6;
 }
 
 .trustCardDesc {
@@ -246,8 +308,10 @@
 .sloganBottom {
   font-size: 1.0625rem;
   font-weight: 800;
-  color: #FFFFFF;
-  border-bottom: 2px solid #818CF8;
+  background: linear-gradient(135deg, #00D2FF 0%, #A855F7 50%, #FF6E00 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border-bottom: 2px solid #A855F7;
   padding-bottom: 2px;
   letter-spacing: -0.01em;
 }

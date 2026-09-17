@@ -78,6 +78,7 @@ export default function AboutProcess() {
                     alt={step.alt}
                     className={styles.stepImg}
                     loading="lazy"
+                    decoding="async"
                   />
                 </div>
                 <div className={styles.cardContent}>

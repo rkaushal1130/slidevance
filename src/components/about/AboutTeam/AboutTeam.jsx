@@ -72,6 +72,7 @@ export default function AboutTeam() {
                     alt={member.alt}
                     className={styles.avatarImg}
                     loading="lazy"
+                    decoding="async"
                   />
                 </div>
                 <div className={styles.cardInfo}>

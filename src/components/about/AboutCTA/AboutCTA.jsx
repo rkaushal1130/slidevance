@@ -18,11 +18,7 @@ export default function AboutCTA() {
             Your idea deserves<br />
             <span className={styles.bulletGradient}>more than a bullet point.</span>
           </h2>
-          <div className={styles.underDecoration}>
-            <svg viewBox="0 0 140 10" fill="none" className={styles.squiggleSvg}>
-              <path d="M2 6C25 1 50 9 75 5C100 1 120 7 138 4" stroke="#00D2FF" strokeWidth="2.5" strokeLinecap="round" />
-            </svg>
-          </div>
+          <div className={styles.straightUnderline} aria-hidden="true" />
         </div>
 
         {/* Middle Column: Prompt & Get in Touch Button */}
@@ -38,12 +34,15 @@ export default function AboutCTA() {
 
         {/* Right Column: Luminous Glow & Better Slides. Bigger Impact. */}
         <div className={`${styles.rightCol} reveal-on-scroll`}>
-          <img
-            src={ctaGlow}
-            alt="Better Slides. Bigger Impact."
-            className={styles.glowImg}
-            loading="lazy"
-          />
+          <div className={styles.glowImgWrapper}>
+            <img
+              src={ctaGlow}
+              alt="Better Slides. Bigger Impact."
+              className={styles.glowImg}
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
         </div>
       </div>
 

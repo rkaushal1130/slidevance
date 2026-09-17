@@ -37,7 +37,7 @@
 
 .gridContainer {
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
+  grid-template-columns: 1fr 1.15fr;
   align-items: center;
   gap: clamp(2rem, 4vw, 3.5rem);
   position: relative;
@@ -165,13 +165,16 @@
 .visualCol {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
+  width: 100%;
 }
 
 .showcaseBox {
   width: 100%;
-  max-width: 480px;
-  filter: drop-shadow(0 16px 36px rgba(0, 102, 255, 0.1));
+  max-width: 640px;
+  filter: drop-shadow(0 20px 44px rgba(0, 102, 255, 0.12));
+  transform: scale(1.05);
+  transform-origin: center right;
 }
 
 .showcaseImage {

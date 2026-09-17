@@ -55,6 +55,8 @@ export default function AboutHero({ settings }) {
               alt="Slidevance ideas visible artistic presentation mockup and strategy story"
               className={styles.artworkImage}
               loading="eager"
+              fetchPriority="high"
+              decoding="async"
             />
           </div>
         </div>

@@ -8,11 +8,11 @@
 
 .ambientGlow {
   position: absolute;
-  top: -10%;
-  right: -5%;
-  width: 700px;
-  height: 600px;
-  background: radial-gradient(circle at 60% 40%, rgba(0, 102, 255, 0.09) 0%, rgba(184, 40, 224, 0.07) 35%, rgba(255, 110, 0, 0.05) 60%, transparent 80%);
+  top: -15%;
+  right: -8%;
+  width: 850px;
+  height: 750px;
+  background: radial-gradient(circle at 60% 40%, rgba(0, 102, 255, 0.12) 0%, rgba(184, 40, 224, 0.08) 35%, rgba(255, 110, 0, 0.06) 60%, transparent 80%);
   pointer-events: none;
   z-index: 0;
 }
@@ -21,7 +21,7 @@
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: 1fr 1.1fr;
+  grid-template-columns: 1fr 1.25fr;
   align-items: center;
   gap: clamp(1.75rem, 3.5vw, 3.5rem);
 }
@@ -124,9 +124,11 @@
 
 .showcaseWrapper {
   width: 100%;
-  max-width: 650px;
+  max-width: 100%;
   position: relative;
-  filter: drop-shadow(0 20px 40px rgba(0, 102, 255, 0.1));
+  filter: drop-shadow(0 24px 48px rgba(0, 102, 255, 0.12));
+  transform: scale(1.04);
+  transform-origin: center right;
 }
 
 .showcaseImage {

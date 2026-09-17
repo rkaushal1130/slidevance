@@ -215,6 +215,7 @@ export default function ShowcaseCarousel() {
                       alt={slide.alt}
                       className={styles.cardImage}
                       loading="lazy"
+                      decoding="async"
                       draggable={false}
                     />
                   </div>
@@ -274,6 +275,7 @@ export default function ShowcaseCarousel() {
                 src={activeModalSlide.img}
                 alt={activeModalSlide.alt}
                 className={styles.modalImage}
+                decoding="async"
               />
             </div>
           </div>

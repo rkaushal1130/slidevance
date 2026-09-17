@@ -385,25 +385,28 @@
 }
 
 /* Floating Badges */
+/* Floating Badges */
 .floatingBadge {
   position: absolute;
   display: flex;
   align-items: center;
   gap: 0.65rem;
   padding: 0.6rem 0.95rem;
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border-radius: var(--radius-md);
-  border: 1px solid rgba(9, 43, 99, 0.08);
-  box-shadow: 0 12px 28px rgba(9, 43, 99, 0.12);
-  z-index: 10;
-  animation: floatReverse 6s ease-in-out infinite;
+  border: 1px solid rgba(9, 43, 99, 0.12);
+  box-shadow: 0 16px 36px rgba(9, 43, 99, 0.18), 0 2px 8px rgba(0, 0, 0, 0.08);
+  z-index: 50;
+  pointer-events: auto;
+  transform: translate3d(0, 0, 95px);
 }
 
 .floatingBadgeClarity {
-  top: 6%;
-  right: -5%;
+  top: 5%;
+  right: -4%;
+  animation: floatBadgeClarity 6s ease-in-out infinite;
 }
 
 .badgeIcon {
@@ -435,9 +438,9 @@
 }
 
 .floatingBadgeAgile {
-  bottom: 8%;
-  left: -8%;
-  animation-delay: 1.5s;
+  bottom: 0%;
+  left: -5%;
+  animation: floatBadgeAgile 6s ease-in-out 1.2s infinite;
 }
 
 .badgeDotLive {
@@ -447,6 +450,24 @@
   background-color: #10B981;
   box-shadow: 0 0 10px rgba(16, 185, 129, 0.7);
   animation: pulseGlow 2s infinite;
+}
+
+@keyframes floatBadgeClarity {
+  0%, 100% {
+    transform: translate3d(0, 0, 95px) translateY(0px);
+  }
+  50% {
+    transform: translate3d(0, 0, 95px) translateY(-6px);
+  }
+}
+
+@keyframes floatBadgeAgile {
+  0%, 100% {
+    transform: translate3d(0, 0, 95px) translateY(0px);
+  }
+  50% {
+    transform: translate3d(0, 0, 95px) translateY(6px);
+  }
 }
 
 /* Responsive adjustments */
@@ -488,7 +509,7 @@
 
   .floatingBadgeAgile {
     left: 0%;
-    bottom: 2%;
+    bottom: -2%;
   }
 }
 

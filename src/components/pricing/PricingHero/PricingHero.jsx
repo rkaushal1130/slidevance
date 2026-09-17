@@ -1,6 +1,6 @@
 import React from 'react';
 import { Gem, Zap, ShieldCheck } from 'lucide-react';
-import heroShowcase from '../../../assets/pricing-hero-showcase-feathered.png';
+import heroShowcase from '../../../assets/pricing-hero-showcase.webp';
 import styles from './PricingHero.module.css';
 
 export default function PricingHero() {
@@ -61,6 +61,8 @@ export default function PricingHero() {
               alt="Slidevance presentation designs showcase including Strategy and Growth, Creative Designs, and Data Driven visual models"
               className={styles.showcaseImage}
               loading="eager"
+              fetchPriority="high"
+              decoding="async"
             />
           </div>
         </div>

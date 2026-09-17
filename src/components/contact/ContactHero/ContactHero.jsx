@@ -16,6 +16,7 @@ export default function ContactHero() {
     <section className={styles.heroSection} aria-label="Contact Slidevance Hero">
       {/* Background ambient lighting */}
       <div className={styles.ambientGlow} aria-hidden="true" />
+      <div className={styles.ambientGlowRight} aria-hidden="true" />
 
       <div className={`container ${styles.heroContainer}`}>
         {/* Left Column: Typography, CTAs & Trust Badges */}
@@ -99,6 +100,8 @@ export default function ContactHero() {
               alt="Slidevance executive desk workspace with laptop and Better Ideas Together mug"
               className={styles.deskImage}
               loading="eager"
+              fetchPriority="high"
+              decoding="async"
             />
           </div>
         </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
-import offerShowcase from '../../../assets/pricing-offer-showcase-feathered.png';
+import offerShowcase from '../../../assets/pricing-offer-showcase.webp';
 import styles from './PricingOffer.module.css';
 
 export default function PricingOffer() {
@@ -70,6 +70,7 @@ export default function PricingOffer() {
                   alt="Slidevance 5 Free Slides sample deck including Transforming Ideas Into Reality, Business Growth, and Your Vision Our Design"
                   className={styles.showcaseImage}
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
             </div>

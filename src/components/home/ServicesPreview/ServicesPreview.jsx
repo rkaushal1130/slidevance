@@ -77,26 +77,8 @@ function formatServicesData(rawList) {
 }
 
 export default function ServicesPreview() {
-  const [services, setServices] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  const loadServices = () => {
-    setLoading(true);
-    setError(null);
-    getServices()
-      .then((response) => {
-        const rawList = response?.data || response || [];
-        setServices(formatServicesData(rawList));
-      })
-      .catch((err) => {
-        setError(err?.message || 'Unable to load services at this time.');
-        setServices(formatServicesData([]));
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-  };
+  const [services, setServices] = useState(() => formatServicesData([]));
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     let isMounted = true;
@@ -106,9 +88,8 @@ export default function ServicesPreview() {
         const rawList = response?.data || response || [];
         setServices(formatServicesData(rawList));
       })
-      .catch((err) => {
+      .catch(() => {
         if (!isMounted) return;
-        setError(err?.message || 'Unable to load services at this time.');
         setServices(formatServicesData([]));
       })
       .finally(() => {

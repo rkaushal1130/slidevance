@@ -158,20 +158,42 @@ export default function PricingSubscription() {
           ))}
         </div>
 
-        {/* Bottom 5 Subscriber Perks Banner */}
-        <div className={`${styles.perksBanner} reveal-on-scroll reveal-delay-2`}>
-          <div className={styles.perksGrid}>
-            {SUBSCRIBER_PERKS.map((perk, i) => {
-              const PerkIcon = perk.icon;
-              return (
-                <div key={i} className={styles.perkItem}>
-                  <div className={styles.perkIconBox}>
-                    <PerkIcon size={16} />
-                  </div>
-                  <span className={styles.perkLabel}>{perk.label}</span>
-                </div>
-              );
-            })}
+        {/* Subscriber Perks Ribbon */}
+        <div className={`${styles.ribbonSection} reveal-on-scroll reveal-delay-2`} aria-label="Subscriber Perks Ribbon">
+          <div className={styles.ribbonContainer}>
+            <div className={styles.ribbonTrack}>
+              {/* Group 1 */}
+              <div className={styles.ribbonGroup}>
+                {SUBSCRIBER_PERKS.map((perk, i) => {
+                  const PerkIcon = perk.icon;
+                  return (
+                    <div key={`g1-${i}`} className={styles.perkItem}>
+                      <div className={styles.perkIconBox}>
+                        <PerkIcon size={16} />
+                      </div>
+                      <span className={styles.perkLabel}>{perk.label}</span>
+                      <span className={styles.perkDivider} aria-hidden="true">✦</span>
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* Group 2 (Clone for infinite seamless loop) */}
+              <div className={styles.ribbonGroup} aria-hidden="true">
+                {SUBSCRIBER_PERKS.map((perk, i) => {
+                  const PerkIcon = perk.icon;
+                  return (
+                    <div key={`g2-${i}`} className={styles.perkItem}>
+                      <div className={styles.perkIconBox}>
+                        <PerkIcon size={16} />
+                      </div>
+                      <span className={styles.perkLabel}>{perk.label}</span>
+                      <span className={styles.perkDivider} aria-hidden="true">✦</span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
           </div>
         </div>
       </div>

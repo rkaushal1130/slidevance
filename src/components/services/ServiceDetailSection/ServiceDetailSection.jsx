@@ -83,6 +83,7 @@ export default function ServiceDetailSection({
                 alt={`${title} showcase`}
                 className={styles.serviceImage}
                 loading="lazy"
+                decoding="async"
               />
             </div>
             <div className={styles.mockupMeta}>

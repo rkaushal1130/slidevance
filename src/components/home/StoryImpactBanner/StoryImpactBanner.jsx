@@ -16,6 +16,7 @@ export default function StoryImpactBanner() {
           alt="Elevate Your Story with Stunning Presentations - Slidevance"
           className={styles.bannerImg}
           loading="lazy"
+          decoding="async"
         />
       </Link>
     </section>

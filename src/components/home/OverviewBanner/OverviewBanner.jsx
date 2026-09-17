@@ -14,6 +14,7 @@ export default function OverviewBanner() {
               alt="Slidevance Presentation Design, Strategy, Storytelling and Brand Solutions Overview"
               className={styles.bannerImage}
               loading="lazy"
+              decoding="async"
             />
           </div>
         </div>

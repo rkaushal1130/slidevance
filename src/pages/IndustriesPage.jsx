@@ -135,9 +135,8 @@ function formatIndustries(rawList) {
 
 export default function IndustriesPage() {
   const { slug } = useParams();
-  const [industries, setIndustries] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [industries, setIndustries] = useState(FALLBACK_INDUSTRIES);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     document.title = 'Industries | Slidevance';
@@ -156,23 +155,6 @@ export default function IndustriesPage() {
     }
   }, []);
 
-  const loadIndustries = () => {
-    setLoading(true);
-    setError(null);
-    getIndustries()
-      .then((res) => {
-        const rawList = res?.data || res || [];
-        setIndustries(formatIndustries(rawList));
-      })
-      .catch((err) => {
-        setError(err?.message || 'Unable to load industries from server.');
-        setIndustries(FALLBACK_INDUSTRIES);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-  };
-
   useEffect(() => {
     let isMounted = true;
     getIndustries()
@@ -181,9 +163,8 @@ export default function IndustriesPage() {
         const rawList = res?.data || res || [];
         setIndustries(formatIndustries(rawList));
       })
-      .catch((err) => {
+      .catch(() => {
         if (!isMounted) return;
-        setError(err?.message || 'Unable to load industries from server.');
         setIndustries(FALLBACK_INDUSTRIES);
       })
       .finally(() => {

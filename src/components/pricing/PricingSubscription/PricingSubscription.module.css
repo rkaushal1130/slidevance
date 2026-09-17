@@ -242,43 +242,117 @@
   box-shadow: 0 8px 24px rgba(0, 102, 255, 0.3);
 }
 
-/* Perks Banner */
-.perksBanner {
-  background: linear-gradient(135deg, #051A3E 0%, #0F2756 100%);
-  border-radius: 20px;
-  padding: 1.5rem clamp(1.25rem, 3vw, 2.5rem);
-  box-shadow: 0 10px 30px rgba(5, 26, 62, 0.12);
+/* Subscriber Perks Ribbon */
+.ribbonSection {
+  margin-top: 3.5rem;
+  background: linear-gradient(
+    90deg,
+    #051A3E 0%,
+    #0B2559 25%,
+    #13316E 50%,
+    #0B2559 75%,
+    #051A3E 100%
+  );
+  border-radius: 9999px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 12px 36px rgba(5, 26, 62, 0.18), 0 0 20px rgba(0, 102, 255, 0.15);
+  border: 1px solid rgba(0, 210, 255, 0.28);
 }
 
-.perksGrid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 1rem;
+.ribbonContainer {
+  width: 100%;
+  overflow: hidden;
+  padding: 1.15rem 0;
+  display: flex;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 5%,
+    black 95%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 5%,
+    black 95%,
+    transparent 100%
+  );
+}
+
+.ribbonTrack {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: ribbonScroll 30s linear infinite;
+}
+
+.ribbonTrack:hover {
+  animation-play-state: paused;
+}
+
+.ribbonGroup {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
 }
 
 .perkItem {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.85rem;
+  padding: 0 1.75rem;
+  white-space: nowrap;
 }
 
 .perkIconBox {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 34px;
-  height: 34px;
+  width: 36px;
+  height: 36px;
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.15);
-  color: #FFFFFF;
+  background: rgba(0, 210, 255, 0.16);
+  border: 1px solid rgba(0, 210, 255, 0.35);
+  color: #00D2FF;
   flex-shrink: 0;
+  box-shadow: 0 0 12px rgba(0, 210, 255, 0.2);
 }
 
 .perkLabel {
-  font-size: 0.78125rem;
-  color: rgba(255, 255, 255, 0.95);
-  line-height: 1.35;
-  font-weight: 600;
+  font-size: 0.875rem;
+  color: #FFFFFF;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.perkDivider {
+  margin-left: 1.5rem;
+  color: rgba(0, 210, 255, 0.5);
+  font-size: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+}
+
+@keyframes ribbonScroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ribbonTrack {
+    animation: none;
+    transform: none;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
 
 /* Responsive */
@@ -289,16 +363,24 @@
     margin-left: auto;
     margin-right: auto;
   }
-
-  .perksGrid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.25rem;
-  }
 }
 
 @media (max-width: 600px) {
-  .perksGrid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
+  .ribbonSection {
+    border-radius: 16px;
+    margin-top: 2.5rem;
+  }
+
+  .ribbonContainer {
+    padding: 0.9rem 0;
+  }
+
+  .perkItem {
+    padding: 0 1.25rem;
+    gap: 0.65rem;
+  }
+
+  .perkLabel {
+    font-size: 0.8125rem;
   }
 }

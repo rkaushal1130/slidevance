@@ -65,6 +65,10 @@ function getFriendlyErrorMessage(status, data, defaultMsg) {
   }
 }
 
+// In-memory cache for fast GET responses
+const getCache = new Map();
+const CACHE_TTL_MS = 5 * 60 * 1000; // 5 minutes
+
 /**
  * Core HTTP request handler
  */
@@ -76,6 +80,7 @@ async function request(endpoint, options = {}) {
     params = null,
     credentials = 'include',
     token = null,
+    timeout = 2500,
     ...restOptions
   } = options;
 
@@ -94,6 +99,16 @@ async function request(endpoint, options = {}) {
     if (queryString) {
       url += (url.includes('?') ? '&' : '?') + queryString;
     }
+  }
+
+  // Fast cache lookup for public GET requests
+  const isGet = method.toUpperCase() === 'GET';
+  if (isGet && !token && getCache.has(url)) {
+    const cached = getCache.get(url);
+    if (Date.now() - cached.timestamp < CACHE_TTL_MS) {
+      return cached.data;
+    }
+    getCache.delete(url);
   }
 
   // Assemble request headers
@@ -120,14 +135,19 @@ async function request(endpoint, options = {}) {
     requestHeaders.set('Accept', 'application/json');
   }
 
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), timeout);
+
   try {
     const response = await fetch(url, {
       method,
       headers: requestHeaders,
       body: requestBody,
       credentials,
+      signal: controller.signal,
       ...restOptions,
     });
+    clearTimeout(timeoutId);
 
     let data = null;
     const contentType = response.headers.get('content-type');
@@ -148,14 +168,21 @@ async function request(endpoint, options = {}) {
       throw new ApiError(friendlyMessage, response.status, errors, data);
     }
 
+    // Cache successful public GET responses
+    if (isGet && !authToken) {
+      getCache.set(url, { data, timestamp: Date.now() });
+    }
+
     return data;
   } catch (error) {
+    clearTimeout(timeoutId);
     if (error instanceof ApiError) {
       throw error;
     }
 
-    // Network error (offline, backend server down, connection refused)
+    // Network error (offline, backend server down, connection refused, or timed out)
     const isNetworkError =
+      error.name === 'AbortError' ||
       error.name === 'TypeError' ||
       error.message?.includes('Failed to fetch') ||
       error.message?.includes('NetworkError') ||

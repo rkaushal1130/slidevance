@@ -233,7 +233,7 @@ export default function PricingPlansCarousel() {
         {viewMode === 'carousel' ? (
           <div className={styles.carouselWrapper}>
             <div className={styles.track} ref={trackRef} tabIndex={0} aria-label="Plans carousel list">
-              {PROJECT_CARDS.map((card, index) => {
+              {PROJECT_CARDS.map((card) => {
                 const IconComp = card.icon;
                 return (
                   <div key={card.id} className={styles.cardItem}>

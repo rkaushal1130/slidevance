@@ -19,11 +19,22 @@
   z-index: 0;
 }
 
+.ambientGlowRight {
+  position: absolute;
+  top: 15%;
+  right: -8%;
+  width: 650px;
+  height: 550px;
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.14) 0%, rgba(99, 102, 241, 0.1) 40%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
 .heroContainer {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: 1fr 1.1fr;
+  grid-template-columns: 1fr 1.2fr;
   align-items: center;
   gap: clamp(1.75rem, 3.5vw, 3.5rem);
 }
@@ -175,25 +186,32 @@
 /* Right Visual Column */
 .visualCol {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
   position: relative;
+  height: 100%;
+  width: 100%;
 }
 
 .visualWrapper {
   position: relative;
   width: 100%;
-  max-width: 680px;
-  border-radius: 20px;
+  height: 100%;
+  min-height: 520px;
+  border-radius: 24px;
   overflow: hidden;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.75), 0 0 40px rgba(168, 85, 247, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #020813;
 }
 
 .deskImage {
   width: 100%;
-  height: auto;
+  height: 100%;
+  min-height: 520px;
   display: block;
   object-fit: cover;
+  object-position: center right;
 }
 
 /* Responsive adjustments */

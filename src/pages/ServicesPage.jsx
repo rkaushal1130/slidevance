@@ -191,9 +191,8 @@ function formatServices(rawList) {
 
 export default function ServicesPage() {
   const { slug } = useParams();
-  const [services, setServices] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [services, setServices] = useState(FALLBACK_SERVICES);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     document.title = 'Services | Slidevance';
@@ -212,23 +211,6 @@ export default function ServicesPage() {
     }
   }, []);
 
-  const loadServices = () => {
-    setLoading(true);
-    setError(null);
-    getServices()
-      .then((res) => {
-        const rawList = res?.data || res || [];
-        setServices(formatServices(rawList));
-      })
-      .catch((err) => {
-        setError(err?.message || 'Unable to load services from server.');
-        setServices(FALLBACK_SERVICES);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-  };
-
   useEffect(() => {
     let isMounted = true;
     getServices()
@@ -237,9 +219,8 @@ export default function ServicesPage() {
         const rawList = res?.data || res || [];
         setServices(formatServices(rawList));
       })
-      .catch((err) => {
+      .catch(() => {
         if (!isMounted) return;
-        setError(err?.message || 'Unable to load services from server.');
         setServices(FALLBACK_SERVICES);
       })
       .finally(() => {

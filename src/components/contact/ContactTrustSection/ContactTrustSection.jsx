@@ -10,24 +10,28 @@ const TRUST_POINTS = [
     title: 'Confidential by Default',
     description: 'Your business information remains private.',
     icon: Lock,
+    theme: 'blue',
   },
   {
     id: 'nda',
     title: 'NDA Friendly',
     description: 'Happy to work under your existing NDA.',
     icon: ShieldCheck,
+    theme: 'purple',
   },
   {
     id: 'turnaround',
     title: 'Fast Turnaround',
     description: 'Built for time-sensitive business needs.',
     icon: Zap,
+    theme: 'orange',
   },
   {
     id: 'dedicated',
     title: 'Dedicated Design Support',
     description: 'From one-off projects to ongoing monthly requirements.',
     icon: Users,
+    theme: 'magenta',
   },
 ];
 
@@ -58,9 +62,8 @@ export default function ContactTrustSection() {
           </div>
 
           <h2 className={styles.heading}>
-            Your vision is safe
-            <br />
-            with us.
+            Your vision is<br />
+            <span className={styles.safeGradient}>safe with us.</span>
           </h2>
 
           <p className={styles.description}>
@@ -75,11 +78,11 @@ export default function ContactTrustSection() {
               const IconComp = pt.icon;
               return (
                 <div key={pt.id} className={styles.trustCard}>
-                  <div className={styles.iconCircle}>
+                  <div className={`${styles.iconCircle} ${styles[`theme_${pt.theme}`]}`}>
                     <IconComp size={18} />
                   </div>
                   <div className={styles.trustCardContent}>
-                    <h3 className={styles.trustCardTitle}>{pt.title}</h3>
+                    <h3 className={`${styles.trustCardTitle} ${styles[`title_${pt.theme}`]}`}>{pt.title}</h3>
                     <p className={styles.trustCardDesc}>{pt.description}</p>
                   </div>
                 </div>
@@ -98,6 +101,7 @@ export default function ContactTrustSection() {
             alt=""
             className={styles.ribbonImage}
             loading="lazy"
+            decoding="async"
           />
         </div>
 
