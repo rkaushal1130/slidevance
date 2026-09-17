@@ -107,7 +107,7 @@
 
 .imageBox {
   width: 100%;
-  aspect-ratio: 121 / 158;
+  aspect-ratio: 16 / 10;
   border-radius: 6px;
   overflow: hidden;
   background: #F0F4FA;

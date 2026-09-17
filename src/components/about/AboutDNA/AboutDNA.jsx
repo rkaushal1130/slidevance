@@ -74,7 +74,7 @@ export default function AboutDNA() {
                     {val.number}
                   </span>
                   <div className={styles.iconBox}>
-                    <Icon size={22} className={styles.valIcon} />
+                    <Icon size={26} className={styles.valIcon} />
                   </div>
                   <h3 className={styles.valTitle}>{val.title}</h3>
                   <p className={styles.valDesc}>{val.description}</p>

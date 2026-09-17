@@ -8,7 +8,7 @@
 
 .container {
   display: grid;
-  grid-template-columns: 1.15fr 1fr 1.1fr;
+  grid-template-columns: 1.05fr 0.9fr 1.35fr;
   align-items: center;
   gap: clamp(1.5rem, 3vw, 2.5rem);
   padding-top: clamp(3.5rem, 5.5vw, 5rem);
@@ -120,7 +120,7 @@
 
 .glowImg {
   width: 100%;
-  max-width: 360px;
+  max-width: 460px;
   height: auto;
   display: block;
   object-fit: contain;
@@ -166,7 +166,7 @@
   }
 
   .glowImg {
-    max-width: 420px;
+    max-width: 480px;
   }
 }
 
