@@ -166,9 +166,13 @@ export default function Header() {
             >
               Start a Project
             </Button>
-            <p className={styles.mobileContactNote}>
+            <a 
+              href="mailto:hello@slidevance.com" 
+              className={styles.mobileContactNote}
+              title="Send email to hello@slidevance.com"
+            >
               hello@slidevance.com
-            </p>
+            </a>
           </div>
         </div>
       </div>

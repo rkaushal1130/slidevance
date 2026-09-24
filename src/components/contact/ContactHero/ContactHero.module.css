@@ -2,8 +2,8 @@
   position: relative;
   background: radial-gradient(circle at 75% 20%, rgba(99, 102, 241, 0.15) 0%, rgba(2, 8, 19, 0.98) 50%, #010810 100%);
   background-color: #010810;
-  padding-top: clamp(2.5rem, 5vw, 4.5rem);
-  padding-bottom: clamp(3.5rem, 6vw, 5.5rem);
+  padding-top: 0;
+  padding-bottom: 0;
   overflow: hidden;
   color: #FFFFFF;
 }
@@ -34,16 +34,20 @@
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  align-items: center;
+  grid-template-columns: 1fr 1.25fr;
+  align-items: stretch;
   gap: clamp(1.75rem, 3.5vw, 3.5rem);
+  min-height: clamp(580px, 80vh, 720px);
 }
 
 .contentCol {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: center;
   max-width: 580px;
+  padding-top: clamp(3.5rem, 5.5vw, 5.5rem);
+  padding-bottom: clamp(3.5rem, 6vw, 5.5rem);
 }
 
 /* Eyebrow badge with horizontal rule */
@@ -197,47 +201,55 @@
   position: relative;
   width: 100%;
   height: 100%;
-  min-height: 520px;
-  border-radius: 24px;
+  min-height: 100%;
   overflow: hidden;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.75), 0 0 40px rgba(168, 85, 247, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px 0 0 24px;
+  box-shadow: -16px 0 48px rgba(0, 0, 0, 0.6), 0 0 40px rgba(168, 85, 247, 0.12);
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
   background: #020813;
 }
 
 .deskImage {
   width: 100%;
   height: 100%;
-  min-height: 520px;
+  min-height: 100%;
   display: block;
   object-fit: cover;
-  object-position: center right;
+  object-position: center;
 }
 
 /* Responsive adjustments */
 @media (max-width: 1024px) {
   .heroContainer {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 2.5rem;
+    min-height: auto;
   }
 
   .contentCol {
     max-width: 100%;
+    padding-top: 1.5rem;
+    padding-bottom: 3.5rem;
   }
 
   .visualCol {
     order: -1;
+    height: auto;
   }
 
   .visualWrapper {
-    max-width: 620px;
+    max-width: 100%;
+    height: clamp(340px, 50vw, 480px);
+    min-height: 340px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
   }
 }
 
 @media (max-width: 640px) {
   .heroSection {
-    padding-top: 2rem;
-    padding-bottom: 3rem;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
   }
 
   .heroTitle {

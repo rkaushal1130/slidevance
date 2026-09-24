@@ -9,16 +9,19 @@
 .container {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr 1.6fr;
-  align-items: center;
+  align-items: stretch;
   gap: clamp(1.5rem, 3vw, 2.5rem);
-  padding-top: clamp(3.5rem, 5.5vw, 5rem);
-  padding-bottom: clamp(3.5rem, 5.5vw, 4.5rem);
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 .leftCol {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: center;
+  padding-top: clamp(3.5rem, 5.5vw, 5rem);
+  padding-bottom: clamp(3.5rem, 5.5vw, 4.5rem);
 }
 
 .tagWrap {
@@ -74,9 +77,12 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: center;
   gap: 1.25rem;
   border-left: 1px solid rgba(255, 255, 255, 0.12);
   padding-left: clamp(1.5rem, 3vw, 2.5rem);
+  padding-top: clamp(3.5rem, 5.5vw, 5rem);
+  padding-bottom: clamp(3.5rem, 5.5vw, 4.5rem);
 }
 
 .promptText {
@@ -111,28 +117,32 @@
 
 .rightCol {
   display: flex;
+  align-items: stretch;
   justify-content: flex-end;
-  align-items: center;
   width: 100%;
+  height: 100%;
 }
 
 .glowImgWrapper {
   width: 100%;
-  max-width: 580px;
-  border-radius: 18px;
+  height: 100%;
+  min-height: 100%;
+  border-radius: 20px 0 0 20px;
   overflow: hidden;
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6), 0 0 35px rgba(0, 210, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(3, 29, 79, 0.35);
+  box-shadow: -12px 0 40px rgba(0, 0, 0, 0.5), 0 0 35px rgba(0, 210, 255, 0.1);
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+  background: #060C1D;
   display: flex;
   align-items: center;
 }
 
 .glowImg {
   width: 100%;
-  height: auto;
+  height: 100%;
+  min-height: 100%;
   display: block;
   object-fit: cover;
+  object-position: center right;
 }
 
 /* Sub-Footer Line */
@@ -167,15 +177,35 @@
   .container {
     grid-template-columns: 1fr 1fr;
     gap: 2.5rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .leftCol,
+  .middleCol {
+    padding-top: 0;
+    padding-bottom: 0;
   }
 
   .rightCol {
     grid-column: span 2;
     justify-content: center;
+    height: auto;
+  }
+
+  .glowImgWrapper {
+    max-width: 580px;
+    height: clamp(220px, 35vw, 320px);
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6), 0 0 35px rgba(0, 210, 255, 0.12);
   }
 
   .glowImg {
-    max-width: 480px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center right;
   }
 }
 
